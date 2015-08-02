@@ -1,0 +1,785 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9FE05F7D1B6ED7EB00AE120C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05F7C1B6ED7EB00AE120C /* AppDelegate.swift */; };
+		9FE05F7F1B6ED7EB00AE120C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05F7E1B6ED7EB00AE120C /* ViewController.swift */; };
+		9FE05F821B6ED7EB00AE120C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F801B6ED7EB00AE120C /* Main.storyboard */; };
+		9FE05F841B6ED7EB00AE120C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F831B6ED7EB00AE120C /* Assets.xcassets */; };
+		9FE05F871B6ED7EB00AE120C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F851B6ED7EB00AE120C /* LaunchScreen.storyboard */; };
+		9FE05F921B6ED7EB00AE120C /* DerbilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05F911B6ED7EB00AE120C /* DerbilTests.swift */; };
+		9FE05F9D1B6ED7EB00AE120C /* DerbilUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05F9C1B6ED7EB00AE120C /* DerbilUITests.swift */; };
+		9FE05FA21B6ED7EB00AE120C /* Derbil WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9FE05FA11B6ED7EB00AE120C /* Derbil WatchKit App.app */; };
+		9FE05FA81B6ED7EB00AE120C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05FA61B6ED7EB00AE120C /* Interface.storyboard */; };
+		9FE05FAA1B6ED7EB00AE120C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05FA91B6ED7EB00AE120C /* Assets.xcassets */; };
+		9FE05FB11B6ED7EC00AE120C /* Derbil WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9FE05FB01B6ED7EC00AE120C /* Derbil WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9FE05FB81B6ED7EC00AE120C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FB71B6ED7EC00AE120C /* InterfaceController.swift */; };
+		9FE05FBA1B6ED7EC00AE120C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FB91B6ED7EC00AE120C /* ExtensionDelegate.swift */; };
+		9FE05FBC1B6ED7EC00AE120C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FBB1B6ED7EC00AE120C /* NotificationController.swift */; };
+		9FE05FBE1B6ED7EC00AE120C /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FBD1B6ED7EC00AE120C /* GlanceController.swift */; };
+		9FE05FC01B6ED7EC00AE120C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FBF1B6ED7EC00AE120C /* ComplicationController.swift */; };
+		9FE05FC21B6ED7EC00AE120C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05FC11B6ED7EC00AE120C /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9FE05F8E1B6ED7EB00AE120C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FE05F711B6ED7EB00AE120C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FE05F781B6ED7EB00AE120C;
+			remoteInfo = Derbil;
+		};
+		9FE05F991B6ED7EB00AE120C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FE05F711B6ED7EB00AE120C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FE05F781B6ED7EB00AE120C;
+			remoteInfo = Derbil;
+		};
+		9FE05FA31B6ED7EB00AE120C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FE05F711B6ED7EB00AE120C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FE05FA01B6ED7EB00AE120C;
+			remoteInfo = "Derbil WatchKit App";
+		};
+		9FE05FB21B6ED7EC00AE120C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FE05F711B6ED7EB00AE120C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FE05FAF1B6ED7EC00AE120C;
+			remoteInfo = "Derbil WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9FE05FC91B6ED7EC00AE120C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9FE05FB11B6ED7EC00AE120C /* Derbil WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05FCD1B6ED7EC00AE120C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				9FE05FA21B6ED7EB00AE120C /* Derbil WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9FE05F791B6ED7EB00AE120C /* Derbil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Derbil.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE05F7C1B6ED7EB00AE120C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9FE05F7E1B6ED7EB00AE120C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9FE05F811B6ED7EB00AE120C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9FE05F831B6ED7EB00AE120C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9FE05F861B6ED7EB00AE120C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9FE05F881B6ED7EB00AE120C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE05F8D1B6ED7EB00AE120C /* DerbilTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DerbilTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE05F911B6ED7EB00AE120C /* DerbilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DerbilTests.swift; sourceTree = "<group>"; };
+		9FE05F931B6ED7EB00AE120C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE05F981B6ED7EB00AE120C /* DerbilUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DerbilUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE05F9C1B6ED7EB00AE120C /* DerbilUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DerbilUITests.swift; sourceTree = "<group>"; };
+		9FE05F9E1B6ED7EB00AE120C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE05FA11B6ED7EB00AE120C /* Derbil WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Derbil WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE05FA71B6ED7EB00AE120C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		9FE05FA91B6ED7EB00AE120C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9FE05FAB1B6ED7EB00AE120C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE05FB01B6ED7EC00AE120C /* Derbil WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Derbil WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE05FB61B6ED7EC00AE120C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		9FE05FB71B6ED7EC00AE120C /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		9FE05FB91B6ED7EC00AE120C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		9FE05FBB1B6ED7EC00AE120C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		9FE05FBD1B6ED7EC00AE120C /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		9FE05FBF1B6ED7EC00AE120C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		9FE05FC11B6ED7EC00AE120C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9FE05FC31B6ED7EC00AE120C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9FE05F761B6ED7EB00AE120C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05F8A1B6ED7EB00AE120C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05F951B6ED7EB00AE120C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05FAD1B6ED7EC00AE120C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9FE05F701B6ED7EB00AE120C = {
+			isa = PBXGroup;
+			children = (
+				9FE05F7B1B6ED7EB00AE120C /* Derbil */,
+				9FE05F901B6ED7EB00AE120C /* DerbilTests */,
+				9FE05F9B1B6ED7EB00AE120C /* DerbilUITests */,
+				9FE05FA51B6ED7EB00AE120C /* Derbil WatchKit App */,
+				9FE05FB41B6ED7EC00AE120C /* Derbil WatchKit Extension */,
+				9FE05F7A1B6ED7EB00AE120C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9FE05F7A1B6ED7EB00AE120C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9FE05F791B6ED7EB00AE120C /* Derbil.app */,
+				9FE05F8D1B6ED7EB00AE120C /* DerbilTests.xctest */,
+				9FE05F981B6ED7EB00AE120C /* DerbilUITests.xctest */,
+				9FE05FA11B6ED7EB00AE120C /* Derbil WatchKit App.app */,
+				9FE05FB01B6ED7EC00AE120C /* Derbil WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9FE05F7B1B6ED7EB00AE120C /* Derbil */ = {
+			isa = PBXGroup;
+			children = (
+				9FE05F7C1B6ED7EB00AE120C /* AppDelegate.swift */,
+				9FE05F7E1B6ED7EB00AE120C /* ViewController.swift */,
+				9FE05F801B6ED7EB00AE120C /* Main.storyboard */,
+				9FE05F831B6ED7EB00AE120C /* Assets.xcassets */,
+				9FE05F851B6ED7EB00AE120C /* LaunchScreen.storyboard */,
+				9FE05F881B6ED7EB00AE120C /* Info.plist */,
+			);
+			path = Derbil;
+			sourceTree = "<group>";
+		};
+		9FE05F901B6ED7EB00AE120C /* DerbilTests */ = {
+			isa = PBXGroup;
+			children = (
+				9FE05F911B6ED7EB00AE120C /* DerbilTests.swift */,
+				9FE05F931B6ED7EB00AE120C /* Info.plist */,
+			);
+			path = DerbilTests;
+			sourceTree = "<group>";
+		};
+		9FE05F9B1B6ED7EB00AE120C /* DerbilUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9FE05F9C1B6ED7EB00AE120C /* DerbilUITests.swift */,
+				9FE05F9E1B6ED7EB00AE120C /* Info.plist */,
+			);
+			path = DerbilUITests;
+			sourceTree = "<group>";
+		};
+		9FE05FA51B6ED7EB00AE120C /* Derbil WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				9FE05FA61B6ED7EB00AE120C /* Interface.storyboard */,
+				9FE05FA91B6ED7EB00AE120C /* Assets.xcassets */,
+				9FE05FAB1B6ED7EB00AE120C /* Info.plist */,
+			);
+			path = "Derbil WatchKit App";
+			sourceTree = "<group>";
+		};
+		9FE05FB41B6ED7EC00AE120C /* Derbil WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9FE05FB71B6ED7EC00AE120C /* InterfaceController.swift */,
+				9FE05FB91B6ED7EC00AE120C /* ExtensionDelegate.swift */,
+				9FE05FBB1B6ED7EC00AE120C /* NotificationController.swift */,
+				9FE05FBD1B6ED7EC00AE120C /* GlanceController.swift */,
+				9FE05FBF1B6ED7EC00AE120C /* ComplicationController.swift */,
+				9FE05FC11B6ED7EC00AE120C /* Assets.xcassets */,
+				9FE05FC31B6ED7EC00AE120C /* Info.plist */,
+				9FE05FB51B6ED7EC00AE120C /* Supporting Files */,
+			);
+			path = "Derbil WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		9FE05FB51B6ED7EC00AE120C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FE05FB61B6ED7EC00AE120C /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9FE05F781B6ED7EB00AE120C /* Derbil */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE05FCE1B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "Derbil" */;
+			buildPhases = (
+				9FE05F751B6ED7EB00AE120C /* Sources */,
+				9FE05F761B6ED7EB00AE120C /* Frameworks */,
+				9FE05F771B6ED7EB00AE120C /* Resources */,
+				9FE05FCD1B6ED7EC00AE120C /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FE05FA41B6ED7EB00AE120C /* PBXTargetDependency */,
+			);
+			name = Derbil;
+			productName = Derbil;
+			productReference = 9FE05F791B6ED7EB00AE120C /* Derbil.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9FE05F8C1B6ED7EB00AE120C /* DerbilTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE05FD11B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "DerbilTests" */;
+			buildPhases = (
+				9FE05F891B6ED7EB00AE120C /* Sources */,
+				9FE05F8A1B6ED7EB00AE120C /* Frameworks */,
+				9FE05F8B1B6ED7EB00AE120C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FE05F8F1B6ED7EB00AE120C /* PBXTargetDependency */,
+			);
+			name = DerbilTests;
+			productName = DerbilTests;
+			productReference = 9FE05F8D1B6ED7EB00AE120C /* DerbilTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9FE05F971B6ED7EB00AE120C /* DerbilUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE05FD41B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "DerbilUITests" */;
+			buildPhases = (
+				9FE05F941B6ED7EB00AE120C /* Sources */,
+				9FE05F951B6ED7EB00AE120C /* Frameworks */,
+				9FE05F961B6ED7EB00AE120C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FE05F9A1B6ED7EB00AE120C /* PBXTargetDependency */,
+			);
+			name = DerbilUITests;
+			productName = DerbilUITests;
+			productReference = 9FE05F981B6ED7EB00AE120C /* DerbilUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		9FE05FA01B6ED7EB00AE120C /* Derbil WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE05FCA1B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "Derbil WatchKit App" */;
+			buildPhases = (
+				9FE05F9F1B6ED7EB00AE120C /* Resources */,
+				9FE05FC91B6ED7EC00AE120C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FE05FB31B6ED7EC00AE120C /* PBXTargetDependency */,
+			);
+			name = "Derbil WatchKit App";
+			productName = "Derbil WatchKit App";
+			productReference = 9FE05FA11B6ED7EB00AE120C /* Derbil WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		9FE05FAF1B6ED7EC00AE120C /* Derbil WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE05FC61B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "Derbil WatchKit Extension" */;
+			buildPhases = (
+				9FE05FAC1B6ED7EC00AE120C /* Sources */,
+				9FE05FAD1B6ED7EC00AE120C /* Frameworks */,
+				9FE05FAE1B6ED7EC00AE120C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Derbil WatchKit Extension";
+			productName = "Derbil WatchKit Extension";
+			productReference = 9FE05FB01B6ED7EC00AE120C /* Derbil WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9FE05F711B6ED7EB00AE120C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Peaking Software LLC";
+				TargetAttributes = {
+					9FE05F781B6ED7EB00AE120C = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					9FE05F8C1B6ED7EB00AE120C = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 9FE05F781B6ED7EB00AE120C;
+					};
+					9FE05F971B6ED7EB00AE120C = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 9FE05F781B6ED7EB00AE120C;
+					};
+					9FE05FA01B6ED7EB00AE120C = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					9FE05FAF1B6ED7EC00AE120C = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = 9FE05F741B6ED7EB00AE120C /* Build configuration list for PBXProject "Derbil" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9FE05F701B6ED7EB00AE120C;
+			productRefGroup = 9FE05F7A1B6ED7EB00AE120C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9FE05F781B6ED7EB00AE120C /* Derbil */,
+				9FE05F8C1B6ED7EB00AE120C /* DerbilTests */,
+				9FE05F971B6ED7EB00AE120C /* DerbilUITests */,
+				9FE05FA01B6ED7EB00AE120C /* Derbil WatchKit App */,
+				9FE05FAF1B6ED7EC00AE120C /* Derbil WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9FE05F771B6ED7EB00AE120C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE05F871B6ED7EB00AE120C /* LaunchScreen.storyboard in Resources */,
+				9FE05F841B6ED7EB00AE120C /* Assets.xcassets in Resources */,
+				9FE05F821B6ED7EB00AE120C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05F8B1B6ED7EB00AE120C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05F961B6ED7EB00AE120C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05F9F1B6ED7EB00AE120C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE05FAA1B6ED7EB00AE120C /* Assets.xcassets in Resources */,
+				9FE05FA81B6ED7EB00AE120C /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05FAE1B6ED7EC00AE120C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE05FC21B6ED7EC00AE120C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9FE05F751B6ED7EB00AE120C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE05F7F1B6ED7EB00AE120C /* ViewController.swift in Sources */,
+				9FE05F7D1B6ED7EB00AE120C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05F891B6ED7EB00AE120C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE05F921B6ED7EB00AE120C /* DerbilTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05F941B6ED7EB00AE120C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE05F9D1B6ED7EB00AE120C /* DerbilUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE05FAC1B6ED7EC00AE120C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE05FBC1B6ED7EC00AE120C /* NotificationController.swift in Sources */,
+				9FE05FBA1B6ED7EC00AE120C /* ExtensionDelegate.swift in Sources */,
+				9FE05FC01B6ED7EC00AE120C /* ComplicationController.swift in Sources */,
+				9FE05FB81B6ED7EC00AE120C /* InterfaceController.swift in Sources */,
+				9FE05FBE1B6ED7EC00AE120C /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FE05F8F1B6ED7EB00AE120C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FE05F781B6ED7EB00AE120C /* Derbil */;
+			targetProxy = 9FE05F8E1B6ED7EB00AE120C /* PBXContainerItemProxy */;
+		};
+		9FE05F9A1B6ED7EB00AE120C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FE05F781B6ED7EB00AE120C /* Derbil */;
+			targetProxy = 9FE05F991B6ED7EB00AE120C /* PBXContainerItemProxy */;
+		};
+		9FE05FA41B6ED7EB00AE120C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FE05FA01B6ED7EB00AE120C /* Derbil WatchKit App */;
+			targetProxy = 9FE05FA31B6ED7EB00AE120C /* PBXContainerItemProxy */;
+		};
+		9FE05FB31B6ED7EC00AE120C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FE05FAF1B6ED7EC00AE120C /* Derbil WatchKit Extension */;
+			targetProxy = 9FE05FB21B6ED7EC00AE120C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9FE05F801B6ED7EB00AE120C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FE05F811B6ED7EB00AE120C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9FE05F851B6ED7EB00AE120C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FE05F861B6ED7EB00AE120C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9FE05FA61B6ED7EB00AE120C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FE05FA71B6ED7EB00AE120C /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9FE05FC41B6ED7EC00AE120C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9FE05FC51B6ED7EC00AE120C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9FE05FC71B6ED7EC00AE120C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Derbil WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Derbil.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		9FE05FC81B6ED7EC00AE120C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Derbil WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Derbil.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		9FE05FCB1B6ED7EC00AE120C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Derbil_WatchKit_Extension;
+				INFOPLIST_FILE = "Derbil WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Derbil.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		9FE05FCC1B6ED7EC00AE120C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Derbil_WatchKit_Extension;
+				INFOPLIST_FILE = "Derbil WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Derbil.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		9FE05FCF1B6ED7EC00AE120C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Derbil/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Derbil;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9FE05FD01B6ED7EC00AE120C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Derbil/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Derbil;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9FE05FD21B6ED7EC00AE120C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DerbilTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.DerbilTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Derbil.app/Derbil";
+			};
+			name = Debug;
+		};
+		9FE05FD31B6ED7EC00AE120C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DerbilTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.DerbilTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Derbil.app/Derbil";
+			};
+			name = Release;
+		};
+		9FE05FD51B6ED7EC00AE120C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DerbilUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.DerbilUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Derbil;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		9FE05FD61B6ED7EC00AE120C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DerbilUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.DerbilUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Derbil;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9FE05F741B6ED7EB00AE120C /* Build configuration list for PBXProject "Derbil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE05FC41B6ED7EC00AE120C /* Debug */,
+				9FE05FC51B6ED7EC00AE120C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FE05FC61B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "Derbil WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE05FC71B6ED7EC00AE120C /* Debug */,
+				9FE05FC81B6ED7EC00AE120C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9FE05FCA1B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "Derbil WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE05FCB1B6ED7EC00AE120C /* Debug */,
+				9FE05FCC1B6ED7EC00AE120C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9FE05FCE1B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "Derbil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE05FCF1B6ED7EC00AE120C /* Debug */,
+				9FE05FD01B6ED7EC00AE120C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9FE05FD11B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "DerbilTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE05FD21B6ED7EC00AE120C /* Debug */,
+				9FE05FD31B6ED7EC00AE120C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9FE05FD41B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "DerbilUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE05FD51B6ED7EC00AE120C /* Debug */,
+				9FE05FD61B6ED7EC00AE120C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9FE05F711B6ED7EB00AE120C /* Project object */;
+}
