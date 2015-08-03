@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="iro-nW-eHK">
+            <objects>
+                <navigationController id="iap-UL-asX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6sx-4d-tzh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7bB-Sz-I0B" kind="relationship" relationship="rootViewController" id="G5y-No-0ST"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vje-Fy-7pK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="1058"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Derbil" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +31,85 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="derbil" translatesAutoresizingMaskIntoConstraints="NO" id="LsC-zJ-tH0">
+                                <rect key="frame" x="180" y="174" width="240" height="252"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="YiA-xx-bMm"/>
+                                    <constraint firstAttribute="height" constant="252" id="dGU-77-xdt"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roc-bt-ODf">
+                                <rect key="frame" x="254" y="476" width="92" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="O0F-NQ-pJS"/>
+                                    <constraint firstAttribute="width" constant="92" id="roi-3k-OUP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Walk">
+                                    <color key="titleColor" red="0.59021764734737903" green="0.75234166109625666" blue="0.12231481702072339" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="iap-UL-asX" kind="presentation" id="bvf-Ya-lUL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="roc-bt-ODf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZOc-WC-mnw"/>
+                            <constraint firstItem="roc-bt-ODf" firstAttribute="top" secondItem="LsC-zJ-tH0" secondAttribute="bottom" constant="50" id="kom-Xk-cVm"/>
+                            <constraint firstItem="LsC-zJ-tH0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rC4-fE-vY9"/>
+                            <constraint firstItem="LsC-zJ-tH0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="y2W-us-dwN"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="349"/>
+        </scene>
+        <!--Walking-->
+        <scene sceneID="1aA-yR-jzM">
+            <objects>
+                <viewController id="7bB-Sz-I0B" customClass="WalkViewController" customModule="Derbil" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ll-wX-F5y"/>
+                        <viewControllerLayoutGuide type="bottom" id="HIa-t2-rTu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zh0-Es-QgG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87g-dD-uJ1">
+                                <rect key="frame" x="247" y="270" width="106" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="87g-dD-uJ1" firstAttribute="centerX" secondItem="zh0-Es-QgG" secondAttribute="centerX" id="dGt-84-XGX"/>
+                            <constraint firstItem="87g-dD-uJ1" firstAttribute="centerY" secondItem="zh0-Es-QgG" secondAttribute="centerY" id="lEA-rS-Pb4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Walking" id="IOh-fn-ICm">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="ppF-E4-DQ2">
+                            <connections>
+                                <action selector="close:" destination="7bB-Sz-I0B" id="6yE-3E-gZl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="closeButton" destination="ppF-E4-DQ2" id="ni4-Z1-udg"/>
+                        <outlet property="timerLabel" destination="87g-dD-uJ1" id="H9r-IP-rCW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xv-Bd-tav" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="912" y="349"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="derbil" width="106" height="106"/>
+    </resources>
 </document>

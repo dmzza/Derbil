@@ -24,6 +24,7 @@
 		9FE05FBE1B6ED7EC00AE120C /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FBD1B6ED7EC00AE120C /* GlanceController.swift */; };
 		9FE05FC01B6ED7EC00AE120C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FBF1B6ED7EC00AE120C /* ComplicationController.swift */; };
 		9FE05FC21B6ED7EC00AE120C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05FC11B6ED7EC00AE120C /* Assets.xcassets */; };
+		9FE05FD81B6EDD4000AE120C /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FD71B6EDD4000AE120C /* WalkViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		9FE05FBF1B6ED7EC00AE120C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		9FE05FC11B6ED7EC00AE120C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FE05FC31B6ED7EC00AE120C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE05FD71B6EDD4000AE120C /* WalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 				9FE05F831B6ED7EB00AE120C /* Assets.xcassets */,
 				9FE05F851B6ED7EB00AE120C /* LaunchScreen.storyboard */,
 				9FE05F881B6ED7EB00AE120C /* Info.plist */,
+				9FE05FD71B6EDD4000AE120C /* WalkViewController.swift */,
 			);
 			path = Derbil;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 			files = (
 				9FE05F7F1B6ED7EB00AE120C /* ViewController.swift in Sources */,
 				9FE05F7D1B6ED7EB00AE120C /* AppDelegate.swift in Sources */,
+				9FE05FD81B6EDD4000AE120C /* WalkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
