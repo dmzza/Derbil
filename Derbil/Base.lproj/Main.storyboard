@@ -32,13 +32,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="derbil" translatesAutoresizingMaskIntoConstraints="NO" id="LsC-zJ-tH0">
-                                <rect key="frame" x="180" y="174" width="240" height="252"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="YiA-xx-bMm"/>
-                                    <constraint firstAttribute="height" constant="252" id="dGU-77-xdt"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roc-bt-ODf">
                                 <rect key="frame" x="254" y="476" width="92" height="58"/>
                                 <constraints>
@@ -53,15 +46,26 @@
                                     <segue destination="iap-UL-asX" kind="presentation" id="bvf-Ya-lUL"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlJ-HI-nXW">
+                                <rect key="frame" x="16.5" y="185" width="567" height="230"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="567" id="v83-jq-jb8"/>
+                                    <constraint firstAttribute="height" constant="230" id="zgQ-C7-YjE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="roc-bt-ODf" firstAttribute="top" secondItem="MlJ-HI-nXW" secondAttribute="bottom" constant="61" id="GDz-LR-dhO"/>
                             <constraint firstItem="roc-bt-ODf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZOc-WC-mnw"/>
-                            <constraint firstItem="roc-bt-ODf" firstAttribute="top" secondItem="LsC-zJ-tH0" secondAttribute="bottom" constant="50" id="kom-Xk-cVm"/>
-                            <constraint firstItem="LsC-zJ-tH0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rC4-fE-vY9"/>
-                            <constraint firstItem="LsC-zJ-tH0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="y2W-us-dwN"/>
+                            <constraint firstItem="MlJ-HI-nXW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hKv-Cu-s1u"/>
+                            <constraint firstItem="MlJ-HI-nXW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kgf-Pi-fIf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceContainer" destination="MlJ-HI-nXW" id="I6e-bH-5aB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,7 +86,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87g-dD-uJ1">
                                 <rect key="frame" x="247" y="270" width="106" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -109,7 +113,4 @@
             <point key="canvasLocation" x="912" y="349"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="derbil" width="106" height="106"/>
-    </resources>
 </document>
