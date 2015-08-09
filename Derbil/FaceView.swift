@@ -21,6 +21,7 @@ struct Face {
         case Sad = "sad"
         case Smiling = "smiling"
         case Laughing = "laughing"
+        case Tongue = "tongue"
     }
     
     enum Part: String {

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var faceContainer: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         let face: Face = Face(
             mouth: Face.Name.MouthName(Face.Mouth.Smiling, Face.Part.Mouth),
             leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),

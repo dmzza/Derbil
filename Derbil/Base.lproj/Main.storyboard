@@ -83,8 +83,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-fw-6SS">
+                                <rect key="frame" x="16" y="185" width="567" height="230"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="Cic-ml-1Np"/>
+                                    <constraint firstAttribute="width" constant="567" id="k52-OI-fht"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87g-dD-uJ1">
-                                <rect key="frame" x="247" y="270" width="106" height="60"/>
+                                <rect key="frame" x="247" y="465" width="106" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -92,9 +100,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5ch-fw-6SS" firstAttribute="centerX" secondItem="zh0-Es-QgG" secondAttribute="centerX" id="4gk-Pm-8Gs"/>
+                            <constraint firstItem="5ch-fw-6SS" firstAttribute="centerY" secondItem="zh0-Es-QgG" secondAttribute="centerY" id="BMt-Bq-OtY"/>
                             <constraint firstItem="87g-dD-uJ1" firstAttribute="centerX" secondItem="zh0-Es-QgG" secondAttribute="centerX" id="dGt-84-XGX"/>
                             <constraint firstItem="87g-dD-uJ1" firstAttribute="centerY" secondItem="zh0-Es-QgG" secondAttribute="centerY" id="lEA-rS-Pb4"/>
+                            <constraint firstItem="87g-dD-uJ1" firstAttribute="top" secondItem="5ch-fw-6SS" secondAttribute="bottom" constant="50" id="tNx-aE-nlW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lEA-rS-Pb4"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Walking" id="IOh-fn-ICm">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="ppF-E4-DQ2">
@@ -105,6 +121,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="closeButton" destination="ppF-E4-DQ2" id="ni4-Z1-udg"/>
+                        <outlet property="faceContainer" destination="5ch-fw-6SS" id="Q8T-XU-Sne"/>
                         <outlet property="timerLabel" destination="87g-dD-uJ1" id="H9r-IP-rCW"/>
                     </connections>
                 </viewController>

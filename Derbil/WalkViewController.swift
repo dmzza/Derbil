@@ -11,6 +11,7 @@ import UIKit
 class WalkViewController: UIViewController {
 
     @IBOutlet weak var closeButton: UIBarButtonItem!
+    @IBOutlet weak var faceContainer: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     var elapsedTime: NSTimeInterval = 0
     var timer: NSTimer!
@@ -31,24 +32,14 @@ class WalkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("tick"), userInfo: nil, repeats: true)
-        let rightFoot: UIView = UIView(frame: CGRectMake(0, self.view.bounds.size.height - 20, 60, 10))
-        let leftFoot: UIView = UIView(frame: CGRectMake(0, self.view.bounds.size.height - 80, 60, 10))
-        
-        rightFoot.backgroundColor = UIColor.blackColor()
-        leftFoot.backgroundColor = UIColor.blackColor()
-        rightFoot.alpha = 0.0
-        leftFoot.alpha = 0.0
-        self.view.addSubview(rightFoot)
-        self.view.addSubview(leftFoot)
-        
-        delay(0.1) { () -> () in
-            self.loop(rightFoot)
-        }
-        delay(0.3) { () -> () in
-            self.loop(leftFoot)
-        }
+
+        let face: Face = Face(
+            mouth: Face.Name.MouthName(Face.Mouth.Tongue, Face.Part.Mouth),
+            leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
+            rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
+        let faceView: FaceView = FaceView(face: face)
+        self.faceContainer.addSubview(faceView)
     }
 
     override func didReceiveMemoryWarning() {
