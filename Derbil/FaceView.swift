@@ -53,7 +53,13 @@ struct Face {
 
 class FaceView: UIView {
     
-    var face: Face
+    var face: Face {
+        didSet {
+            self.leftImageView.image = UIImage(named: self.face.imageName(self.face.leftEye))
+            self.rightImageView.image = UIImage(named: self.face.imageName(self.face.rightEye))
+            self.mouthImageView.image = UIImage(named: self.face.imageName(self.face.mouth))
+        }
+    }
     var leftImageView: UIImageView
     var rightImageView: UIImageView
     var mouthImageView: UIImageView
@@ -63,14 +69,11 @@ class FaceView: UIView {
     }
     
     init(face: Face) {
+        self.leftImageView = UIImageView(frame: CGRectMake(0, 0, 162, 230))
+        self.rightImageView = UIImageView(frame: CGRectMake(405, 0, 162, 230))
+        self.mouthImageView = UIImageView(frame: CGRectMake(162, 0, 243, 230))
         self.face = face
-        self.leftImageView = UIImageView(image: UIImage(named: self.face.imageName(self.face.leftEye)))
-        self.rightImageView = UIImageView(image: UIImage(named: self.face.imageName(self.face.rightEye)))
-        self.mouthImageView = UIImageView(image: UIImage(named: self.face.imageName(self.face.mouth)))
         super.init(frame: CGRectMake(0, 0, 567, 230))
-        self.leftImageView.frame = CGRectMake(0, 0, 162, 230)
-        self.mouthImageView.frame = CGRectMake(162, 0, 243, 230)
-        self.rightImageView.frame = CGRectMake(405, 0, 162, 230)
         self.addSubview(self.leftImageView)
         self.addSubview(self.rightImageView)
         self.addSubview(self.mouthImageView)
