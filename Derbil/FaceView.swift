@@ -77,7 +77,27 @@ class FaceView: UIView {
         self.addSubview(self.leftImageView)
         self.addSubview(self.rightImageView)
         self.addSubview(self.mouthImageView)
-        
+        self.blink()
     }
 
+    func blink() {
+        let face = self.face
+        self.face = Face(
+            mouth: face.mouth,
+            leftEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Left),
+            rightEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Right))
+        
+        dispatch_after(dispatch_time(
+            DISPATCH_TIME_NOW,
+            Int64(0.15 * Double(NSEC_PER_SEC))
+            ), dispatch_get_main_queue()) { () -> Void in
+            self.face = face
+        }
+        dispatch_after(dispatch_time(
+            DISPATCH_TIME_NOW,
+            Int64(3.5 * Double(NSEC_PER_SEC))
+            ), dispatch_get_main_queue()) { () -> Void in
+            self.blink()
+        }
+    }
 }
