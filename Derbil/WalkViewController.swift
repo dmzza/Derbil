@@ -43,15 +43,12 @@ class WalkViewController: UIViewController {
         self.view.addSubview(rightFoot)
         self.view.addSubview(leftFoot)
         
-        dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
+        delay(0.1) { () -> () in
             self.loop(rightFoot)
         }
-        dispatch_after(400000, dispatch_get_main_queue()) { () -> Void in
+        delay(0.3) { () -> () in
             self.loop(leftFoot)
         }
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +58,7 @@ class WalkViewController: UIViewController {
     
     func loop(view: UIView) {
         
-        UIView.animateWithDuration(1.9, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             view.transform = CGAffineTransformMakeTranslation(self.view.bounds.width, 0)
             view.alpha = 1.0
             }) { (finished: Bool) -> Void in

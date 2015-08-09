@@ -26,6 +26,7 @@
 		9FE05FC01B6ED7EC00AE120C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FBF1B6ED7EC00AE120C /* ComplicationController.swift */; };
 		9FE05FC21B6ED7EC00AE120C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05FC11B6ED7EC00AE120C /* Assets.xcassets */; };
 		9FE05FD81B6EDD4000AE120C /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FD71B6EDD4000AE120C /* WalkViewController.swift */; };
+		9FF832981B76DEC100958D2A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF832971B76DEC100958D2A /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		9FE05FC11B6ED7EC00AE120C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FE05FC31B6ED7EC00AE120C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FE05FD71B6EDD4000AE120C /* WalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
+		9FF832971B76DEC100958D2A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				9FE05F881B6ED7EB00AE120C /* Info.plist */,
 				9FE05FD71B6EDD4000AE120C /* WalkViewController.swift */,
 				9FDD65591B76A5FB00CD8703 /* FaceView.swift */,
+				9FF832971B76DEC100958D2A /* Utilities.swift */,
 			);
 			path = Derbil;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				9FE05F7F1B6ED7EB00AE120C /* ViewController.swift in Sources */,
 				9FE05F7D1B6ED7EB00AE120C /* AppDelegate.swift in Sources */,
 				9FE05FD81B6EDD4000AE120C /* WalkViewController.swift in Sources */,
+				9FF832981B76DEC100958D2A /* Utilities.swift in Sources */,
 				9FDD655A1B76A5FB00CD8703 /* FaceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -754,6 +758,7 @@
 				9FE05FC81B6ED7EC00AE120C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FE05FCA1B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "Derbil WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -762,6 +767,7 @@
 				9FE05FCC1B6ED7EC00AE120C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FE05FCE1B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "Derbil" */ = {
 			isa = XCConfigurationList;
@@ -770,6 +776,7 @@
 				9FE05FD01B6ED7EC00AE120C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FE05FD11B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "DerbilTests" */ = {
 			isa = XCConfigurationList;
@@ -778,6 +785,7 @@
 				9FE05FD31B6ED7EC00AE120C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FE05FD41B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "DerbilUITests" */ = {
 			isa = XCConfigurationList;
@@ -786,6 +794,7 @@
 				9FE05FD61B6ED7EC00AE120C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
