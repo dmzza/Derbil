@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol WalkViewControllerDelegate {
+    func didComplete(controller: WalkViewController, elapsedTime: NSTimeInterval)
+}
+
 class WalkViewController: UIViewController {
 
     @IBOutlet weak var closeButton: UIBarButtonItem!
@@ -15,6 +19,7 @@ class WalkViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     var elapsedTime: NSTimeInterval = 0
     var timer: NSTimer!
+    var delegate: WalkViewControllerDelegate?
     
 //    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
 //        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -70,6 +75,7 @@ class WalkViewController: UIViewController {
     }
     
     @IBAction func close(sender: AnyObject) {
+        self.delegate?.didComplete(self, elapsedTime: self.elapsedTime)
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
 

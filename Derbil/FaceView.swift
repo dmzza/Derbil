@@ -21,6 +21,7 @@ struct Face {
         case Sad = "sad"
         case Smiling = "smiling"
         case Laughing = "laughing"
+        case Puppy = "puppy"
         case Tongue = "tongue"
     }
     
