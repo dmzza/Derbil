@@ -43,7 +43,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "WalkViewControllerSegue" {
-            var vc: WalkViewController = (segue.destinationViewController as! UINavigationController).topViewController as! WalkViewController
+            let vc: WalkViewController = (segue.destinationViewController as! UINavigationController).topViewController as! WalkViewController
             vc.delegate = self
         }
     }
