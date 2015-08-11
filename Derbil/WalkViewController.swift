@@ -19,32 +19,25 @@ class WalkViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     var elapsedTime: NSTimeInterval = 0
     var timer: NSTimer!
+    var faceView: FaceView?
     var delegate: WalkViewControllerDelegate?
-    
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//        if (self) {
-//            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector(start()), userInfo: nil, repeats: true)
-//        }
-//        return self;
-//    }
-
-//    required init(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("tick"), userInfo: nil, repeats: true)
-
-        let face: Face = Face(
-            mouth: Face.Name.MouthName(Face.Mouth.Tongue, Face.Part.Mouth),
-            leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
-            rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
-        let faceView: FaceView = FaceView(face: face)
-        self.faceContainer.addSubview(faceView)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.faceView == nil {
+            let face: Face = Face(
+                mouth: Face.Name.MouthName(Face.Mouth.Tongue, Face.Part.Mouth),
+                leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
+                rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
+            self.faceView = FaceView(face: face, frame: self.faceContainer.bounds)
+            self.faceContainer.addSubview(self.faceView!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
