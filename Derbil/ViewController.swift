@@ -11,18 +11,24 @@ import UIKit
 class ViewController: UIViewController, WalkViewControllerDelegate {
 
     @IBOutlet weak var faceContainer: UIView!
-    var faceView: FaceView!
+    var faceView: FaceView?
     let happyWalkThreshold: NSTimeInterval = 120
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let face: Face = Face(
-            mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
-            leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
-            rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
-        faceView = FaceView(face: face)
-        self.faceContainer.addSubview(faceView)
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (self.faceView == nil) {
+            let face: Face = Face(
+                mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
+                leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
+                rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
+            self.faceView = FaceView(face: face, frame: self.faceContainer.bounds)
+            self.faceContainer.addSubview(self.faceView!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,13 +37,15 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     }
     
     func smile(duration: NSTimeInterval) {
-        let face: Face = self.faceView.face
-        self.faceView.face = Face(
-            mouth: Face.Name.MouthName(Face.Mouth.Smiling, Face.Part.Mouth),
-            leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
-            rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
-        delay(duration) { () -> () in
-            self.faceView.face = face
+        if let view: FaceView = self.faceView {
+            let face: Face = self.faceView!.face
+            view.face = Face(
+                mouth: Face.Name.MouthName(Face.Mouth.Smiling, Face.Part.Mouth),
+                leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
+                rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
+            delay(duration) { () -> () in
+                view.face = face
+            }
         }
     }
     

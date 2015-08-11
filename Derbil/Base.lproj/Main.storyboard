@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -33,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roc-bt-ODf">
-                                <rect key="frame" x="254" y="476" width="92" height="58"/>
+                                <rect key="frame" x="254" y="434" width="92" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="O0F-NQ-pJS"/>
                                     <constraint firstAttribute="width" constant="92" id="roi-3k-OUP"/>
@@ -47,21 +49,29 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlJ-HI-nXW">
-                                <rect key="frame" x="16.5" y="185" width="567" height="230"/>
+                                <rect key="frame" x="120" y="227" width="360" height="146"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="567" id="v83-jq-jb8"/>
-                                    <constraint firstAttribute="height" constant="230" id="zgQ-C7-YjE"/>
+                                    <constraint firstAttribute="width" secondItem="MlJ-HI-nXW" secondAttribute="height" multiplier="567:230" id="J0c-GP-iaX"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MlJ-HI-nXW" secondAttribute="trailing" constant="16" id="1yB-NI-kJZ"/>
+                            <constraint firstItem="MlJ-HI-nXW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="17" id="5fH-Rx-kQm"/>
                             <constraint firstItem="roc-bt-ODf" firstAttribute="top" secondItem="MlJ-HI-nXW" secondAttribute="bottom" constant="61" id="GDz-LR-dhO"/>
+                            <constraint firstItem="MlJ-HI-nXW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="Z2I-AD-IdX"/>
                             <constraint firstItem="roc-bt-ODf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZOc-WC-mnw"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hKv-Cu-s1u"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kgf-Pi-fIf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1yB-NI-kJZ"/>
+                                <exclude reference="5fH-Rx-kQm"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="faceContainer" destination="MlJ-HI-nXW" id="I6e-bH-5aB"/>
@@ -84,15 +94,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-fw-6SS">
-                                <rect key="frame" x="16" y="185" width="567" height="230"/>
+                                <rect key="frame" x="120" y="227" width="360" height="146"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="230" id="Cic-ml-1Np"/>
-                                    <constraint firstAttribute="width" constant="567" id="k52-OI-fht"/>
+                                    <constraint firstAttribute="width" secondItem="5ch-fw-6SS" secondAttribute="height" multiplier="567:230" id="kgo-Q3-Ok2"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87g-dD-uJ1">
-                                <rect key="frame" x="247" y="465" width="106" height="60"/>
+                                <rect key="frame" x="247" y="423" width="106" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -101,6 +110,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5ch-fw-6SS" firstAttribute="centerX" secondItem="zh0-Es-QgG" secondAttribute="centerX" id="4gk-Pm-8Gs"/>
+                            <constraint firstItem="5ch-fw-6SS" firstAttribute="width" secondItem="zh0-Es-QgG" secondAttribute="width" multiplier="0.6" id="9Yy-Qf-riq"/>
                             <constraint firstItem="5ch-fw-6SS" firstAttribute="centerY" secondItem="zh0-Es-QgG" secondAttribute="centerY" id="BMt-Bq-OtY"/>
                             <constraint firstItem="87g-dD-uJ1" firstAttribute="centerX" secondItem="zh0-Es-QgG" secondAttribute="centerX" id="dGt-84-XGX"/>
                             <constraint firstItem="87g-dD-uJ1" firstAttribute="centerY" secondItem="zh0-Es-QgG" secondAttribute="centerY" id="lEA-rS-Pb4"/>
