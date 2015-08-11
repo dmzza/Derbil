@@ -65,17 +65,30 @@ class FaceView: UIView {
     var leftImageView: UIImageView
     var rightImageView: UIImageView
     var mouthImageView: UIImageView
-    let mouthRelativeWidth = 243/567
-    let eyeRelativeWidth = (1.0 - self.mouthRelativeWidth) / 2.0
+    let mouthRelativeWidth: CGFloat = 243.0/567.0
+    
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     init(face: Face, frame: CGRect) {
-        self.leftImageView = UIImageView(frame: CGRectMake(0, 0, 162, 230))
-        self.rightImageView = UIImageView(frame: CGRectMake(405, 0, 162, 230))
-        self.mouthImageView = UIImageView(frame: CGRectMake(162, 0, 243, 230))
+        let eyeRelativeWidth: CGFloat = (1.0 - self.mouthRelativeWidth) / 2.0
+        self.leftImageView = UIImageView(frame: CGRectMake(
+            0,
+            0,
+            frame.size.width * eyeRelativeWidth,
+            frame.size.height))
+        self.rightImageView = UIImageView(frame: CGRectMake(
+            frame.size.width * eyeRelativeWidth + frame.size.width * mouthRelativeWidth,
+            0,
+            frame.size.width * eyeRelativeWidth,
+            frame.size.height))
+        self.mouthImageView = UIImageView(frame: CGRectMake(
+            frame.size.width * eyeRelativeWidth,
+            0,
+            frame.size.width * self.mouthRelativeWidth,
+            frame.size.height))
         self.face = face
         super.init(frame: frame)
         self.addSubview(self.leftImageView)
