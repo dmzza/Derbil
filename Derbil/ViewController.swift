@@ -21,7 +21,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     let finalWarningNotificationBody = "If we wait any longer there is gonna be trouble!"
     let accidentNotificationBody = "Oops, I couldn't hold it any longer."
     let secondsPerDay: Double = 60 * 60 * 24
-    let morningNotificationTime: NSTimeInterval = 16.66 * 3600
+    let morningNotificationTime: NSTimeInterval = 9.0 * 3600
     let afternoonNotificationTime: NSTimeInterval = 15.0 * 3600
     let eveningNotificationTime: NSTimeInterval = 21.0 * 3600
     let firstWarningInterval: NSTimeInterval = 0.5 * 3600;
@@ -84,7 +84,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     
     func notification(intervalFromMidnight: NSTimeInterval, body: String, title: String) -> UILocalNotification {
         let note = UILocalNotification()
-        let secondsSinceMidnight = NSDate().timeIntervalSinceReferenceDate % secondsPerDay
+        let secondsSinceMidnight = (NSDate().timeIntervalSinceReferenceDate % secondsPerDay) + Double(NSTimeZone(abbreviation: "PST")!.secondsFromGMT)
         var intervalFromNow = intervalFromMidnight - secondsSinceMidnight
         
         note.alertBody = body
@@ -94,6 +94,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         }
         note.fireDate = NSDate(timeIntervalSinceNow: intervalFromNow)
         note.timeZone = NSTimeZone(abbreviation: "PST")
+        print("\(note.fireDate?.description)")
         return note
     }
     
