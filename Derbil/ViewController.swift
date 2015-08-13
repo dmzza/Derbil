@@ -13,10 +13,56 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     @IBOutlet weak var faceContainer: UIView!
     var faceView: FaceView?
     let happyWalkThreshold: NSTimeInterval = 120
+    let notificationTitle = "Chubbyy needs love"
+    let morningNotificationBody = "Wake up! I need to pee, take me outside."
+    let afternoonNotificationBody = "That was a big lunch. I need to pee again."
+    let eveningNotificationBody = "Take me for a walk before bed."
+    let firstWarningNotificationBody = "Okay, seriously I need to go outside."
+    let finalWarningNotificationBody = "If we wait any longer there is gonna be trouble!"
+    let accidentNotificationBody = "Oops, I couldn't hold it any longer."
+    let secondsPerDay: Double = 60 * 60 * 24
+    let morningNotificationTime: NSTimeInterval = 16.66 * 3600
+    let afternoonNotificationTime: NSTimeInterval = 15.0 * 3600
+    let eveningNotificationTime: NSTimeInterval = 21.0 * 3600
+    let firstWarningInterval: NSTimeInterval = 0.5 * 3600;
+    let finalWarningInterval: NSTimeInterval = 1.5 * 3600;
+    let accidentInterval: NSTimeInterval = 1.75 * 3600;
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let morningNotification = self.notification(morningNotificationTime, body: morningNotificationBody, title: notificationTitle)
+        let afternoonNotification = self.notification(afternoonNotificationTime, body: afternoonNotificationBody, title: notificationTitle)
+        let eveningNotification = self.notification(eveningNotificationTime, body: eveningNotificationBody, title: notificationTitle)
+        var secondsToSoonestNotification = secondsPerDay
+        let now = NSDate().timeIntervalSinceReferenceDate
+        let soonestNotification: NSTimeInterval
         
+        var interval = morningNotification.fireDate!.timeIntervalSinceReferenceDate - now
+        if interval < secondsToSoonestNotification {
+            secondsToSoonestNotification = interval
+        }
+        interval = afternoonNotification.fireDate!.timeIntervalSinceReferenceDate - now
+        if interval < secondsToSoonestNotification {
+            secondsToSoonestNotification = interval
+        }
+        interval = eveningNotification.fireDate!.timeIntervalSinceReferenceDate - now
+        if interval < secondsToSoonestNotification {
+            secondsToSoonestNotification = interval
+        }
+        soonestNotification = now + secondsToSoonestNotification
+        
+        let firstWarningNotification = self.notification(soonestNotification + firstWarningInterval, body: firstWarningNotificationBody, title: notificationTitle)
+        let finalWarningNotification = self.notification(soonestNotification + finalWarningInterval, body: finalWarningNotificationBody, title: notificationTitle)
+        let accidentNotification = self.notification(soonestNotification + accidentInterval, body: accidentNotificationBody, title: notificationTitle)
+
+        UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
+        UIApplication.sharedApplication().scheduleLocalNotification(morningNotification)
+        UIApplication.sharedApplication().scheduleLocalNotification(afternoonNotification)
+        UIApplication.sharedApplication().scheduleLocalNotification(eveningNotification)
+        UIApplication.sharedApplication().scheduleLocalNotification(firstWarningNotification)
+        UIApplication.sharedApplication().scheduleLocalNotification(finalWarningNotification)
+        UIApplication.sharedApplication().scheduleLocalNotification(accidentNotification)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -34,6 +80,21 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func notification(intervalFromMidnight: NSTimeInterval, body: String, title: String) -> UILocalNotification {
+        let note = UILocalNotification()
+        let secondsSinceMidnight = NSDate().timeIntervalSinceReferenceDate % secondsPerDay
+        var intervalFromNow = intervalFromMidnight - secondsSinceMidnight
+        
+        note.alertBody = body
+        note.alertTitle = title
+        if intervalFromNow < 0 {
+            intervalFromNow += secondsPerDay // bump it out to tomorrow
+        }
+        note.fireDate = NSDate(timeIntervalSinceNow: intervalFromNow)
+        note.timeZone = NSTimeZone(abbreviation: "PST")
+        return note
     }
     
     func smile(duration: NSTimeInterval) {
