@@ -63,6 +63,13 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         UIApplication.sharedApplication().scheduleLocalNotification(firstWarningNotification)
         UIApplication.sharedApplication().scheduleLocalNotification(finalWarningNotification)
         UIApplication.sharedApplication().scheduleLocalNotification(accidentNotification)
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(kInAppNotificationReceived,
+            object: nil,
+            queue: NSOperationQueue.mainQueue(),
+            usingBlock: { (note) -> Void in
+            self.speak((note.userInfo["notification"] as! UILocalNotification).alertBody! )
+        })
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -109,6 +116,10 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
                 view.face = face
             }
         }
+    }
+    
+    func speak(thoughts: String) {
+        UIAlertView(title: nil, message: thoughts, delegate: nil, cancelButtonTitle: nil).show()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

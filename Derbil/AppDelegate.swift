@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kInAppNotificationReceived = "InAppNotificationReceived"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -39,6 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: kInAppNotificationReceived, object: self, userInfo: {"notification": notification}))
     }
 
 
