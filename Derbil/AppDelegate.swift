@@ -48,7 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
-        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: kInAppNotificationReceived, object: self, userInfo: {"notification": notification}))
+        
+        completionHandler()
     }
 
 
