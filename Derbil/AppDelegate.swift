@@ -43,6 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: kInAppNotificationReceived, object: self, userInfo: ["notification": notification]))
+    }
+    
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: kInAppNotificationReceived, object: self, userInfo: {"notification": notification}))
     }

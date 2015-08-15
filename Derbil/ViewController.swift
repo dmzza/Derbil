@@ -68,8 +68,8 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
             object: nil,
             queue: NSOperationQueue.mainQueue(),
             usingBlock: { (note) -> Void in
-            self.speak((note.userInfo["notification"] as! UILocalNotification).alertBody! )
-        })
+                self.speak((((note.userInfo! as Dictionary)["notification"])! as! UILocalNotification).alertBody!)
+            })
     }
     
     override func viewDidAppear(animated: Bool) {
