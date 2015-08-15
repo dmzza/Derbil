@@ -119,9 +119,14 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     }
     
     func speak(thoughts: String) {
-        UIAlertView(title: nil, message: thoughts, delegate: nil, cancelButtonTitle: nil).show()
+        UIAlertView(title: nil, message: thoughts, delegate: nil, cancelButtonTitle: "OK").show()
     }
     
+    @IBAction func didTripleTap(sender: UITapGestureRecognizer) {
+        let secondsSinceMidnight = (NSDate().timeIntervalSinceReferenceDate % secondsPerDay) + Double(NSTimeZone(abbreviation: "PST")!.secondsFromGMT)
+        let instaNote: UILocalNotification = self.notification(secondsSinceMidnight + 1, body: "Hello", title: notificationTitle)
+        UIApplication.sharedApplication().scheduleLocalNotification(instaNote)
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "WalkViewControllerSegue" {
             let vc: WalkViewController = (segue.destinationViewController as! UINavigationController).topViewController as! WalkViewController
