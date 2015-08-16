@@ -18,8 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        if let note = launchOptions![UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
-            self.application(UIApplication.sharedApplication(), didReceiveLocalNotification: note)
+        if let options = launchOptions {
+            if let note = options[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+                self.application(UIApplication.sharedApplication(), didReceiveLocalNotification: note)
+            }
         }
         return true
     }

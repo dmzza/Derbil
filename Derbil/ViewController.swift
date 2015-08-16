@@ -124,7 +124,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     
     @IBAction func didTripleTap(sender: UITapGestureRecognizer) {
         let secondsSinceMidnight = (NSDate().timeIntervalSinceReferenceDate % secondsPerDay) + Double(NSTimeZone(abbreviation: "PST")!.secondsFromGMT)
-        let instaNote: UILocalNotification = self.notification(secondsSinceMidnight + 1, body: "Hello", title: notificationTitle)
+        let instaNote: UILocalNotification = self.notification(secondsSinceMidnight + 5, body: "Hello", title: notificationTitle)
         UIApplication.sharedApplication().scheduleLocalNotification(instaNote)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
