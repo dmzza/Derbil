@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NNf-k9-I4p">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
@@ -21,9 +21,103 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vje-Fy-7pK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="1058"/>
+            <point key="canvasLocation" x="914" y="349"/>
         </scene>
-        <!--View Controller-->
+        <!--Sleep-->
+        <scene sceneID="2Z5-md-LeV">
+            <objects>
+                <viewController id="ohY-Xa-Hpi" customClass="SleepViewController" customModule="Derbil" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nab-2f-AN3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vk6-Bl-Jhg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oSu-9a-0sR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5o-Qb-jOK">
+                                <rect key="frame" x="120" y="227" width="360" height="146"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="h5o-Qb-jOK" secondAttribute="height" multiplier="567:230" id="QZ5-NJ-l8B"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h5o-Qb-jOK" firstAttribute="centerX" secondItem="oSu-9a-0sR" secondAttribute="centerX" id="0hw-O8-xXu"/>
+                            <constraint firstItem="h5o-Qb-jOK" firstAttribute="width" secondItem="oSu-9a-0sR" secondAttribute="width" multiplier="0.6" id="5a8-wV-Jgq"/>
+                            <constraint firstItem="h5o-Qb-jOK" firstAttribute="centerY" secondItem="oSu-9a-0sR" secondAttribute="centerY" id="6oP-U9-TJO"/>
+                            <constraint firstItem="h5o-Qb-jOK" firstAttribute="width" secondItem="h5o-Qb-jOK" secondAttribute="height" multiplier="567:230" id="tIA-cJ-UME"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Sleep" id="8gW-g4-ZHX"/>
+                    <connections>
+                        <outlet property="faceContainer" destination="h5o-Qb-jOK" id="af6-AF-B0N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zsc-qi-DY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="1049"/>
+        </scene>
+        <!--Eat-->
+        <scene sceneID="kVp-Se-lQu">
+            <objects>
+                <viewController id="NKq-G6-LX7" customClass="EatViewController" customModule="Derbil" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bfQ-Re-d3u"/>
+                        <viewControllerLayoutGuide type="bottom" id="87r-hM-Zwn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dxH-ks-dzV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zd0-m7-S2H">
+                                <rect key="frame" x="120" y="227" width="360" height="146"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zd0-m7-S2H" secondAttribute="height" multiplier="567:230" id="rsv-pf-bW2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zd0-m7-S2H" firstAttribute="width" secondItem="dxH-ks-dzV" secondAttribute="width" multiplier="0.6" id="5Bl-gT-6FY"/>
+                            <constraint firstItem="zd0-m7-S2H" firstAttribute="width" secondItem="zd0-m7-S2H" secondAttribute="height" multiplier="567:230" id="hIW-WW-OEE"/>
+                            <constraint firstItem="zd0-m7-S2H" firstAttribute="centerY" secondItem="dxH-ks-dzV" secondAttribute="centerY" id="suQ-6C-2F5"/>
+                            <constraint firstItem="zd0-m7-S2H" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="xOL-45-Ksl"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Eat" id="8h7-dk-TFw"/>
+                    <connections>
+                        <outlet property="faceContainer" destination="zd0-m7-S2H" id="sLL-cf-lc3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOm-QZ-A8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="-314"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="z33-Cb-cUP">
+            <objects>
+                <tabBarController id="NNf-k9-I4p" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ia0-pO-S3u">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="NKq-G6-LX7" kind="relationship" relationship="viewControllers" id="Fr3-GG-VdX"/>
+                        <segue destination="ohY-Xa-Hpi" kind="relationship" relationship="viewControllers" id="asj-AG-uDl"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="X4V-fj-ZMi"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WMZ-E6-cj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-518" y="480"/>
+        </scene>
+        <!--Walk-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Derbil" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,7 +136,7 @@
                                     <constraint firstAttribute="width" constant="92" id="roi-3k-OUP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Walk">
+                                <state key="normal" title="Start">
                                     <color key="titleColor" red="0.59021764734737903" green="0.75234166109625666" blue="0.12231481702072339" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -79,6 +173,7 @@
                             <outletCollection property="gestureRecognizers" destination="mtW-Jb-YmZ" appends="YES" id="dCQ-Ho-FdH"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Walk" id="IWk-AC-07E"/>
                     <connections>
                         <outlet property="faceContainer" destination="MlJ-HI-nXW" id="I6e-bH-5aB"/>
                     </connections>
@@ -148,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xv-Bd-tav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912" y="349"/>
+            <point key="canvasLocation" x="1582" y="349"/>
         </scene>
     </scenes>
 </document>

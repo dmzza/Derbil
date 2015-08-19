@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63F260AB1B84D97700F109B9 /* EatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F260AA1B84D97700F109B9 /* EatViewController.swift */; };
+		63F260AD1B84D9CE00F109B9 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F260AC1B84D9CE00F109B9 /* SleepViewController.swift */; };
 		9FDD655A1B76A5FB00CD8703 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD65591B76A5FB00CD8703 /* FaceView.swift */; };
 		9FE05F7D1B6ED7EB00AE120C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05F7C1B6ED7EB00AE120C /* AppDelegate.swift */; };
 		9FE05F7F1B6ED7EB00AE120C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05F7E1B6ED7EB00AE120C /* ViewController.swift */; };
@@ -86,6 +88,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		63F260AA1B84D97700F109B9 /* EatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EatViewController.swift; sourceTree = "<group>"; };
+		63F260AC1B84D9CE00F109B9 /* SleepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		9FDD65591B76A5FB00CD8703 /* FaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		9FE05F791B6ED7EB00AE120C /* Derbil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Derbil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE05F7C1B6ED7EB00AE120C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				9FE05FD71B6EDD4000AE120C /* WalkViewController.swift */,
 				9FDD65591B76A5FB00CD8703 /* FaceView.swift */,
 				9FF832971B76DEC100958D2A /* Utilities.swift */,
+				63F260AA1B84D97700F109B9 /* EatViewController.swift */,
+				63F260AC1B84D9CE00F109B9 /* SleepViewController.swift */,
 			);
 			path = Derbil;
 			sourceTree = "<group>";
@@ -435,9 +441,11 @@
 			files = (
 				9FE05F7F1B6ED7EB00AE120C /* ViewController.swift in Sources */,
 				9FE05F7D1B6ED7EB00AE120C /* AppDelegate.swift in Sources */,
+				63F260AD1B84D9CE00F109B9 /* SleepViewController.swift in Sources */,
 				9FE05FD81B6EDD4000AE120C /* WalkViewController.swift in Sources */,
 				9FF832981B76DEC100958D2A /* Utilities.swift in Sources */,
 				9FDD655A1B76A5FB00CD8703 /* FaceView.swift in Sources */,
+				63F260AB1B84D97700F109B9 /* EatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
