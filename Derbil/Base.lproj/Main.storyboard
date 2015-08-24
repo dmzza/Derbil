@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -42,12 +43,39 @@
                                     <constraint firstAttribute="width" secondItem="h5o-Qb-jOK" secondAttribute="height" multiplier="567:230" id="QZ5-NJ-l8B"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwj-c7-WUp">
+                                <rect key="frame" x="150" y="399" width="300" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Dod-OK-rcK"/>
+                                    <constraint firstAttribute="height" constant="58" id="uEw-rH-wZV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Bedtime" image="heart">
+                                    <color key="titleColor" red="0.87450980389999999" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLz-Cg-uic">
+                                <rect key="frame" x="271" y="476" width="58" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kYh-lJ-QNV"/>
+                                </constraints>
+                                <state key="normal" title="Naptime">
+                                    <color key="titleColor" red="1" green="0.37359753203139767" blue="0.69567236609066008" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="h5o-Qb-jOK" firstAttribute="centerX" secondItem="oSu-9a-0sR" secondAttribute="centerX" id="0hw-O8-xXu"/>
                             <constraint firstItem="h5o-Qb-jOK" firstAttribute="width" secondItem="oSu-9a-0sR" secondAttribute="width" multiplier="0.6" id="5a8-wV-Jgq"/>
                             <constraint firstItem="h5o-Qb-jOK" firstAttribute="centerY" secondItem="oSu-9a-0sR" secondAttribute="centerY" id="6oP-U9-TJO"/>
+                            <constraint firstItem="gLz-Cg-uic" firstAttribute="top" secondItem="Mwj-c7-WUp" secondAttribute="bottom" constant="19" id="O9n-IJ-ho5"/>
+                            <constraint firstItem="Mwj-c7-WUp" firstAttribute="centerX" secondItem="oSu-9a-0sR" secondAttribute="centerX" id="P3b-vb-qWW"/>
+                            <constraint firstItem="Mwj-c7-WUp" firstAttribute="top" secondItem="h5o-Qb-jOK" secondAttribute="bottom" constant="26" id="Qt6-pb-oxr"/>
+                            <constraint firstItem="gLz-Cg-uic" firstAttribute="centerX" secondItem="oSu-9a-0sR" secondAttribute="centerX" id="hnz-uk-9Bp"/>
                             <constraint firstItem="h5o-Qb-jOK" firstAttribute="width" secondItem="h5o-Qb-jOK" secondAttribute="height" multiplier="567:230" id="tIA-cJ-UME"/>
                         </constraints>
                     </view>
@@ -58,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zsc-qi-DY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="1049"/>
+            <point key="canvasLocation" x="245" y="1095"/>
         </scene>
         <!--Eat-->
         <scene sceneID="kVp-Se-lQu">
@@ -79,18 +107,88 @@
                                     <constraint firstAttribute="width" secondItem="zd0-m7-S2H" secondAttribute="height" multiplier="567:230" id="rsv-pf-bW2"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHV-hZ-8NV">
+                                <rect key="frame" x="279" y="477" width="43" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ej3-9I-pLh"/>
+                                </constraints>
+                                <state key="normal" title="Snack">
+                                    <color key="titleColor" red="1" green="0.58782749923404531" blue="0.45556161852286914" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-JE-lyy">
+                                <rect key="frame" x="150" y="400" width="300" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="7Fy-fq-PFi"/>
+                                    <constraint firstAttribute="width" constant="300" id="Njb-xg-mZw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <color key="tintColor" red="0.87450980392156863" green="0.15686274509803921" blue="0.22352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Breakfast" image="heart">
+                                    <color key="titleColor" red="0.87450980389999999" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="eatMeal:" destination="NKq-G6-LX7" eventType="touchUpInside" id="sPo-ur-Uad"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="Zzg-oI-8Pv">
+                                <rect key="frame" x="536" y="28" width="44" height="44"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Mta-pQ-u85"/>
+                                    <constraint firstAttribute="width" constant="44" id="f6q-Hf-2E1"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="cog-dH-N3Q">
+                                <rect key="frame" x="536" y="72" width="44" height="44"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="03y-bw-CgG"/>
+                                    <constraint firstAttribute="height" constant="44" id="nnQ-GE-jzY"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="SKb-wV-Egk">
+                                <rect key="frame" x="536" y="116" width="44" height="44"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="9u4-gD-QmB"/>
+                                    <constraint firstAttribute="width" constant="44" id="x4B-HD-1fi"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Zzg-oI-8Pv" firstAttribute="top" secondItem="bfQ-Re-d3u" secondAttribute="bottom" constant="8" id="57O-mB-geB"/>
                             <constraint firstItem="zd0-m7-S2H" firstAttribute="width" secondItem="dxH-ks-dzV" secondAttribute="width" multiplier="0.6" id="5Bl-gT-6FY"/>
+                            <constraint firstItem="SKb-wV-Egk" firstAttribute="top" secondItem="cog-dH-N3Q" secondAttribute="bottom" id="FmS-pr-M85"/>
+                            <constraint firstItem="Zzg-oI-8Pv" firstAttribute="trailing" secondItem="SKb-wV-Egk" secondAttribute="trailing" id="Jto-6N-4dt"/>
+                            <constraint firstItem="Zzg-oI-8Pv" firstAttribute="trailing" secondItem="cog-dH-N3Q" secondAttribute="trailing" id="KUT-FR-c7D"/>
+                            <constraint firstItem="QHV-hZ-8NV" firstAttribute="top" secondItem="oHq-JE-lyy" secondAttribute="bottom" constant="19" id="TvD-ww-LJa"/>
+                            <constraint firstItem="oHq-JE-lyy" firstAttribute="centerY" secondItem="dxH-ks-dzV" secondAttribute="centerY" id="h50-ej-dv0"/>
                             <constraint firstItem="zd0-m7-S2H" firstAttribute="width" secondItem="zd0-m7-S2H" secondAttribute="height" multiplier="567:230" id="hIW-WW-OEE"/>
+                            <constraint firstItem="Zzg-oI-8Pv" firstAttribute="trailing" secondItem="dxH-ks-dzV" secondAttribute="trailingMargin" id="lls-73-i2y"/>
+                            <constraint firstItem="oHq-JE-lyy" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="mb8-Pp-sFL"/>
+                            <constraint firstItem="QHV-hZ-8NV" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="pvA-GL-xIP"/>
+                            <constraint firstItem="cog-dH-N3Q" firstAttribute="top" secondItem="Zzg-oI-8Pv" secondAttribute="bottom" id="qKA-eZ-ZzT"/>
+                            <constraint firstItem="oHq-JE-lyy" firstAttribute="top" secondItem="zd0-m7-S2H" secondAttribute="bottom" constant="27" id="sgv-yT-fB2"/>
                             <constraint firstItem="zd0-m7-S2H" firstAttribute="centerY" secondItem="dxH-ks-dzV" secondAttribute="centerY" id="suQ-6C-2F5"/>
                             <constraint firstItem="zd0-m7-S2H" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="xOL-45-Ksl"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="h50-ej-dv0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Eat" image="eat" id="8h7-dk-TFw"/>
                     <connections>
                         <outlet property="faceContainer" destination="zd0-m7-S2H" id="sLL-cf-lc3"/>
+                        <outlet property="firstHeart" destination="Zzg-oI-8Pv" id="juY-rl-mXB"/>
+                        <outlet property="mealButton" destination="oHq-JE-lyy" id="DwE-4I-41m"/>
+                        <outlet property="secondHeart" destination="cog-dH-N3Q" id="ini-gb-DDN"/>
+                        <outlet property="thirdHeart" destination="SKb-wV-Egk" id="Bdc-GT-xk5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOm-QZ-A8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -108,9 +206,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="X4V-fj-ZMi"/>
                         <segue destination="NKq-G6-LX7" kind="relationship" relationship="viewControllers" id="Fr3-GG-VdX"/>
                         <segue destination="ohY-Xa-Hpi" kind="relationship" relationship="viewControllers" id="asj-AG-uDl"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="X4V-fj-ZMi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMZ-E6-cj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -129,15 +227,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roc-bt-ODf">
-                                <rect key="frame" x="254" y="434" width="92" height="58"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roc-bt-ODf">
+                                <rect key="frame" x="200" y="434" width="200" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="O0F-NQ-pJS"/>
-                                    <constraint firstAttribute="width" constant="92" id="roi-3k-OUP"/>
+                                    <constraint firstAttribute="width" constant="200" id="roi-3k-OUP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" red="0.59021764734737903" green="0.75234166109625666" blue="0.12231481702072339" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Start" image="heart">
+                                    <color key="titleColor" red="0.87450980392156863" green="0.15686274509803921" blue="0.22352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="iap-UL-asX" kind="presentation" identifier="WalkViewControllerSegue" id="bvf-Ya-lUL"/>
@@ -248,6 +349,7 @@
     </scenes>
     <resources>
         <image name="eat" width="32" height="32"/>
+        <image name="heart" width="60" height="60"/>
         <image name="sleep" width="32" height="32"/>
         <image name="walk" width="32" height="32"/>
     </resources>

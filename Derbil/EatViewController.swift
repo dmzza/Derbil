@@ -10,12 +10,27 @@ import UIKit
 
 class EatViewController: UIViewController {
     @IBOutlet var faceContainer: UIView!
+    @IBOutlet var mealButton: UIButton!
+    @IBOutlet var firstHeart: UIImageView!
+    @IBOutlet var secondHeart: UIImageView!
+    @IBOutlet var thirdHeart: UIImageView!
     var faceView: FaceView?
+    
+    var meals: Int = 0 {
+        didSet {
+            self.firstHeart.hidden = meals < 1
+            self.secondHeart.hidden = meals < 2
+            self.thirdHeart.hidden = meals < 3
+        }
+    }
+    let mealsPerDay = 4
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let currentMeals: Int = userDefaults.integerForKey(kMealCountUserDefaultsKey)
+        self.meals = currentMeals % mealsPerDay
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -36,15 +51,25 @@ class EatViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func eatMeal(sender: AnyObject) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let currentMeals: Int = userDefaults.integerForKey(kMealCountUserDefaultsKey)
+        userDefaults.setInteger(currentMeals + 1, forKey: kMealCountUserDefaultsKey)
+        self.meals = (currentMeals + 1) % mealsPerDay
+        switch(self.meals) {
+        case 0:
+            self.mealButton.setTitle("Breakfast", forState: UIControlState.Normal)
+            break
+        case 1:
+            self.mealButton.setTitle("Lunch", forState: UIControlState.Normal)
+            break
+        case 2:
+            self.mealButton.setTitle("Dinner", forState: UIControlState.Normal)
+            break
+        default:
+            self.mealButton.setTitle("", forState: UIControlState.Normal)
+            
+        }
     }
-    */
 
 }

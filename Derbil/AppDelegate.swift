@@ -9,6 +9,9 @@
 import UIKit
 
 let kInAppNotificationReceived = "InAppNotificationReceived"
+let kMealCountUserDefaultsKey = "MealCountKey"
+let kWalkCountUserDefaultsKey = "WalkCountKey"
+let kSleepHoursUserDefaultsKey = "SleepHoursKey"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.application(UIApplication.sharedApplication(), didReceiveLocalNotification: note)
             }
         }
+        let userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        if userDefaults.integerForKey(kMealCountUserDefaultsKey) == 0 {
+            userDefaults.setInteger(1, forKey: kMealCountUserDefaultsKey)
+        }
+        if userDefaults.integerForKey(kWalkCountUserDefaultsKey) == 0 {
+            userDefaults.setInteger(1, forKey: kWalkCountUserDefaultsKey)
+        }
+        if userDefaults.integerForKey(kSleepHoursUserDefaultsKey) == 0 {
+            userDefaults.setInteger(1, forKey: kSleepHoursUserDefaultsKey)
+        }
+        
         return true
     }
 
