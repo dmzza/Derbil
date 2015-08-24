@@ -12,6 +12,19 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
 
     @IBOutlet weak var faceContainer: UIView!
     var faceView: FaceView?
+    
+    @IBOutlet var firstHeart: UIImageView!
+    @IBOutlet var secondHeart: UIImageView!
+    @IBOutlet var thirdHeart: UIImageView!
+    
+    let walksPerDay = 4
+    var walks: Int = 0 {
+        didSet {
+            self.firstHeart.hidden = walks < 1
+            self.secondHeart.hidden = walks < 2
+            self.thirdHeart.hidden = walks < 3
+        }
+    }
     let happyWalkThreshold: NSTimeInterval = 120
     let notificationTitle = "Chubbyy needs love"
     let morningNotificationBody = "🌞"
@@ -78,6 +91,10 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
                     }
                 }
             })
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let currentWalks: Int = userDefaults.integerForKey(kWalkCountUserDefaultsKey)
+        self.walks = currentWalks % walksPerDay
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -146,6 +163,10 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     func didComplete(controller: WalkViewController, elapsedTime: NSTimeInterval) {
         if elapsedTime >= happyWalkThreshold {
             self.smile(elapsedTime / 10)
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            let currentWalks: Int = userDefaults.integerForKey(kWalkCountUserDefaultsKey)
+            userDefaults.setInteger(currentWalks + 1, forKey: kWalkCountUserDefaultsKey)
+            self.walks = (currentWalks + 1) % walksPerDay
         }
     }
 }
