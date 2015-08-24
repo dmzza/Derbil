@@ -51,7 +51,7 @@
                             <constraint firstItem="h5o-Qb-jOK" firstAttribute="width" secondItem="h5o-Qb-jOK" secondAttribute="height" multiplier="567:230" id="tIA-cJ-UME"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sleep" id="8gW-g4-ZHX"/>
+                    <tabBarItem key="tabBarItem" title="Sleep" image="sleep" id="8gW-g4-ZHX"/>
                     <connections>
                         <outlet property="faceContainer" destination="h5o-Qb-jOK" id="af6-AF-B0N"/>
                     </connections>
@@ -88,7 +88,7 @@
                             <constraint firstItem="zd0-m7-S2H" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="xOL-45-Ksl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Eat" id="8h7-dk-TFw"/>
+                    <tabBarItem key="tabBarItem" title="Eat" image="eat" id="8h7-dk-TFw"/>
                     <connections>
                         <outlet property="faceContainer" destination="zd0-m7-S2H" id="sLL-cf-lc3"/>
                     </connections>
@@ -173,7 +173,7 @@
                             <outletCollection property="gestureRecognizers" destination="mtW-Jb-YmZ" appends="YES" id="dCQ-Ho-FdH"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Walk" id="IWk-AC-07E"/>
+                    <tabBarItem key="tabBarItem" title="Walk" image="walk" id="IWk-AC-07E"/>
                     <connections>
                         <outlet property="faceContainer" destination="MlJ-HI-nXW" id="I6e-bH-5aB"/>
                     </connections>
@@ -246,4 +246,9 @@
             <point key="canvasLocation" x="1582" y="349"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="eat" width="32" height="32"/>
+        <image name="sleep" width="32" height="32"/>
+        <image name="walk" width="32" height="32"/>
+    </resources>
 </document>
