@@ -12,6 +12,7 @@ let kInAppNotificationReceived = "InAppNotificationReceived"
 let kMealCountUserDefaultsKey = "MealCountKey"
 let kWalkCountUserDefaultsKey = "WalkCountKey"
 let kSleepHoursUserDefaultsKey = "SleepHoursKey"
+let kSleepBeginUserDefaultsKey = "SleepBeginKey"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,6 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         if userDefaults.integerForKey(kSleepHoursUserDefaultsKey) == 0 {
             userDefaults.setInteger(1, forKey: kSleepHoursUserDefaultsKey)
+        }
+        if userDefaults.doubleForKey(kSleepBeginUserDefaultsKey) == 0 {
+            userDefaults.setDouble(0.0, forKey: kSleepHoursUserDefaultsKey)
         }
         
         return true

@@ -10,7 +10,21 @@ import UIKit
 
 class SleepViewController: UIViewController {
     @IBOutlet var faceContainer: UIView!
+    @IBOutlet var firstHeart: UIImageView!
+    @IBOutlet var secondHeart: UIImageView!
+    @IBOutlet var thirdHeart: UIImageView!
+    @IBOutlet var bedtimeButton: UIButton!
+    
     var faceView: FaceView?
+    var hoursSleptToday: Int = 0 {
+        didSet {
+            self.firstHeart.hidden = hoursSleptToday < 1
+            self.secondHeart.hidden = hoursSleptToday < 5
+            self.thirdHeart.hidden = hoursSleptToday < 8
+        }
+    }
+    let oneDay: NSTimeInterval = 60 * 60 * 24
+    let oneHour: NSTimeInterval = 60 * 60
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +34,19 @@ class SleepViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        let face: Face = Face(
+            mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
+            leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
+            rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
         if (self.faceView == nil) {
-            let face: Face = Face(
-                mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
-                leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
-                rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
             self.faceView = FaceView(face: face, frame: self.faceContainer.bounds)
             self.faceContainer.addSubview(self.faceView!)
+        } else {
+            self.faceView?.face = face
         }
+        
+        self.wakeUp()
     }
 
 
@@ -36,15 +55,39 @@ class SleepViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func wakeUp() {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let sleepBegan = userDefaults.doubleForKey(kSleepBeginUserDefaultsKey)
+        let now = NSDate().timeIntervalSince1970
+        let currentHoursSlept = userDefaults.integerForKey(kSleepHoursUserDefaultsKey)
+        var hoursSlept: Int = 0
+        if sleepBegan > (now - oneDay) {
+            hoursSlept = Int((now - sleepBegan) % oneHour)
+        }
+        userDefaults.setInteger(currentHoursSlept + hoursSlept, forKey: kSleepHoursUserDefaultsKey)
+        self.hoursSleptToday += hoursSlept
+        userDefaults.setDouble(0.0, forKey: kSleepBeginUserDefaultsKey)
+        self.bedtimeButton.hidden = false
+        self.faceView?.blink()
     }
-    */
+
+    @IBAction func sleep(sender: AnyObject) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let now = NSDate().timeIntervalSince1970
+        
+        self.hoursSleptToday++
+        userDefaults.setDouble(now, forKey: kSleepBeginUserDefaultsKey)
+        self.bedtimeButton.hidden = true
+        self.faceView?.face = Face(
+            mouth: Face.Name.MouthName(Face.Mouth.Smiling, Face.Part.Mouth),
+            leftEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Left),
+            rightEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Right))
+        self.faceView?.snore()
+    }
+    
+    @IBAction func nap(sender: AnyObject) {
+        self.hoursSleptToday = 0
+        self.sleep(sender)
+    }
 
 }
