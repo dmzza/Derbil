@@ -18,11 +18,13 @@ struct Face {
     
     enum Mouth: String {
         case Angry = "angry"
+        case Frowning = "frowning"
         case Sad = "sad"
         case Smiling = "smiling"
         case Laughing = "laughing"
         case Puppy = "puppy"
         case Tongue = "tongue"
+        case Tired = "tired"
     }
     
     enum Part: String {
@@ -66,6 +68,7 @@ class FaceView: UIView {
     var rightImageView: UIImageView
     var mouthImageView: UIImageView
     let mouthRelativeWidth: CGFloat = 243.0/567.0
+    var pattern: () -> () = { () -> () in }
     
 
     required init(coder aDecoder: NSCoder) {
@@ -94,20 +97,44 @@ class FaceView: UIView {
         self.addSubview(self.leftImageView)
         self.addSubview(self.rightImageView)
         self.addSubview(self.mouthImageView)
+        self.pattern = { () -> () in
+            delay(0.1, closure: { () -> () in
+                self.pattern()
+            })
+        }
+        self.pattern()
         self.blink()
     }
 
     func blink() {
-        let face = self.face
-        self.face = Face(
-            mouth: face.mouth,
-            leftEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Left),
-            rightEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Right))
-        delay(0.15) { () -> () in
-            self.face = face
+        self.pattern = { () -> () in
+            let face = self.face
+            self.face = Face(
+                mouth: face.mouth,
+                leftEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Left),
+                rightEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Right))
+            delay(0.15) { () -> () in
+                self.face = face
+            }
+            delay(3.5) { () -> () in
+                self.pattern()
+            }
         }
-        delay(3.5) { () -> () in
-            self.blink()
+    }
+    
+    func snore() {
+        self.pattern = { () -> () in
+            let face = self.face
+            self.face = Face(
+                mouth: Face.Name.MouthName(Face.Mouth.Frowning, Face.Part.Mouth),
+                leftEye: face.leftEye,
+                rightEye: face.rightEye)
+            delay(1.5) { () -> () in
+                self.face = face
+            }
+            delay(5.5) { () -> () in
+                self.pattern()
+            }
         }
     }
 }
