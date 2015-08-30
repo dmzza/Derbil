@@ -10,6 +10,7 @@ import UIKit
 
 protocol WalkViewControllerDelegate {
     func didComplete(controller: WalkViewController, elapsedTime: NSTimeInterval)
+    var happyWalkThreshold: NSTimeInterval { get }
 }
 
 class WalkViewController: UIViewController {
@@ -17,10 +18,14 @@ class WalkViewController: UIViewController {
     @IBOutlet weak var closeButton: UIBarButtonItem!
     @IBOutlet weak var faceContainer: UIView!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet var pauseButton: UIButton!
+    @IBOutlet var finishButton: UIButton!
+    
     var elapsedTime: NSTimeInterval = 0
     var timer: NSTimer!
     var faceView: FaceView?
     var delegate: WalkViewControllerDelegate?
+    var paused: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +64,13 @@ class WalkViewController: UIViewController {
     // MARK: Actions
     
     func tick() {
-        self.elapsedTime++
+        if (!self.paused) {
+            self.elapsedTime++
+        }
+        if (self.finishButton.enabled != (self.elapsedTime >= self.delegate?.happyWalkThreshold)) {
+            self.finishButton.enabled = self.elapsedTime >= self.delegate?.happyWalkThreshold
+        }
+        
         let formatter: NSDateFormatter = NSDateFormatter()
             
         formatter.dateFormat = "m:ss";
@@ -67,8 +78,22 @@ class WalkViewController: UIViewController {
         self.timerLabel.text = formatter.stringFromDate(NSDate(timeIntervalSinceReferenceDate: self.elapsedTime))
     }
     
-    @IBAction func close(sender: AnyObject) {
+    @IBAction func pause(sender: UIButton) {
+        if (sender.selected) {
+            self.paused = false
+        } else {
+            self.paused = true
+        }
+        sender.selected = self.paused
+    }
+    
+    
+    @IBAction func finish(sender: UIButton) {
         self.delegate?.didComplete(self, elapsedTime: self.elapsedTime)
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func close(sender: AnyObject) {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
 
