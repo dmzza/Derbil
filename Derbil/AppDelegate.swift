@@ -9,10 +9,10 @@
 import UIKit
 
 let kInAppNotificationReceived = "InAppNotificationReceived"
-let kMealCountUserDefaultsKey = "MealCountKey"
-let kWalkCountUserDefaultsKey = "WalkCountKey"
-let kSleepHoursUserDefaultsKey = "SleepHoursKey"
-let kSleepBeginUserDefaultsKey = "SleepBeginKey"
+let kUserDefaultsMealCount = "MealCount"
+let kUserDefaultsWalkCount = "WalkCount"
+let kUserDefaultsSleepHours = "SleepHours"
+let kUserDefaultsSleepBegin = "SleepBegin"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,18 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         let userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        if userDefaults.integerForKey(kMealCountUserDefaultsKey) == 0 {
-            userDefaults.setInteger(1, forKey: kMealCountUserDefaultsKey)
-        }
-        if userDefaults.integerForKey(kWalkCountUserDefaultsKey) == 0 {
-            userDefaults.setInteger(1, forKey: kWalkCountUserDefaultsKey)
-        }
-        if userDefaults.integerForKey(kSleepHoursUserDefaultsKey) == 0 {
-            userDefaults.setInteger(1, forKey: kSleepHoursUserDefaultsKey)
-        }
-        if userDefaults.doubleForKey(kSleepBeginUserDefaultsKey) == 0 {
-            userDefaults.setDouble(0.0, forKey: kSleepHoursUserDefaultsKey)
-        }
+        if userDefaults.integerForKey(kUserDefaultsMealCount) == 0 {
+            userDefaults.setInteger(1, forKey: kUserDefaultsMealCount)
+         }
+        if userDefaults.integerForKey(kUserDefaultsWalkCount) == 0 {
+            userDefaults.setInteger(1, forKey: kUserDefaultsWalkCount)
+         }
+        if userDefaults.integerForKey(kUserDefaultsSleepHours) == 0 {
+            userDefaults.setInteger(1, forKey: kUserDefaultsSleepHours)
+         }
+        if userDefaults.doubleForKey(kUserDefaultsSleepBegin) == 0 {
+            userDefaults.setDouble(0.0, forKey: kUserDefaultsSleepBegin)
+         }
         
         return true
     }

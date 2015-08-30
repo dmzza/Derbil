@@ -29,7 +29,7 @@ class EatViewController: UIViewController {
         super.viewDidLoad()
 
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let currentMeals: Int = userDefaults.integerForKey(kMealCountUserDefaultsKey)
+        let currentMeals: Int = userDefaults.integerForKey(kUserDefaultsMealCount)
         self.meals = currentMeals % mealsPerDay
     }
     
@@ -53,8 +53,8 @@ class EatViewController: UIViewController {
     
     @IBAction func eatMeal(sender: AnyObject) {
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let currentMeals: Int = userDefaults.integerForKey(kMealCountUserDefaultsKey)
-        userDefaults.setInteger(currentMeals + 1, forKey: kMealCountUserDefaultsKey)
+        let currentMeals: Int = userDefaults.integerForKey(kUserDefaultsMealCount)
+        userDefaults.setInteger(currentMeals + 1, forKey: kUserDefaultsMealCount)
         self.meals = (currentMeals + 1) % mealsPerDay
         switch(self.meals) {
         case 0:

@@ -57,16 +57,16 @@ class SleepViewController: UIViewController {
     
     func wakeUp() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let sleepBegan = userDefaults.doubleForKey(kSleepBeginUserDefaultsKey)
+        let sleepBegan = userDefaults.doubleForKey(kUserDefaultsSleepBegin)
         let now = NSDate().timeIntervalSince1970
-        let currentHoursSlept = userDefaults.integerForKey(kSleepHoursUserDefaultsKey)
+        let currentHoursSlept = userDefaults.integerForKey(kUserDefaultsSleepBegin)
         var hoursSlept: Int = 0
         if sleepBegan > (now - oneDay) {
             hoursSlept = Int((now - sleepBegan) % oneHour)
         }
-        userDefaults.setInteger(currentHoursSlept + hoursSlept, forKey: kSleepHoursUserDefaultsKey)
+        userDefaults.setInteger(currentHoursSlept + hoursSlept, forKey: kUserDefaultsSleepBegin)
         self.hoursSleptToday += hoursSlept
-        userDefaults.setDouble(0.0, forKey: kSleepBeginUserDefaultsKey)
+        userDefaults.setDouble(0.0, forKey: kUserDefaultsSleepBegin)
         self.bedtimeButton.hidden = false
         self.faceView?.blink()
     }
@@ -76,7 +76,7 @@ class SleepViewController: UIViewController {
         let now = NSDate().timeIntervalSince1970
         
         self.hoursSleptToday++
-        userDefaults.setDouble(now, forKey: kSleepBeginUserDefaultsKey)
+        userDefaults.setDouble(now, forKey: kUserDefaultsSleepBegin)
         self.bedtimeButton.hidden = true
         self.faceView?.face = Face(
             mouth: Face.Name.MouthName(Face.Mouth.Smiling, Face.Part.Mouth),

@@ -93,7 +93,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
             })
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let currentWalks: Int = userDefaults.integerForKey(kWalkCountUserDefaultsKey)
+        let currentWalks: Int = userDefaults.integerForKey(kUserDefaultsWalkCount)
         self.walks = currentWalks % walksPerDay
     }
     
@@ -164,8 +164,8 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         if elapsedTime >= happyWalkThreshold {
             self.smile(elapsedTime / 10)
             let userDefaults = NSUserDefaults.standardUserDefaults()
-            let currentWalks: Int = userDefaults.integerForKey(kWalkCountUserDefaultsKey)
-            userDefaults.setInteger(currentWalks + 1, forKey: kWalkCountUserDefaultsKey)
+            let currentWalks: Int = userDefaults.integerForKey(kUserDefaultsWalkCount)
+            userDefaults.setInteger(currentWalks + 1, forKey: kUserDefaultsWalkCount)
             self.walks = (currentWalks + 1) % walksPerDay
         }
     }
