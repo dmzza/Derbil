@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kUserDefaultsTodaysWalkCount = "TodaysWalkCount"
+
 class ViewController: UIViewController, WalkViewControllerDelegate {
 
     @IBOutlet weak var faceContainer: UIView!
@@ -47,6 +49,49 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        self.scheduleNotifications()
+        NSNotificationCenter.defaultCenter().addObserverForName(kInAppNotificationReceived,
+            object: nil,
+            queue: NSOperationQueue.mainQueue(),
+            usingBlock: { (note) -> Void in
+                if let userInfo = (((note.userInfo! as Dictionary)["notification"])! as! UILocalNotification).userInfo {
+                    if let thought = userInfo["thought"] as? String {
+                        self.speak(thought)
+                    }
+                }
+            })
+        
+        
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameNewDayBegan,
+            object: nil,
+            queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+                userDefaults.setInteger(0, forKey: kUserDefaultsTodaysWalkCount)
+        }
+        
+        self.walks = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (self.faceView == nil) {
+            let face: Face = Face(
+                mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
+                leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
+                rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
+            self.faceView = FaceView(face: face, frame: self.faceContainer.bounds)
+            self.faceContainer.addSubview(self.faceView!)
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func scheduleNotifications() {
         let morningNotification = self.notification(morningNotificationTime, body: morningNotificationBody, title: notificationTitle, thought:morningNotificationThought)
         let afternoonNotification = self.notification(afternoonNotificationTime, body: afternoonNotificationBody, title: notificationTitle, thought:morningNotificationThought)
         let eveningNotification = self.notification(eveningNotificationTime, body: eveningNotificationBody, title: notificationTitle, thought:morningNotificationThought)
@@ -71,7 +116,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         let firstWarningNotification = self.notification(soonestNotification + firstWarningInterval, body: warningNotificationBody, title: notificationTitle, thought: firstWarningNotificationThought)
         let finalWarningNotification = self.notification(soonestNotification + finalWarningInterval, body: warningNotificationBody, title: notificationTitle, thought: finalWarningNotificationThought)
         let accidentNotification = self.notification(soonestNotification + accidentInterval, body: warningNotificationBody, title: notificationTitle, thought: accidentNotificationThought)
-
+        
         UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         UIApplication.sharedApplication().scheduleLocalNotification(morningNotification)
@@ -80,38 +125,6 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         UIApplication.sharedApplication().scheduleLocalNotification(firstWarningNotification)
         UIApplication.sharedApplication().scheduleLocalNotification(finalWarningNotification)
         UIApplication.sharedApplication().scheduleLocalNotification(accidentNotification)
-        
-        NSNotificationCenter.defaultCenter().addObserverForName(kInAppNotificationReceived,
-            object: nil,
-            queue: NSOperationQueue.mainQueue(),
-            usingBlock: { (note) -> Void in
-                if let userInfo = (((note.userInfo! as Dictionary)["notification"])! as! UILocalNotification).userInfo {
-                    if let thought = userInfo["thought"] as? String {
-                        self.speak(thought)
-                    }
-                }
-            })
-        
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let currentWalks: Int = userDefaults.integerForKey(kUserDefaultsWalkCount)
-        self.walks = currentWalks % walksPerDay
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if (self.faceView == nil) {
-            let face: Face = Face(
-                mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
-                leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
-                rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
-            self.faceView = FaceView(face: face, frame: self.faceContainer.bounds)
-            self.faceContainer.addSubview(self.faceView!)
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func notification(intervalFromMidnight: NSTimeInterval, body: String, title: String, thought: String) -> UILocalNotification {
@@ -167,8 +180,12 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
             self.smile(elapsedTime / 10)
             let userDefaults = NSUserDefaults.standardUserDefaults()
             let currentWalks: Int = userDefaults.integerForKey(kUserDefaultsWalkCount)
+            let todaysWalks: Int = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
+            
+            self.walks = todaysWalks + 1
             userDefaults.setInteger(currentWalks + 1, forKey: kUserDefaultsWalkCount)
-            self.walks = (currentWalks + 1) % walksPerDay
+            userDefaults.setInteger(self.walks, forKey: kUserDefaultsTodaysWalkCount)
+            
         }
     }
 }

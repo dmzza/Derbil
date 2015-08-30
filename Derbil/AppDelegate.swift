@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Timepiece
 
 let kInAppNotificationReceived = "InAppNotificationReceived"
+let kNotificationNameNewDayBegan = "NewDayBegan"
+let kUserDefaultsLastDailyReset = "LastDailyReset"
 let kUserDefaultsMealCount = "MealCount"
 let kUserDefaultsWalkCount = "WalkCount"
 let kUserDefaultsSleepHours = "SleepHours"
@@ -28,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         let userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        if userDefaults.doubleForKey(kUserDefaultsLastDailyReset) == 0 {
+            userDefaults.setDouble(0.0, forKey: kUserDefaultsLastDailyReset)
+         }
         if userDefaults.integerForKey(kUserDefaultsMealCount) == 0 {
             userDefaults.setInteger(1, forKey: kUserDefaultsMealCount)
          }
@@ -39,6 +45,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          }
         if userDefaults.doubleForKey(kUserDefaultsSleepBegin) == 0 {
             userDefaults.setDouble(0.0, forKey: kUserDefaultsSleepBegin)
+         }
+        
+        let lastDailyReset = userDefaults.doubleForKey(kUserDefaultsLastDailyReset)
+        let now = NSDate().change(timeZone: NSTimeZone.localTimeZone())
+        if (lastDailyReset < now.beginningOfDay.timeIntervalSince1970) {
+            NSNotificationCenter.defaultCenter().postNotificationName(kNotificationNameNewDayBegan, object: nil)
+            userDefaults.setDouble(now.timeIntervalSince1970, forKey: kUserDefaultsLastDailyReset)
          }
         
         return true
