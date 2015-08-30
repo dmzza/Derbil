@@ -145,7 +145,9 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     }
     
     func speak(thoughts: String) {
-        UIAlertView(title: nil, message: thoughts, delegate: nil, cancelButtonTitle: "OK").show()
+        let alert: UIAlertController = UIAlertController(title: nil, message: thoughts, preferredStyle:UIAlertControllerStyle.Alert)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func didTripleTap(sender: UITapGestureRecognizer) {
