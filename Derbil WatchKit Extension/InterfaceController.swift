@@ -1,6 +1,6 @@
 //
 //  InterfaceController.swift
-//  Derbil WatchKit Extension
+//  Chubbyy WatchKit Extension
 //
 //  Created by dmazza on 8/2/15.
 //  Copyright © 2015 Peaking Software LLC. All rights reserved.

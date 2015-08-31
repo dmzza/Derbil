@@ -1,6 +1,6 @@
 //
 //  Utilities.swift
-//  Derbil
+//  Chubbyy
 //
 //  Created by dmazza on 8/8/15.
 //  Copyright © 2015 Peaking Software LLC. All rights reserved.

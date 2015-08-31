@@ -1,6 +1,6 @@
 //
 //  EatViewController.swift
-//  Derbil
+//  Chubbyy
 //
 //  Created by David Mazza on 8/19/15.
 //  Copyright © 2015 Peaking Software LLC. All rights reserved.
