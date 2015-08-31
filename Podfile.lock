@@ -2,19 +2,19 @@ PODS:
   - Timepiece (0.3.4)
 
 DEPENDENCIES:
-  - Timepiece (from `https://github.com/strawberrycode/Timepiece/`, branch `swift-2.0-fix`)
+  - Timepiece (from `https://github.com/dmzza/Timepiece/`, branch `patch-1`)
 
 EXTERNAL SOURCES:
   Timepiece:
-    :branch: swift-2.0-fix
-    :git: https://github.com/strawberrycode/Timepiece/
+    :branch: patch-1
+    :git: https://github.com/dmzza/Timepiece/
 
 CHECKOUT OPTIONS:
   Timepiece:
-    :commit: 6a70324d8016636d9671e61ba162e5ede1ace699
-    :git: https://github.com/strawberrycode/Timepiece/
+    :commit: 4d3a77d16eb69e3dd4f8fec68d04b59e335974c1
+    :git: https://github.com/dmzza/Timepiece/
 
 SPEC CHECKSUMS:
-  Timepiece: bfe018a2754a7ae6b2b7ab683a90da45c28e32a0
+  Timepiece: f8d316da987a4fc74571648734d32fb815f4c1bd
 
 COCOAPODS: 0.38.2
