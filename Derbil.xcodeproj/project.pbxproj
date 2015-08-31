@@ -7,10 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		116C3FC436ADBDA4F6FD8F15 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FE53BC35FF099FC610B619 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6304FDB41B93DEA90063AA8C /* Timepiece.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63268A201B93D6F1002D2D0F /* Timepiece.framework */; };
+		6304FDB51B93DEB30063AA8C /* Timepiece.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63268A201B93D6F1002D2D0F /* Timepiece.framework */; };
+		632689EE1B93D6F1002D2D0F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 632689D41B93D6F1002D2D0F /* .gitignore */; };
+		632689EF1B93D6F1002D2D0F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 632689D41B93D6F1002D2D0F /* .gitignore */; };
+		632689F01B93D6F1002D2D0F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 632689D41B93D6F1002D2D0F /* .gitignore */; };
+		632689F11B93D6F1002D2D0F /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 632689D51B93D6F1002D2D0F /* .travis.yml */; };
+		632689F21B93D6F1002D2D0F /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 632689D51B93D6F1002D2D0F /* .travis.yml */; };
+		632689F31B93D6F1002D2D0F /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 632689D51B93D6F1002D2D0F /* .travis.yml */; };
+		632689F41B93D6F1002D2D0F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 632689D61B93D6F1002D2D0F /* LICENSE */; };
+		632689F51B93D6F1002D2D0F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 632689D61B93D6F1002D2D0F /* LICENSE */; };
+		632689F61B93D6F1002D2D0F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 632689D61B93D6F1002D2D0F /* LICENSE */; };
+		632689F91B93D6F1002D2D0F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689D91B93D6F1002D2D0F /* Duration.swift */; };
+		632689FA1B93D6F1002D2D0F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689D91B93D6F1002D2D0F /* Duration.swift */; };
+		632689FB1B93D6F1002D2D0F /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DA1B93D6F1002D2D0F /* Int+Timepiece.swift */; };
+		632689FC1B93D6F1002D2D0F /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DA1B93D6F1002D2D0F /* Int+Timepiece.swift */; };
+		632689FD1B93D6F1002D2D0F /* NSCalendar+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DB1B93D6F1002D2D0F /* NSCalendar+Timepiece.swift */; };
+		632689FE1B93D6F1002D2D0F /* NSCalendar+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DB1B93D6F1002D2D0F /* NSCalendar+Timepiece.swift */; };
+		632689FF1B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DC1B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift */; };
+		63268A001B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DC1B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift */; };
+		63268A011B93D6F1002D2D0F /* NSDate+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DD1B93D6F1002D2D0F /* NSDate+Timepiece.swift */; };
+		63268A021B93D6F1002D2D0F /* NSDate+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DD1B93D6F1002D2D0F /* NSDate+Timepiece.swift */; };
+		63268A031B93D6F1002D2D0F /* NSDateComponents+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DE1B93D6F1002D2D0F /* NSDateComponents+Timepiece.swift */; };
+		63268A041B93D6F1002D2D0F /* NSDateComponents+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DE1B93D6F1002D2D0F /* NSDateComponents+Timepiece.swift */; };
+		63268A051B93D6F1002D2D0F /* NSTimeInterval+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DF1B93D6F1002D2D0F /* NSTimeInterval+Timepiece.swift */; };
+		63268A061B93D6F1002D2D0F /* NSTimeInterval+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689DF1B93D6F1002D2D0F /* NSTimeInterval+Timepiece.swift */; };
+		63268A071B93D6F1002D2D0F /* String+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689E01B93D6F1002D2D0F /* String+Timepiece.swift */; };
+		63268A081B93D6F1002D2D0F /* String+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632689E01B93D6F1002D2D0F /* String+Timepiece.swift */; };
+		63268A151B93D6F1002D2D0F /* Timepiece.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 632689E91B93D6F1002D2D0F /* Timepiece.podspec */; };
+		63268A161B93D6F1002D2D0F /* Timepiece.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 632689E91B93D6F1002D2D0F /* Timepiece.podspec */; };
+		63268A171B93D6F1002D2D0F /* Timepiece.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 632689E91B93D6F1002D2D0F /* Timepiece.podspec */; };
+		63268A181B93D6F1002D2D0F /* Timepiece.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 632689ED1B93D6F1002D2D0F /* Timepiece.xcworkspace */; };
+		63268A191B93D6F1002D2D0F /* Timepiece.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 632689ED1B93D6F1002D2D0F /* Timepiece.xcworkspace */; };
+		63268A1A1B93D6F1002D2D0F /* Timepiece.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 632689ED1B93D6F1002D2D0F /* Timepiece.xcworkspace */; };
 		63F260AB1B84D97700F109B9 /* EatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F260AA1B84D97700F109B9 /* EatViewController.swift */; };
 		63F260AD1B84D9CE00F109B9 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F260AC1B84D9CE00F109B9 /* SleepViewController.swift */; };
-		7111B1B71B1AE890A6B40F78 /* Pods_Derbil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8023165C45C300CF9C657420 /* Pods_Derbil.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9FDD655A1B76A5FB00CD8703 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD65591B76A5FB00CD8703 /* FaceView.swift */; };
 		9FE05F7D1B6ED7EB00AE120C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05F7C1B6ED7EB00AE120C /* AppDelegate.swift */; };
 		9FE05F7F1B6ED7EB00AE120C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05F7E1B6ED7EB00AE120C /* ViewController.swift */; };
@@ -34,6 +65,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		63268A1F1B93D6F1002D2D0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632689EA1B93D6F1002D2D0F /* Timepiece.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DC6180F199E1F8400FB7AAC;
+			remoteInfo = "Timepiece iOS";
+		};
+		63268A211B93D6F1002D2D0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632689EA1B93D6F1002D2D0F /* Timepiece.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DE7CFB01B27126F00E0F331;
+			remoteInfo = "Timepiece OSX";
+		};
+		63268A231B93D6F1002D2D0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632689EA1B93D6F1002D2D0F /* Timepiece.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DC6181A199E1F8400FB7AAC;
+			remoteInfo = "Timepiece iOS Tests";
+		};
+		63268A251B93D6F1002D2D0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632689EA1B93D6F1002D2D0F /* Timepiece.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DE7CFBA1B27126F00E0F331;
+			remoteInfo = "Timepiece OSX Tests";
+		};
+		63268A3B1B93DA87002D2D0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632689EA1B93D6F1002D2D0F /* Timepiece.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63268A381B93D822002D2D0F;
+			remoteInfo = "Timepiece watchOS";
+		};
 		9FE05F8E1B6ED7EB00AE120C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9FE05F711B6ED7EB00AE120C /* Project object */;
@@ -90,11 +156,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		57FBF6BAE0E0FA757FF8566B /* Pods-Derbil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Derbil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Derbil/Pods-Derbil.debug.xcconfig"; sourceTree = "<group>"; };
+		632689D41B93D6F1002D2D0F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		632689D51B93D6F1002D2D0F /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		632689D61B93D6F1002D2D0F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		632689D71B93D6F1002D2D0F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		632689D91B93D6F1002D2D0F /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
+		632689DA1B93D6F1002D2D0F /* Int+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Timepiece.swift"; sourceTree = "<group>"; };
+		632689DB1B93D6F1002D2D0F /* NSCalendar+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+Timepiece.swift"; sourceTree = "<group>"; };
+		632689DC1B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendarUnit+Timepiece.swift"; sourceTree = "<group>"; };
+		632689DD1B93D6F1002D2D0F /* NSDate+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Timepiece.swift"; sourceTree = "<group>"; };
+		632689DE1B93D6F1002D2D0F /* NSDateComponents+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateComponents+Timepiece.swift"; sourceTree = "<group>"; };
+		632689DF1B93D6F1002D2D0F /* NSTimeInterval+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimeInterval+Timepiece.swift"; sourceTree = "<group>"; };
+		632689E01B93D6F1002D2D0F /* String+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Timepiece.swift"; sourceTree = "<group>"; };
+		632689E21B93D6F1002D2D0F /* DurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationTests.swift; sourceTree = "<group>"; };
+		632689E31B93D6F1002D2D0F /* Int+TimepieceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+TimepieceTests.swift"; sourceTree = "<group>"; };
+		632689E41B93D6F1002D2D0F /* NSCalendarUnit+TimepieceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendarUnit+TimepieceTests.swift"; sourceTree = "<group>"; };
+		632689E51B93D6F1002D2D0F /* NSDate+TimepieceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+TimepieceTests.swift"; sourceTree = "<group>"; };
+		632689E61B93D6F1002D2D0F /* NSTimeInterval+TimepieceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimeInterval+TimepieceTests.swift"; sourceTree = "<group>"; };
+		632689E71B93D6F1002D2D0F /* String+TimepieceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+TimepieceTests.swift"; sourceTree = "<group>"; };
+		632689E81B93D6F1002D2D0F /* Timepiece.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Timepiece.playground; sourceTree = "<group>"; };
+		632689E91B93D6F1002D2D0F /* Timepiece.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Timepiece.podspec; sourceTree = "<group>"; };
+		632689EA1B93D6F1002D2D0F /* Timepiece.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Timepiece.xcodeproj; sourceTree = "<group>"; };
+		632689ED1B93D6F1002D2D0F /* Timepiece.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Timepiece.xcworkspace; sourceTree = "<group>"; };
 		63F260AA1B84D97700F109B9 /* EatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EatViewController.swift; sourceTree = "<group>"; };
 		63F260AC1B84D9CE00F109B9 /* SleepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
-		66DFC4544851B4B3D1372DBD /* Pods-Derbil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Derbil.release.xcconfig"; path = "Pods/Target Support Files/Pods-Derbil/Pods-Derbil.release.xcconfig"; sourceTree = "<group>"; };
-		8023165C45C300CF9C657420 /* Pods_Derbil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Derbil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FDD65591B76A5FB00CD8703 /* FaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		9FE05F791B6ED7EB00AE120C /* Derbil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Derbil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE05F7C1B6ED7EB00AE120C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,9 +209,6 @@
 		9FE05FC31B6ED7EC00AE120C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FE05FD71B6EDD4000AE120C /* WalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
 		9FF832971B76DEC100958D2A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		E2900B0CA0D6D3A9111C7F8A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		F5FE53BC35FF099FC610B619 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6F7E6B7ED25EC6668126CF4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +216,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7111B1B71B1AE890A6B40F78 /* Pods_Derbil.framework in Frameworks */,
-				116C3FC436ADBDA4F6FD8F15 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,30 +237,85 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6304FDB51B93DEB30063AA8C /* Timepiece.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDE1C7435464BDA06D37756D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6304FDB41B93DEA90063AA8C /* Timepiece.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		296A6164576BC3444560F7E8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				57FBF6BAE0E0FA757FF8566B /* Pods-Derbil.debug.xcconfig */,
-				66DFC4544851B4B3D1372DBD /* Pods-Derbil.release.xcconfig */,
-				E2900B0CA0D6D3A9111C7F8A /* Pods.debug.xcconfig */,
-				F6F7E6B7ED25EC6668126CF4 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		4AB87C9A9ACC3A59E57DC5B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8023165C45C300CF9C657420 /* Pods_Derbil.framework */,
-				F5FE53BC35FF099FC610B619 /* Pods.framework */,
+				632689D31B93D6F1002D2D0F /* Timepiece */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		632689D31B93D6F1002D2D0F /* Timepiece */ = {
+			isa = PBXGroup;
+			children = (
+				632689D41B93D6F1002D2D0F /* .gitignore */,
+				632689D51B93D6F1002D2D0F /* .travis.yml */,
+				632689D61B93D6F1002D2D0F /* LICENSE */,
+				632689D71B93D6F1002D2D0F /* README.md */,
+				632689D81B93D6F1002D2D0F /* Sources */,
+				632689E11B93D6F1002D2D0F /* Tests */,
+				632689E81B93D6F1002D2D0F /* Timepiece.playground */,
+				632689E91B93D6F1002D2D0F /* Timepiece.podspec */,
+				632689EA1B93D6F1002D2D0F /* Timepiece.xcodeproj */,
+				632689ED1B93D6F1002D2D0F /* Timepiece.xcworkspace */,
+			);
+			name = Timepiece;
+			path = Frameworks/Timepiece;
+			sourceTree = "<group>";
+		};
+		632689D81B93D6F1002D2D0F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				632689D91B93D6F1002D2D0F /* Duration.swift */,
+				632689DA1B93D6F1002D2D0F /* Int+Timepiece.swift */,
+				632689DB1B93D6F1002D2D0F /* NSCalendar+Timepiece.swift */,
+				632689DC1B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift */,
+				632689DD1B93D6F1002D2D0F /* NSDate+Timepiece.swift */,
+				632689DE1B93D6F1002D2D0F /* NSDateComponents+Timepiece.swift */,
+				632689DF1B93D6F1002D2D0F /* NSTimeInterval+Timepiece.swift */,
+				632689E01B93D6F1002D2D0F /* String+Timepiece.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		632689E11B93D6F1002D2D0F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				632689E21B93D6F1002D2D0F /* DurationTests.swift */,
+				632689E31B93D6F1002D2D0F /* Int+TimepieceTests.swift */,
+				632689E41B93D6F1002D2D0F /* NSCalendarUnit+TimepieceTests.swift */,
+				632689E51B93D6F1002D2D0F /* NSDate+TimepieceTests.swift */,
+				632689E61B93D6F1002D2D0F /* NSTimeInterval+TimepieceTests.swift */,
+				632689E71B93D6F1002D2D0F /* String+TimepieceTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		632689EB1B93D6F1002D2D0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63268A201B93D6F1002D2D0F /* Timepiece.framework */,
+				63268A221B93D6F1002D2D0F /* Timepiece.framework */,
+				63268A241B93D6F1002D2D0F /* Timepiece iOS Tests.xctest */,
+				63268A261B93D6F1002D2D0F /* Timepiece OSX Tests.xctest */,
+				63268A3C1B93DA87002D2D0F /* Timepiece watchOS.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9FE05F701B6ED7EB00AE120C = {
@@ -192,7 +327,6 @@
 				9FE05FA51B6ED7EB00AE120C /* Derbil WatchKit App */,
 				9FE05FB41B6ED7EC00AE120C /* Derbil WatchKit Extension */,
 				9FE05F7A1B6ED7EB00AE120C /* Products */,
-				296A6164576BC3444560F7E8 /* Pods */,
 				4AB87C9A9ACC3A59E57DC5B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -285,13 +419,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9FE05FCE1B6ED7EC00AE120C /* Build configuration list for PBXNativeTarget "Derbil" */;
 			buildPhases = (
-				A863DCD0C5B44EE336E67A30 /* Check Pods Manifest.lock */,
 				9FE05F751B6ED7EB00AE120C /* Sources */,
 				9FE05F761B6ED7EB00AE120C /* Frameworks */,
 				9FE05F771B6ED7EB00AE120C /* Resources */,
 				9FE05FCD1B6ED7EC00AE120C /* Embed Watch Content */,
-				7191E14AFF3819D8A211153E /* Embed Pods Frameworks */,
-				3D39192C9E955157393B8947 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -345,6 +476,7 @@
 			buildPhases = (
 				9FE05F9F1B6ED7EB00AE120C /* Resources */,
 				9FE05FC91B6ED7EC00AE120C /* Embed App Extensions */,
+				DDE1C7435464BDA06D37756D /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -379,6 +511,7 @@
 		9FE05F711B6ED7EB00AE120C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Peaking Software LLC";
 				TargetAttributes = {
@@ -414,6 +547,12 @@
 			mainGroup = 9FE05F701B6ED7EB00AE120C;
 			productRefGroup = 9FE05F7A1B6ED7EB00AE120C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 632689EB1B93D6F1002D2D0F /* Products */;
+					ProjectRef = 632689EA1B93D6F1002D2D0F /* Timepiece.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9FE05F781B6ED7EB00AE120C /* Derbil */,
@@ -425,11 +564,54 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		63268A201B93D6F1002D2D0F /* Timepiece.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Timepiece.framework;
+			remoteRef = 63268A1F1B93D6F1002D2D0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63268A221B93D6F1002D2D0F /* Timepiece.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Timepiece.framework;
+			remoteRef = 63268A211B93D6F1002D2D0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63268A241B93D6F1002D2D0F /* Timepiece iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Timepiece iOS Tests.xctest";
+			remoteRef = 63268A231B93D6F1002D2D0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63268A261B93D6F1002D2D0F /* Timepiece OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Timepiece OSX Tests.xctest";
+			remoteRef = 63268A251B93D6F1002D2D0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63268A3C1B93DA87002D2D0F /* Timepiece watchOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = "Timepiece watchOS.framework";
+			remoteRef = 63268A3B1B93DA87002D2D0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		9FE05F771B6ED7EB00AE120C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				632689F41B93D6F1002D2D0F /* LICENSE in Resources */,
+				632689F11B93D6F1002D2D0F /* .travis.yml in Resources */,
+				63268A181B93D6F1002D2D0F /* Timepiece.xcworkspace in Resources */,
+				63268A151B93D6F1002D2D0F /* Timepiece.podspec in Resources */,
+				632689EE1B93D6F1002D2D0F /* .gitignore in Resources */,
 				9FE05F871B6ED7EB00AE120C /* LaunchScreen.storyboard in Resources */,
 				9FE05F841B6ED7EB00AE120C /* Assets.xcassets in Resources */,
 				9FE05F821B6ED7EB00AE120C /* Main.storyboard in Resources */,
@@ -455,7 +637,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FE05FAA1B6ED7EB00AE120C /* Assets.xcassets in Resources */,
+				632689EF1B93D6F1002D2D0F /* .gitignore in Resources */,
+				63268A161B93D6F1002D2D0F /* Timepiece.podspec in Resources */,
+				632689F21B93D6F1002D2D0F /* .travis.yml in Resources */,
 				9FE05FA81B6ED7EB00AE120C /* Interface.storyboard in Resources */,
+				632689F51B93D6F1002D2D0F /* LICENSE in Resources */,
+				63268A191B93D6F1002D2D0F /* Timepiece.xcworkspace in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,71 +650,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				632689F31B93D6F1002D2D0F /* .travis.yml in Resources */,
+				632689F01B93D6F1002D2D0F /* .gitignore in Resources */,
+				63268A171B93D6F1002D2D0F /* Timepiece.podspec in Resources */,
+				632689F61B93D6F1002D2D0F /* LICENSE in Resources */,
+				63268A1A1B93D6F1002D2D0F /* Timepiece.xcworkspace in Resources */,
 				9FE05FC21B6ED7EC00AE120C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3D39192C9E955157393B8947 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7191E14AFF3819D8A211153E /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A863DCD0C5B44EE336E67A30 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		9FE05F751B6ED7EB00AE120C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63268A031B93D6F1002D2D0F /* NSDateComponents+Timepiece.swift in Sources */,
+				63268A011B93D6F1002D2D0F /* NSDate+Timepiece.swift in Sources */,
+				632689FB1B93D6F1002D2D0F /* Int+Timepiece.swift in Sources */,
+				632689FF1B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift in Sources */,
+				63268A071B93D6F1002D2D0F /* String+Timepiece.swift in Sources */,
+				63268A051B93D6F1002D2D0F /* NSTimeInterval+Timepiece.swift in Sources */,
+				632689FD1B93D6F1002D2D0F /* NSCalendar+Timepiece.swift in Sources */,
 				9FE05F7F1B6ED7EB00AE120C /* ViewController.swift in Sources */,
 				9FE05F7D1B6ED7EB00AE120C /* AppDelegate.swift in Sources */,
-				63F260AD1B84D9CE00F109B9 /* SleepViewController.swift in Sources */,
 				9FE05FD81B6EDD4000AE120C /* WalkViewController.swift in Sources */,
+				63F260AD1B84D9CE00F109B9 /* SleepViewController.swift in Sources */,
 				9FF832981B76DEC100958D2A /* Utilities.swift in Sources */,
 				9FDD655A1B76A5FB00CD8703 /* FaceView.swift in Sources */,
+				632689F91B93D6F1002D2D0F /* Duration.swift in Sources */,
 				63F260AB1B84D97700F109B9 /* EatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,9 +704,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63268A081B93D6F1002D2D0F /* String+Timepiece.swift in Sources */,
+				63268A061B93D6F1002D2D0F /* NSTimeInterval+Timepiece.swift in Sources */,
+				632689FC1B93D6F1002D2D0F /* Int+Timepiece.swift in Sources */,
+				63268A021B93D6F1002D2D0F /* NSDate+Timepiece.swift in Sources */,
+				63268A001B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift in Sources */,
+				63268A041B93D6F1002D2D0F /* NSDateComponents+Timepiece.swift in Sources */,
+				632689FE1B93D6F1002D2D0F /* NSCalendar+Timepiece.swift in Sources */,
 				9FE05FBC1B6ED7EC00AE120C /* NotificationController.swift in Sources */,
 				9FE05FBA1B6ED7EC00AE120C /* ExtensionDelegate.swift in Sources */,
 				9FE05FC01B6ED7EC00AE120C /* ComplicationController.swift in Sources */,
+				632689FA1B93D6F1002D2D0F /* Duration.swift in Sources */,
 				9FE05FB81B6ED7EC00AE120C /* InterfaceController.swift in Sources */,
 				9FE05FBE1B6ED7EC00AE120C /* GlanceController.swift in Sources */,
 			);
@@ -636,6 +796,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -683,6 +844,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -776,9 +938,9 @@
 		};
 		9FE05FCF1B6ED7EC00AE120C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2900B0CA0D6D3A9111C7F8A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				INFOPLIST_FILE = Derbil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -789,9 +951,9 @@
 		};
 		9FE05FD01B6ED7EC00AE120C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6F7E6B7ED25EC6668126CF4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				INFOPLIST_FILE = Derbil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

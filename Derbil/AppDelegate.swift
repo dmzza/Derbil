@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Timepiece
+//import Timepiece
 
 let kInAppNotificationReceived = "InAppNotificationReceived"
 let kNotificationNameNewDayBegan = "NewDayBegan"
