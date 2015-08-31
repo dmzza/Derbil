@@ -135,6 +135,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         note.alertBody = body
         note.alertTitle = title
         note.userInfo = ["thought": thought]
+        note.category = "myCategory"
         if intervalFromNow < 0 {
             intervalFromNow += secondsPerDay // bump it out to tomorrow
         }
