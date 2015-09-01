@@ -1,0 +1,4 @@
+[submodule "Frameworks/Timepiece"]
+	path = Frameworks/Timepiece
+	url = git@github.com:dmzza/Timepiece.git
+	branch = patch-1
