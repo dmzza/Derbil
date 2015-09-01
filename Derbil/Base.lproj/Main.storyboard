@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NNf-k9-I4p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NNf-k9-I4p">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -26,7 +26,7 @@
         <!--Sleep-->
         <scene sceneID="2Z5-md-LeV">
             <objects>
-                <viewController id="ohY-Xa-Hpi" customClass="SleepViewController" customModule="Derbil" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ohY-Xa-Hpi" customClass="SleepViewController" customModule="Chubbyy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nab-2f-AN3"/>
                         <viewControllerLayoutGuide type="bottom" id="Vk6-Bl-Jhg"/>
@@ -130,7 +130,7 @@
         <!--Eat-->
         <scene sceneID="kVp-Se-lQu">
             <objects>
-                <viewController id="NKq-G6-LX7" customClass="EatViewController" customModule="Derbil" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NKq-G6-LX7" customClass="EatViewController" customModule="Chubbyy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bfQ-Re-d3u"/>
                         <viewControllerLayoutGuide type="bottom" id="87r-hM-Zwn"/>
@@ -147,7 +147,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHV-hZ-8NV">
-                                <rect key="frame" x="279" y="477" width="43" height="30"/>
+                                <rect key="frame" x="279" y="477" width="42" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ej3-9I-pLh"/>
                                 </constraints>
@@ -257,7 +257,7 @@
         <!--Walk-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Derbil" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Chubbyy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -362,7 +362,7 @@
         <!--Walking-->
         <scene sceneID="1aA-yR-jzM">
             <objects>
-                <viewController id="7bB-Sz-I0B" customClass="WalkViewController" customModule="Derbil" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7bB-Sz-I0B" customClass="WalkViewController" customModule="Chubbyy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5ll-wX-F5y"/>
                         <viewControllerLayoutGuide type="bottom" id="HIa-t2-rTu"/>
