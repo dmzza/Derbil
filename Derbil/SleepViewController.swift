@@ -16,6 +16,7 @@ class SleepViewController: UIViewController {
     @IBOutlet var secondHeart: UIImageView!
     @IBOutlet var thirdHeart: UIImageView!
     @IBOutlet var bedtimeButton: UIButton!
+    var animator: UIDynamicAnimator?
     
     var faceView: FaceView?
     var hoursSleptToday: Int = 0 {
@@ -38,6 +39,7 @@ class SleepViewController: UIViewController {
         }
         
         self.hoursSleptToday = userDefaults.integerForKey(kUserDefaultsTodaysHoursSlept)
+        self.animator = UIDynamicAnimator(referenceView: self.view)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -97,7 +99,7 @@ class SleepViewController: UIViewController {
             mouth: Face.Name.MouthName(Face.Mouth.Smiling, Face.Part.Mouth),
             leftEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Left),
             rightEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Right))
-        self.faceView?.snore()
+        self.faceView?.snore(self.animator, targetView: self.firstHeart)
     }
     
     @IBAction func nap(sender: AnyObject) {

@@ -122,13 +122,16 @@ class FaceView: UIView {
         }
     }
     
-    func snore() {
+    func snore(animator: UIDynamicAnimator?, targetView: UIView?) {
         self.pattern = { () -> () in
             let face = self.face
             self.face = Face(
                 mouth: Face.Name.MouthName(Face.Mouth.Frowning, Face.Part.Mouth),
                 leftEye: face.leftEye,
                 rightEye: face.rightEye)
+            if let anim = animator, let view = targetView {
+                self.giveHeart(anim, endPoint: view.center);
+            }
             delay(1.5) { () -> () in
                 self.face = face
             }
@@ -136,5 +139,14 @@ class FaceView: UIView {
                 self.pattern()
             }
         }
+    }
+    
+    func giveHeart(animator: UIDynamicAnimator, endPoint: CGPoint) {
+        let heart: UIImageView = UIImageView(image: UIImage(named: "heart"))
+        heart.frame = CGRect(origin: self.mouthImageView.center, size: CGSize(width: 44.0, height: 44.0))
+        heart.tintColor = UIColor.redColor()
+        self.addSubview(heart)
+        let behavior: FlyingHeartBehavior = FlyingHeartBehavior(item: heart, endPoint: endPoint)
+        animator.addBehavior(behavior)
     }
 }
