@@ -3,10 +3,14 @@
 import UIKit
 
 var str = "Hello, playground"
+let kUserDefaultsSleepBegin = "SleepBegin"
 
 var play = Playplace()
 
 play.scheduleNotifications()
+
+play.wakeUp()
+
 
 class Playplace {
 
@@ -31,6 +35,19 @@ class Playplace {
     var secondsSinceMidnight: NSTimeInterval {
         return (NSDate().timeIntervalSinceReferenceDate % secondsPerDay) + Double(NSTimeZone.localTimeZone().secondsFromGMT)
     }
+    
+    
+    func wakeUp() {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let sleepBegan = NSDate(timeIntervalSinceNow: -10820).timeIntervalSince1970 //userDefaults.doubleForKey(kUserDefaultsSleepBegin)
+        let now = NSDate().timeIntervalSince1970
+        let currentHoursSlept = 2 //userDefaults.integerForKey(kUserDefaultsSleepBegin)
+        var hoursSlept: Int = 0
+        if sleepBegan > (now - 60*60*24) {
+            hoursSlept = Int((now - sleepBegan) / (60*60))
+        }
+    }
+    
 
     func scheduleNotifications() {
         let morningNotification = self.notification(morningNotificationTime, body: morningNotificationBody, title: notificationTitle, thought:morningNotificationThought)

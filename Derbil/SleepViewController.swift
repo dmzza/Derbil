@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kUserDefaultsTodaysHoursSlept = "TodaysHoursSlept"
+
 class SleepViewController: UIViewController {
     @IBOutlet var faceContainer: UIView!
     @IBOutlet var firstHeart: UIImageView!
@@ -23,13 +25,19 @@ class SleepViewController: UIViewController {
             self.thirdHeart.hidden = hoursSleptToday < 8
         }
     }
-    let oneDay: NSTimeInterval = 60 * 60 * 24
-    let oneHour: NSTimeInterval = 60 * 60
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameNewDayBegan,
+            object: nil,
+            queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+                userDefaults.setInteger(0, forKey: kUserDefaultsTodaysHoursSlept)
+        }
+        
+        self.hoursSleptToday = userDefaults.integerForKey(kUserDefaultsTodaysHoursSlept)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -59,13 +67,16 @@ class SleepViewController: UIViewController {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let sleepBegan = userDefaults.doubleForKey(kUserDefaultsSleepBegin)
         let now = NSDate().timeIntervalSince1970
-        let currentHoursSlept = userDefaults.integerForKey(kUserDefaultsSleepBegin)
+        let currentSleptHours: Int = userDefaults.integerForKey(kUserDefaultsSleepHours)
+        let todaysHoursSlept: Int = userDefaults.integerForKey(kUserDefaultsTodaysHoursSlept)
+        
         var hoursSlept: Int = 0
-        if sleepBegan > (now - oneDay) {
-            hoursSlept = Int((now - sleepBegan) % oneHour)
+        if sleepBegan > (now - NSCalendarUnit.Day.interval) {
+            hoursSlept = Int((now - sleepBegan) / NSCalendarUnit.Hour.interval)
         }
-        userDefaults.setInteger(currentHoursSlept + hoursSlept, forKey: kUserDefaultsSleepBegin)
-        self.hoursSleptToday += hoursSlept
+        self.hoursSleptToday = todaysHoursSlept + hoursSlept
+        userDefaults.setInteger(currentSleptHours + hoursSlept, forKey: kUserDefaultsSleepHours)
+        userDefaults.setInteger(self.hoursSleptToday, forKey: kUserDefaultsTodaysHoursSlept)
         userDefaults.setDouble(0.0, forKey: kUserDefaultsSleepBegin)
         self.bedtimeButton.hidden = false
         self.faceView?.blink()
@@ -74,8 +85,12 @@ class SleepViewController: UIViewController {
     @IBAction func sleep(sender: AnyObject) {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let now = NSDate().timeIntervalSince1970
+        let currentSleptHours: Int = userDefaults.integerForKey(kUserDefaultsSleepHours)
+        let todaysHoursSlept: Int = userDefaults.integerForKey(kUserDefaultsTodaysHoursSlept)
         
-        self.hoursSleptToday++
+        self.hoursSleptToday = todaysHoursSlept + 1
+        userDefaults.setInteger(currentSleptHours + 1, forKey: kUserDefaultsSleepHours)
+        userDefaults.setInteger(self.hoursSleptToday, forKey: kUserDefaultsTodaysHoursSlept)
         userDefaults.setDouble(now, forKey: kUserDefaultsSleepBegin)
         self.bedtimeButton.hidden = true
         self.faceView?.face = Face(

@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kUserDefaultsTodaysMealCount = "TodaysMealCount"
+
 class EatViewController: UIViewController {
     @IBOutlet var faceContainer: UIView!
     @IBOutlet var mealButton: UIButton!
@@ -29,8 +31,14 @@ class EatViewController: UIViewController {
         super.viewDidLoad()
 
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let currentMeals: Int = userDefaults.integerForKey(kUserDefaultsMealCount)
-        self.meals = currentMeals % mealsPerDay
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameNewDayBegan,
+            object: nil,
+            queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+                userDefaults.setInteger(0, forKey: kUserDefaultsTodaysMealCount)
+        }
+        
+        self.meals = userDefaults.integerForKey(kUserDefaultsTodaysMealCount)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -43,6 +51,7 @@ class EatViewController: UIViewController {
             self.faceView = FaceView(face: face, frame: self.faceContainer.bounds)
             self.faceContainer.addSubview(self.faceView!)
         }
+        self.updateMealButton()
     }
 
 
@@ -54,8 +63,15 @@ class EatViewController: UIViewController {
     @IBAction func eatMeal(sender: AnyObject) {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let currentMeals: Int = userDefaults.integerForKey(kUserDefaultsMealCount)
+        let todaysMeals: Int = userDefaults.integerForKey(kUserDefaultsTodaysMealCount)
+        
+        self.meals = todaysMeals + 1
         userDefaults.setInteger(currentMeals + 1, forKey: kUserDefaultsMealCount)
-        self.meals = (currentMeals + 1) % mealsPerDay
+        userDefaults.setInteger(self.meals, forKey: kUserDefaultsTodaysMealCount)
+        self.updateMealButton()
+    }
+    
+    func updateMealButton() {
         switch(self.meals) {
         case 0:
             self.mealButton.setTitle("Breakfast", forState: UIControlState.Normal)
