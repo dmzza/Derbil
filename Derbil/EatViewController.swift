@@ -17,6 +17,7 @@ class EatViewController: UIViewController {
     @IBOutlet var secondHeart: UIImageView!
     @IBOutlet var thirdHeart: UIImageView!
     var faceView: FaceView?
+    var animator: UIDynamicAnimator?
     
     var meals: Int = 0 {
         didSet {
@@ -39,6 +40,7 @@ class EatViewController: UIViewController {
         }
         
         self.meals = userDefaults.integerForKey(kUserDefaultsTodaysMealCount)
+        self.animator = UIDynamicAnimator(referenceView: self.view)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -69,6 +71,20 @@ class EatViewController: UIViewController {
         userDefaults.setInteger(currentMeals + 1, forKey: kUserDefaultsMealCount)
         userDefaults.setInteger(self.meals, forKey: kUserDefaultsTodaysMealCount)
         self.updateMealButton()
+        
+        for i in 1...10 {
+            NSTimer.scheduledTimerWithTimeInterval(0.05 * Double(i), target: self, selector: "giveHeart", userInfo: nil, repeats: false)
+        }
+        
+    }
+    
+    func giveHeart() {
+        let heart: UIImageView = UIImageView(image: UIImage(named: "heart"))
+        heart.frame = CGRect(origin: self.mealButton.center, size: self.firstHeart.bounds.size)
+        heart.tintColor = UIColor.redColor()
+        self.view.addSubview(heart)
+        let behavior: FlyingHeartBehavior = FlyingHeartBehavior(item: heart, endPoint: firstHeart.center) // firstHeart.frame.origin
+        self.animator!.addBehavior(behavior)
     }
     
     func updateMealButton() {

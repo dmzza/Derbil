@@ -1,18 +1,22 @@
 //: Playground - noun: a place where people can play
 
 import UIKit
+import XCPlayground
 
 var str = "Hello, playground"
 let kUserDefaultsSleepBegin = "SleepBegin"
 
 var play = Playplace()
+XCPShowView("Playground VC", view: play.view)
 
-play.scheduleNotifications()
+//play.scheduleNotifications()
+//
+//play.wakeUp()
 
-play.wakeUp()
+play.flyingHeart()
 
 
-class Playplace {
+class Playplace: UIViewController {
 
     let notificationTitle = "Chubbyy needs love"
     let morningNotificationBody = "🌞"
@@ -34,6 +38,30 @@ class Playplace {
     let accidentInterval: NSTimeInterval = 1.75 * 3600;
     var secondsSinceMidnight: NSTimeInterval {
         return (NSDate().timeIntervalSinceReferenceDate % secondsPerDay) + Double(NSTimeZone.localTimeZone().secondsFromGMT)
+    }
+    var heart: UIImageView = UIImageView(image: UIImage(named: "heart"))
+    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        XCPShowView("View", view: self.view)
+//    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        heart.frame = CGRect(x: 100, y: 300, width: 50, height: 50)
+        heart.backgroundColor = UIColor.blackColor()
+        self.view.addSubview(heart)
+    }
+    
+    func flyingHeart() {
+        
+        
+        let animator: UIDynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+        let behavior: FlyingHeartBehavior = FlyingHeartBehavior(items: [heart], endPoint: CGPoint(x: 0, y: 0)) // firstHeart.center
+        animator.addBehavior(behavior)
+        
     }
     
     
@@ -103,4 +131,28 @@ class Playplace {
         return note
     }
 
+
+}
+
+
+class FlyingHeartBehavior: UIDynamicBehavior {
+    
+    init(items: [UIDynamicItem], endPoint: CGPoint) {
+        super.init()
+        
+        for (_, item) in items.enumerate() {
+//            let snapBehavior: UISnapBehavior = UISnapBehavior(item: item, snapToPoint: endPoint)
+//            let pushBehavior: UIPushBehavior = UIPushBehavior(items: [item], mode: UIPushBehaviorMode.Instantaneous)
+            let gravityBehavior: UIGravityBehavior = UIGravityBehavior(items: [item])
+            gravityBehavior.angle = 1.0
+//            snapBehavior.damping = 0.65;
+//            pushBehavior.setAngle(1.0, magnitude: 1.0)
+            
+//            self.addChildBehavior(snapBehavior)
+//            self.addChildBehavior(pushBehavior)
+            self.addChildBehavior(gravityBehavior)
+        }
+        
+    }
+    
 }

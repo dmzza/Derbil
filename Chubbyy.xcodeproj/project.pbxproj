@@ -63,6 +63,7 @@
 		AA6AD28D1B957BAC00CB4549 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05FA61B6ED7EB00AE120C /* Interface.storyboard */; settings = {ASSET_TAGS = (); }; };
 		AA6AD2931B957CA500CB4549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F831B6ED7EB00AE120C /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		AA6AD2941B957CA600CB4549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F831B6ED7EB00AE120C /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
+		AA6AD2971B95950E00CB4549 /* FlyingHeartBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD2961B95950E00CB4549 /* FlyingHeartBehavior.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +212,7 @@
 		9FE05FD71B6EDD4000AE120C /* WalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
 		9FF832971B76DEC100958D2A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		AA6AD2951B95826B00CB4549 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		AA6AD2961B95950E00CB4549 /* FlyingHeartBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyingHeartBehavior.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 				63F260AA1B84D97700F109B9 /* EatViewController.swift */,
 				63F260AC1B84D9CE00F109B9 /* SleepViewController.swift */,
 				AA6AD2951B95826B00CB4549 /* MyPlayground.playground */,
+				AA6AD2961B95950E00CB4549 /* FlyingHeartBehavior.swift */,
 			);
 			name = Chubbyy;
 			path = Derbil;
@@ -676,6 +679,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63268A031B93D6F1002D2D0F /* NSDateComponents+Timepiece.swift in Sources */,
+				AA6AD2971B95950E00CB4549 /* FlyingHeartBehavior.swift in Sources */,
 				63268A011B93D6F1002D2D0F /* NSDate+Timepiece.swift in Sources */,
 				632689FB1B93D6F1002D2D0F /* Int+Timepiece.swift in Sources */,
 				632689FF1B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift in Sources */,
