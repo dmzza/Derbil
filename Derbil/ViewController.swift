@@ -111,7 +111,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         if interval < secondsToSoonestNotification {
             secondsToSoonestNotification = interval
         }
-        soonestNotification = now + secondsToSoonestNotification
+        soonestNotification = self.secondsSinceMidnight + secondsToSoonestNotification
         
         let firstWarningNotification = self.notification(soonestNotification + firstWarningInterval, body: warningNotificationBody, title: notificationTitle, thought: firstWarningNotificationThought)
         let finalWarningNotification = self.notification(soonestNotification + finalWarningInterval, body: warningNotificationBody, title: notificationTitle, thought: finalWarningNotificationThought)
@@ -129,8 +129,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     
     func notification(intervalFromMidnight: NSTimeInterval, body: String, title: String, thought: String) -> UILocalNotification {
         let note = UILocalNotification()
-        let secondsSinceMidnight = (NSDate().timeIntervalSinceReferenceDate % secondsPerDay) + Double(NSTimeZone(abbreviation: "PST")!.secondsFromGMT)
-        var intervalFromNow = intervalFromMidnight - secondsSinceMidnight
+        var intervalFromNow = intervalFromMidnight - self.secondsSinceMidnight
         
         note.alertBody = body
         note.alertTitle = title
@@ -162,6 +161,10 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         let alert: UIAlertController = UIAlertController(title: nil, message: thoughts, preferredStyle:UIAlertControllerStyle.Alert)
         
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    var secondsSinceMidnight: NSTimeInterval {
+       return (NSDate().timeIntervalSinceReferenceDate % secondsPerDay) + Double(NSTimeZone.localTimeZone().secondsFromGMT)
     }
     
     @IBAction func didTripleTap(sender: UITapGestureRecognizer) {
