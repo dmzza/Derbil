@@ -5,25 +5,64 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Walk-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Chubbyy">
+                <controller title="Walk" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Chubbyy">
                     <items>
-                        <group width="1" height="92" alignment="left" verticalAlignment="center" radius="30" id="WG0-nz-zPb">
+                        <group width="1" alignment="left" id="EeD-73-xgF">
                             <items>
-                                <imageView width="0.29999999999999999" height="1" alignment="center" image="normal-left-eye" contentMode="scaleAspectFit" id="ZPZ-I1-Tyz"/>
-                                <imageView width="0.29999999999999999" height="1" alignment="center" image="puppy-mouth" contentMode="scaleAspectFit" id="3pK-dV-XED"/>
-                                <imageView width="0.29999999999999999" height="1" alignment="center" image="normal-right-eye" contentMode="scaleAspectFit" id="Axz-vx-hsF"/>
+                                <group width="0.80000000000000004" height="94" alignment="center" verticalAlignment="center" radius="30" id="WG0-nz-zPb">
+                                    <items>
+                                        <imageView width="0.29999999999999999" height="1" alignment="center" image="normal-left-eye" contentMode="scaleAspectFit" id="ZPZ-I1-Tyz"/>
+                                        <imageView width="0.29999999999999999" height="1" alignment="center" image="puppy-mouth" contentMode="scaleAspectFit" id="3pK-dV-XED"/>
+                                        <imageView width="0.29999999999999999" height="1" alignment="center" image="normal-right-eye" contentMode="scaleAspectFit" id="Axz-vx-hsF"/>
+                                    </items>
+                                    <color key="backgroundColor" red="0.67995273329999995" green="1" blue="0.47084709870000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </group>
                             </items>
-                            <color key="backgroundColor" red="0.67995273329999995" green="1" blue="0.47084709870000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </group>
+                        <button alignment="left" id="ABs-YY-hWQ">
+                            <group key="contentGroup" width="1" height="49" alignment="left" id="mXl-vZ-CWm">
+                                <items>
+                                    <label alignment="center" verticalAlignment="center" accessibilityLabel="Start Walking" text="Start" id="VEv-Al-Lra"/>
+                                    <timer alignment="center" verticalAlignment="center" hidden="YES" accessibilityLabel="Elapsed walking time" accessibilityHint="Finish walking" previewedSeconds="3665" id="N71-lH-wO8">
+                                        <calendarUnit key="units" minute="YES" second="YES"/>
+                                    </timer>
+                                </items>
+                                <color key="backgroundColor" red="1" green="0.37359753200000001" blue="0.69567236610000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </group>
+                            <connections>
+                                <action selector="didAct" destination="AgC-eL-Hgc" id="98k-WB-Tdu"/>
+                            </connections>
+                        </button>
+                        <group width="1" alignment="left" id="cSr-aa-x18">
+                            <items>
+                                <button width="0.59999999999999998" alignment="left" title="Resume" id="zMD-uP-eNv">
+                                    <color key="backgroundColor" red="1" green="0.37359753200000001" blue="0.69567236610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="resume" destination="AgC-eL-Hgc" id="1KI-Xc-73T"/>
+                                    </connections>
+                                </button>
+                                <button width="0.40000000000000002" alignment="left" title="End" id="djL-1K-yNu">
+                                    <connections>
+                                        <action selector="end" destination="AgC-eL-Hgc" id="fDo-cd-p6c"/>
+                                    </connections>
+                                </button>
+                            </items>
                         </group>
                     </items>
-                    <variation key="device=watch42mm">
-                        <mask key="items">
-                            <include reference="WG0-nz-zPb"/>
-                        </mask>
-                    </variation>
+                    <menu key="menu" id="NyV-vL-gph">
+                        <items>
+                            <menuItem title="Menu Item" id="gGG-x1-H3V"/>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="actionButton" destination="ABs-YY-hWQ" id="lIh-Vg-yI7"/>
+                        <outlet property="actionNameLabel" destination="VEv-Al-Lra" id="Uyq-Br-BI6"/>
+                        <outlet property="pauseGroup" destination="cSr-aa-x18" id="uEw-be-HSL"/>
+                        <outlet property="walkTimer" destination="N71-lH-wO8" id="pcp-Gn-uTY"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
