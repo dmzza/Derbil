@@ -10,7 +10,6 @@ import UIKit
 
 protocol WalkViewControllerDelegate {
     func didComplete(controller: WalkViewController, elapsedTime: NSTimeInterval)
-    var happyWalkThreshold: NSTimeInterval { get }
 }
 
 class WalkViewController: UIViewController {
@@ -67,8 +66,8 @@ class WalkViewController: UIViewController {
         if (!self.paused) {
             self.elapsedTime++
         }
-        if (self.finishButton.enabled != (self.elapsedTime >= self.delegate?.happyWalkThreshold)) {
-            self.finishButton.enabled = self.elapsedTime >= self.delegate?.happyWalkThreshold
+        if (self.finishButton.enabled != (self.elapsedTime >= kHappyWalkThreshold)) {
+            self.finishButton.enabled = self.elapsedTime >= kHappyWalkThreshold
         }
         
         let formatter: NSDateFormatter = NSDateFormatter()

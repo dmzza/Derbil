@@ -9,6 +9,7 @@
 import UIKit
 
 let kUserDefaultsTodaysWalkCount = "TodaysWalkCount"
+let kHappyWalkThreshold: NSTimeInterval = 120
 
 class ViewController: UIViewController, WalkViewControllerDelegate {
 
@@ -27,7 +28,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
             self.thirdHeart.hidden = walks < 3
         }
     }
-    let happyWalkThreshold: NSTimeInterval = 120
+    
     let notificationTitle = "Chubbyy needs love"
     let morningNotificationBody = "🌞"
     let morningNotificationThought = "Wake up! I need to pee, take me outside."
@@ -180,7 +181,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     }
 
     func didComplete(controller: WalkViewController, elapsedTime: NSTimeInterval) {
-        if elapsedTime >= happyWalkThreshold {
+        if elapsedTime >= kHappyWalkThreshold {
             self.smile(elapsedTime / 10)
             let userDefaults = NSUserDefaults.standardUserDefaults()
             let currentWalks: Int = userDefaults.integerForKey(kUserDefaultsWalkCount)
