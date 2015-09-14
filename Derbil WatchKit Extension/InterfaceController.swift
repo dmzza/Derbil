@@ -7,8 +7,11 @@
 //
 
 import WatchKit
+import WatchConnectivity
 import Foundation
 
+let kMessageWalkDuration = "walkDuration"
+let kMessageHeartsEarned = "heartsEarned"
 
 class InterfaceController: WKInterfaceController {
 
@@ -30,6 +33,11 @@ class InterfaceController: WKInterfaceController {
             }
         }
     }
+    var watchSession: WCSession {
+        get {
+            return WCSession.defaultSession()
+        }
+    }
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -40,6 +48,10 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        if !self.walking {
+            actionButton.setHidden(false)
+            pauseGroup.setHidden(true)
+        }
     }
 
     override func didDeactivate() {
@@ -70,7 +82,18 @@ class InterfaceController: WKInterfaceController {
         actionNameLabel.setHidden(false)
         walkTimer.setHidden(true)
         walking = false
+        watchSession.sendMessage([kMessageWalkDuration: self.walkTimer], replyHandler: { (response) -> Void in
+                if let heartsEarned = response[kMessageHeartsEarned] as? Int {
+                    self.showHearts(heartsEarned)
+                }
+            }) { (_) -> Void in
+                self.showHearts(1);
+        }
     }
     
+    
+    func showHearts(earned: Int) {
+        
+    }
 
 }
