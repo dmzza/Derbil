@@ -54,7 +54,6 @@ struct Face {
 }
 
 
-
 class FaceView: UIView {
     
     var face: Face {
