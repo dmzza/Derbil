@@ -246,17 +246,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roc-bt-ODf">
-                                <rect key="frame" x="250" y="434" width="100" height="44"/>
+                            <button opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roc-bt-ODf">
+                                <rect key="frame" x="270" y="434" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="O0F-NQ-pJS"/>
-                                    <constraint firstAttribute="width" constant="100" id="roi-3k-OUP"/>
+                                    <constraint firstAttribute="height" constant="60" id="O0F-NQ-pJS"/>
+                                    <constraint firstAttribute="width" constant="60" id="roi-3k-OUP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <color key="tintColor" red="0.87450980389999999" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" image="start-button">
+                                <state key="normal" backgroundImage="tiny-heart">
                                     <color key="titleColor" red="0.87450980392156863" green="0.15686274509803921" blue="0.22352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -455,7 +455,7 @@
         <image name="head" width="332" height="195"/>
         <image name="heart" width="60" height="60"/>
         <image name="sleep" width="32" height="32"/>
-        <image name="start-button" width="71" height="15"/>
+        <image name="tiny-heart" width="60" height="60"/>
         <image name="walk" width="32" height="32"/>
     </resources>
 </document>
