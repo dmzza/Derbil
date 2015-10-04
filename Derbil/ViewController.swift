@@ -11,8 +11,9 @@ import UIKit
 let kUserDefaultsTodaysWalkCount = "TodaysWalkCount"
 let kUserDefaultsHeadColor = "HeadColor"
 let kHappyWalkThreshold: NSTimeInterval = 120
+let kPressHeadDuration: NSTimeInterval = 0.08
 
-class ViewController: UIViewController, WalkViewControllerDelegate {
+class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var faceContainer: UIView!
     var faceView: FaceView?
@@ -32,6 +33,9 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     @IBOutlet var thirdHeart: UIImageView!
     
     @IBOutlet var loveButton: UIButton!
+    @IBOutlet var headPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var colorPanRecognizer: UIPanGestureRecognizer!
+    
     
     let walksPerDay = 4
     var walks: Int = 0 {
@@ -85,6 +89,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         self.walks = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
         self.animator = UIDynamicAnimator(referenceView: self.view)
         self.revertToSavedHeadColor()
+        self.headPressRecognizer.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -172,6 +177,8 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     
     func speak(thoughts: String) {
         let alert: UIAlertController = UIAlertController(title: nil, message: thoughts, preferredStyle:UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
@@ -189,9 +196,11 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
             break
         case .Cancelled:
             self.revertToSavedHeadColor()
+            self.releaseHead()
             break
         case .Ended:
             self.userDefaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.headColor), forKey: kUserDefaultsHeadColor)
+            self.releaseHead()
             break
         case .Possible:
             print("possible")
@@ -199,6 +208,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         case .Began:
             self.panStartingPoint = sender.locationInView(nil)
             self.headColor.getHue(&self.hueStartingPoint, saturation: nil, brightness: nil, alpha: nil)
+            self.pressHead()
             break
         case .Failed:
             print("failed")
@@ -210,6 +220,34 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         for i in 1...10 {
             NSTimer.scheduledTimerWithTimeInterval(0.05 * Double(i), target: self, selector: "giveHeart", userInfo: nil, repeats: false)
         }
+    }
+    
+    @IBAction func tapHead(sender: UILongPressGestureRecognizer) {
+        switch sender.state {
+        case .Began:
+            self.pressHead()
+            break
+        case .Ended, .Cancelled:
+            self.releaseHead()
+            break
+        default:
+            break
+        }
+    }
+    
+    func pressHead() {
+        UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            let scaleDown: CGFloat = 0.95
+            self.headView.transform = CGAffineTransformMakeScale(scaleDown, scaleDown)
+            self.faceView!.transform = CGAffineTransformMakeScale(scaleDown, scaleDown)
+        }, completion: nil)
+    }
+    
+    func releaseHead() {
+        UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.headView.transform = CGAffineTransformIdentity
+            self.faceView!.transform = CGAffineTransformIdentity
+        }, completion: nil)
     }
     
     func giveHeart() {
@@ -263,5 +301,14 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
             userDefaults.setInteger(self.walks, forKey: kUserDefaultsTodaysWalkCount)
             
         }
+    }
+    
+    // mark - UIGestureRecognizerDelegate
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if otherGestureRecognizer is UIPanGestureRecognizer {
+            return true
+        }
+        return false
     }
 }
