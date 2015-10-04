@@ -9,6 +9,7 @@
 import UIKit
 
 let kUserDefaultsTodaysWalkCount = "TodaysWalkCount"
+let kUserDefaultsHeadColor = "HeadColor"
 let kHappyWalkThreshold: NSTimeInterval = 120
 
 class ViewController: UIViewController, WalkViewControllerDelegate {
@@ -16,7 +17,16 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     @IBOutlet weak var faceContainer: UIView!
     var faceView: FaceView?
     var animator: UIDynamicAnimator?
+    var headColor: UIColor = UIColor(hue: 0.706, saturation: 0.41, brightness: 0.87, alpha: 1.0) {
+        didSet {
+            self.headView.tintColor = headColor
+        }
+    }
+    var panStartingPoint = CGPoint(x: 0, y: 0)
+    var hueStartingPoint:CGFloat = 0.0
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
+    @IBOutlet var headView: UIImageView!
     @IBOutlet var firstHeart: UIImageView!
     @IBOutlet var secondHeart: UIImageView!
     @IBOutlet var thirdHeart: UIImageView!
@@ -53,8 +63,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        
+  
         self.scheduleNotifications()
         NSNotificationCenter.defaultCenter().addObserverForName(kInAppNotificationReceived,
             object: nil,
@@ -66,17 +75,16 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
                     }
                 }
             })
-        
-        
-        
+
         NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameNewDayBegan,
             object: nil,
             queue: NSOperationQueue.mainQueue()) { (note) -> Void in
-                userDefaults.setInteger(0, forKey: kUserDefaultsTodaysWalkCount)
+                self.userDefaults.setInteger(0, forKey: kUserDefaultsTodaysWalkCount)
         }
         
         self.walks = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
         self.animator = UIDynamicAnimator(referenceView: self.view)
+        self.revertToSavedHeadColor()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -168,6 +176,36 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    @IBAction func changeColor(sender: UIPanGestureRecognizer) {
+        let deltaY = sender.translationInView(self.view).y / self.view.bounds.size.height
+        var sat: CGFloat = 0.0
+        var bri: CGFloat = 0.0
+        self.headColor.getHue(nil, saturation: &sat, brightness: &bri, alpha: nil)
+        let hue = (self.hueStartingPoint + deltaY + 1.0) % 1.0
+        switch sender.state {
+        case .Changed:
+            self.headColor = UIColor(hue: hue, saturation: sat, brightness: bri, alpha: 1.0)
+            print("hue: \(hue)")
+            break
+        case .Cancelled:
+            self.revertToSavedHeadColor()
+            break
+        case .Ended:
+            self.userDefaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.headColor), forKey: kUserDefaultsHeadColor)
+            break
+        case .Possible:
+            print("possible")
+            break
+        case .Began:
+            self.panStartingPoint = sender.locationInView(nil)
+            self.headColor.getHue(&self.hueStartingPoint, saturation: nil, brightness: nil, alpha: nil)
+            break
+        case .Failed:
+            print("failed")
+            break
+        }
+    }
+    
     @IBAction func eatMeal(sender: AnyObject) {
         for i in 1...10 {
             NSTimer.scheduledTimerWithTimeInterval(0.05 * Double(i), target: self, selector: "giveHeart", userInfo: nil, repeats: false)
@@ -193,6 +231,12 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     
     var secondsSinceMidnight: NSTimeInterval {
        return (NSDate().timeIntervalSinceReferenceDate % secondsPerDay) + Double(NSTimeZone.localTimeZone().secondsFromGMT)
+    }
+    
+    func revertToSavedHeadColor() {
+        if let savedHeadColor: NSData = userDefaults.objectForKey(kUserDefaultsHeadColor) as? NSData {
+            self.headColor = NSKeyedUnarchiver.unarchiveObjectWithData(savedHeadColor) as! UIColor
+        }
     }
     
     @IBAction func didTripleTap(sender: UITapGestureRecognizer) {

@@ -339,6 +339,7 @@
                     <connections>
                         <outlet property="faceContainer" destination="MlJ-HI-nXW" id="I6e-bH-5aB"/>
                         <outlet property="firstHeart" destination="BbS-rE-gK4" id="LZN-XF-9En"/>
+                        <outlet property="headView" destination="pvY-aa-1nO" id="9PO-bY-L3f"/>
                         <outlet property="loveButton" destination="roc-bt-ODf" id="m5D-C9-eU6"/>
                         <outlet property="secondHeart" destination="xQd-lr-337" id="SyT-Dc-ZtR"/>
                         <outlet property="thirdHeart" destination="l2J-2G-H94" id="y7c-8X-yHp"/>
@@ -350,7 +351,11 @@
                         <action selector="didTripleTap:" destination="BYZ-38-t0r" id="oti-wb-es1"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="ihC-mB-tHJ"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="ihC-mB-tHJ">
+                    <connections>
+                        <action selector="changeColor:" destination="BYZ-38-t0r" id="N00-Ov-PKA"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="245" y="349"/>
         </scene>
