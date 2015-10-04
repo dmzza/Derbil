@@ -23,6 +23,23 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
             self.headView.tintColor = headColor
         }
     }
+    var isSleeping = false {
+        didSet {
+            if isSleeping {
+                self.faceView!.face = Face(
+                    mouth: Face.Name.MouthName(Face.Mouth.Smiling, Face.Part.Mouth),
+                    leftEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Left),
+                    rightEye: Face.Name.EyeName(Face.Eye.Closed, Face.Part.Right))
+                self.faceView!.snore(self.animator!, targetView: self.loveButton)
+            } else {
+                self.faceView!.face = Face(
+                    mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
+                    leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
+                    rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
+                self.faceView!.blink()
+            }
+        }
+    }
     var panStartingPoint = CGPoint(x: 0, y: 0)
     var hueStartingPoint:CGFloat = 0.0
     let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -227,7 +244,11 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         case .Began:
             self.pressHead()
             break
-        case .Ended, .Cancelled:
+        case .Ended:
+            self.isSleeping = !self.isSleeping
+            self.releaseHead()
+            break
+        case .Cancelled:
             self.releaseHead()
             break
         default:
