@@ -175,11 +175,19 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
     }
     
     func giveHeart() {
-        let heart: UIImageView = UIImageView(image: UIImage(named: "heart"))
-        heart.frame = CGRect(origin: self.loveButton.center, size: self.firstHeart.bounds.size)
+        let heart: UIImageView = UIImageView(image: UIImage(named: "tiny-heart"))
+        let randomStartingPoint = CGPointMake(CGFloat(arc4random()) % 6000.0 - 3000.0, CGFloat(arc4random()) % 10000.0 - 5000.0)
+        heart.frame = CGRect(origin: randomStartingPoint, size: self.loveButton.bounds.size)
         heart.tintColor = UIColor.redColor()
         self.view.addSubview(heart)
-        let behavior: FlyingHeartBehavior = FlyingHeartBehavior(item: heart, endPoint: firstHeart.center) // firstHeart.frame.origin
+        let behavior: FlyingHeartBehavior = FlyingHeartBehavior(item: heart, endPoint: self.loveButton.center)
+        UIView.animateWithDuration(2.0) { () -> Void in
+            heart.transform = CGAffineTransformMakeScale(0.5, 0.5)
+        }
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            heart.removeFromSuperview()
+        }
         self.animator!.addBehavior(behavior)
     }
     
