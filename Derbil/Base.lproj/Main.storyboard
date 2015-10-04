@@ -260,7 +260,7 @@
                                     <color key="titleColor" red="0.87450980392156863" green="0.15686274509803921" blue="0.22352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="iap-UL-asX" kind="presentation" identifier="WalkViewControllerSegue" id="bvf-Ya-lUL"/>
+                                    <action selector="eatMeal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cQU-aw-Cau"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head" translatesAutoresizingMaskIntoConstraints="NO" id="pvY-aa-1nO">
@@ -332,12 +332,14 @@
                         </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="mtW-Jb-YmZ" appends="YES" id="weE-iC-ven"/>
+                            <outletCollection property="gestureRecognizers" destination="ihC-mB-tHJ" appends="YES" id="RmN-FF-8Cy"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Walk" image="walk" id="IWk-AC-07E"/>
                     <connections>
                         <outlet property="faceContainer" destination="MlJ-HI-nXW" id="I6e-bH-5aB"/>
                         <outlet property="firstHeart" destination="BbS-rE-gK4" id="LZN-XF-9En"/>
+                        <outlet property="loveButton" destination="roc-bt-ODf" id="m5D-C9-eU6"/>
                         <outlet property="secondHeart" destination="xQd-lr-337" id="SyT-Dc-ZtR"/>
                         <outlet property="thirdHeart" destination="l2J-2G-H94" id="y7c-8X-yHp"/>
                     </connections>
@@ -348,6 +350,7 @@
                         <action selector="didTripleTap:" destination="BYZ-38-t0r" id="oti-wb-es1"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="ihC-mB-tHJ"/>
             </objects>
             <point key="canvasLocation" x="245" y="349"/>
         </scene>

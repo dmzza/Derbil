@@ -15,10 +15,13 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
 
     @IBOutlet weak var faceContainer: UIView!
     var faceView: FaceView?
+    var animator: UIDynamicAnimator?
     
     @IBOutlet var firstHeart: UIImageView!
     @IBOutlet var secondHeart: UIImageView!
     @IBOutlet var thirdHeart: UIImageView!
+    
+    @IBOutlet var loveButton: UIButton!
     
     let walksPerDay = 4
     var walks: Int = 0 {
@@ -73,6 +76,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         }
         
         self.walks = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
+        self.animator = UIDynamicAnimator(referenceView: self.view)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -162,6 +166,21 @@ class ViewController: UIViewController, WalkViewControllerDelegate {
         let alert: UIAlertController = UIAlertController(title: nil, message: thoughts, preferredStyle:UIAlertControllerStyle.Alert)
         
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func eatMeal(sender: AnyObject) {
+        for i in 1...10 {
+            NSTimer.scheduledTimerWithTimeInterval(0.05 * Double(i), target: self, selector: "giveHeart", userInfo: nil, repeats: false)
+        }
+    }
+    
+    func giveHeart() {
+        let heart: UIImageView = UIImageView(image: UIImage(named: "heart"))
+        heart.frame = CGRect(origin: self.loveButton.center, size: self.firstHeart.bounds.size)
+        heart.tintColor = UIColor.redColor()
+        self.view.addSubview(heart)
+        let behavior: FlyingHeartBehavior = FlyingHeartBehavior(item: heart, endPoint: firstHeart.center) // firstHeart.frame.origin
+        self.animator!.addBehavior(behavior)
     }
     
     var secondsSinceMidnight: NSTimeInterval {
