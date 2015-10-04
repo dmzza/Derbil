@@ -13,7 +13,7 @@ let kUserDefaultsHeadColor = "HeadColor"
 let kHappyWalkThreshold: NSTimeInterval = 120
 let kPressHeadDuration: NSTimeInterval = 0.08
 
-class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRecognizerDelegate, UIDynamicAnimatorDelegate {
 
     @IBOutlet weak var faceContainer: UIView!
     var faceView: FaceView?
@@ -105,6 +105,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         
         self.walks = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
         self.animator = UIDynamicAnimator(referenceView: self.view)
+        self.animator!.delegate = self
         self.revertToSavedHeadColor()
         self.headPressRecognizer.delegate = self
     }
@@ -234,6 +235,16 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     }
     
     @IBAction func eatMeal(sender: AnyObject) {
+        if self.isSleeping {
+            self.pressHead()
+            self.releaseHead()
+            return
+        }
+        self.faceView!.face = Face(
+            mouth: Face.Name.MouthName(Face.Mouth.Laughing, Face.Part.Mouth),
+            leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
+            rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
+       
         for i in 1...10 {
             NSTimer.scheduledTimerWithTimeInterval(0.05 * Double(i), target: self, selector: "giveHeart", userInfo: nil, repeats: false)
         }
@@ -331,5 +342,16 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
             return true
         }
         return false
+    }
+    
+    // mark - UIDynamicAnimatorDelegate
+    
+    func dynamicAnimatorDidPause(animator: UIDynamicAnimator) {
+        if !self.isSleeping {
+            self.faceView!.face = Face(
+                mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
+                leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
+                rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
+        }
     }
 }
