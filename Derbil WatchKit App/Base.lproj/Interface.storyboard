@@ -71,10 +71,31 @@
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
             <objects>
-                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="Chubbyy" customModuleProvider="target">
+                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="Chubbyy">
                     <items>
-                        <group alignment="left" id="t8f-Gd-c4y"/>
-                        <group alignment="left" id="uCw-4Q-Ouw"/>
+                        <group alignment="left" id="t8f-Gd-c4y">
+                            <items>
+                                <imageView width="0.29999999999999999" height="1" alignment="left" image="tiny-heart" contentMode="center" id="AAR-G2-iDk"/>
+                                <label alignment="left" verticalAlignment="center" text="Chubbyy" id="VQJ-Zv-nYc"/>
+                            </items>
+                        </group>
+                        <group alignment="left" id="uCw-4Q-Ouw">
+                            <items>
+                                <group width="1" alignment="left" verticalAlignment="bottom" backgroundImage="head" contentMode="scaleAspectFit" layout="vertical" id="3cm-1b-S7W">
+                                    <items>
+                                        <group width="1" height="8" alignment="left" id="ixo-8o-IuB"/>
+                                        <group width="0.69999999999999996" height="94" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" radius="30" spacing="5" id="Xi7-lj-keh">
+                                            <items>
+                                                <imageView width="0.29999999999999999" height="1" alignment="center" image="normal-left-eye" contentMode="scaleAspectFit" id="sfj-7Q-of2"/>
+                                                <imageView width="0.29999999999999999" height="1" alignment="center" image="puppy-mouth" contentMode="scaleAspectFit" id="lQV-ok-gVJ"/>
+                                                <imageView width="0.29999999999999999" height="1" alignment="center" image="normal-right-eye" contentMode="scaleAspectFit" id="8DO-pN-bMY"/>
+                                            </items>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>
