@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSNotificationCenter.defaultCenter().postNotificationName(kNotificationNameNewDayBegan, object: nil)
             userDefaults.setDouble(now.timeIntervalSince1970, forKey: kUserDefaultsLastDailyReset)
          }
+        UIApplication.sharedApplication().statusBarHidden = true
         
         return true
     }
