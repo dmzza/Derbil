@@ -133,7 +133,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         let eveningNotification = self.notification(eveningNotificationTime, body: eveningNotificationBody, title: notificationTitle, thought:morningNotificationThought)
         var secondsToSoonestNotification = secondsPerDay
         let now = NSDate().timeIntervalSinceReferenceDate
-        let soonestNotification: NSTimeInterval
+//        let soonestNotification: NSTimeInterval
         
         var interval = morningNotification.fireDate!.timeIntervalSinceReferenceDate - now
         if interval < secondsToSoonestNotification {
@@ -147,20 +147,20 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         if interval < secondsToSoonestNotification {
             secondsToSoonestNotification = interval
         }
-        soonestNotification = self.secondsSinceMidnight + secondsToSoonestNotification
+//        soonestNotification = self.secondsSinceMidnight + secondsToSoonestNotification
         
-        let firstWarningNotification = self.notification(soonestNotification + firstWarningInterval, body: warningNotificationBody, title: notificationTitle, thought: firstWarningNotificationThought)
-        let finalWarningNotification = self.notification(soonestNotification + finalWarningInterval, body: warningNotificationBody, title: notificationTitle, thought: finalWarningNotificationThought)
-        let accidentNotification = self.notification(soonestNotification + accidentInterval, body: warningNotificationBody, title: notificationTitle, thought: accidentNotificationThought)
+//        let firstWarningNotification = self.notification(soonestNotification + firstWarningInterval, body: warningNotificationBody, title: notificationTitle, thought: firstWarningNotificationThought)
+//        let finalWarningNotification = self.notification(soonestNotification + finalWarningInterval, body: warningNotificationBody, title: notificationTitle, thought: finalWarningNotificationThought)
+//        let accidentNotification = self.notification(soonestNotification + accidentInterval, body: warningNotificationBody, title: notificationTitle, thought: accidentNotificationThought)
         
         UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         UIApplication.sharedApplication().scheduleLocalNotification(morningNotification)
         UIApplication.sharedApplication().scheduleLocalNotification(afternoonNotification)
         UIApplication.sharedApplication().scheduleLocalNotification(eveningNotification)
-        UIApplication.sharedApplication().scheduleLocalNotification(firstWarningNotification)
-        UIApplication.sharedApplication().scheduleLocalNotification(finalWarningNotification)
-        UIApplication.sharedApplication().scheduleLocalNotification(accidentNotification)
+//        UIApplication.sharedApplication().scheduleLocalNotification(firstWarningNotification)
+//        UIApplication.sharedApplication().scheduleLocalNotification(finalWarningNotification)
+//        UIApplication.sharedApplication().scheduleLocalNotification(accidentNotification)
     }
     
     func notification(intervalFromMidnight: NSTimeInterval, body: String, title: String, thought: String) -> UILocalNotification {
@@ -210,7 +210,6 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         switch sender.state {
         case .Changed:
             self.headColor = UIColor(hue: hue, saturation: sat, brightness: bri, alpha: 1.0)
-            print("hue: \(hue)")
             break
         case .Cancelled:
             self.revertToSavedHeadColor()
