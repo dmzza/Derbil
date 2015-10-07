@@ -390,12 +390,12 @@
                         <action selector="changeColor:" destination="BYZ-38-t0r" id="N00-Ov-PKA"/>
                     </connections>
                 </panGestureRecognizer>
-                <pongPressGestureRecognizer enabled="NO" cancelsTouchesInView="NO" allowableMovement="10" minimumPressDuration="0.001" id="EIB-hX-ttQ">
+                <pongPressGestureRecognizer cancelsTouchesInView="NO" allowableMovement="10" minimumPressDuration="0.001" id="EIB-hX-ttQ">
                     <connections>
                         <action selector="tapHead:" destination="BYZ-38-t0r" id="dnA-BB-aDD"/>
                     </connections>
                 </pongPressGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="3" id="GPU-Xe-e7P">
+                <tapGestureRecognizer numberOfTapsRequired="3" id="GPU-Xe-e7P" userLabel="Abuse Recognizer">
                     <connections>
                         <action selector="hitHead:" destination="BYZ-38-t0r" id="DrJ-Fm-pbm"/>
                     </connections>
