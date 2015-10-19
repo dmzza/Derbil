@@ -54,7 +54,6 @@ struct Face {
 }
 
 
-
 class FaceView: UIView {
     
     var face: Face {
@@ -142,11 +141,19 @@ class FaceView: UIView {
     }
     
     func giveHeart(animator: UIDynamicAnimator, endPoint: CGPoint) {
-        let heart: UIImageView = UIImageView(image: UIImage(named: "heart"))
+        let heart: UIImageView = UIImageView(image: UIImage(named: "tiny-heart"))
         heart.frame = CGRect(origin: self.mouthImageView.center, size: CGSize(width: 44.0, height: 44.0))
         heart.tintColor = UIColor.redColor()
         self.addSubview(heart)
         let behavior: FlyingHeartBehavior = FlyingHeartBehavior(item: heart, endPoint: endPoint)
+        UIView.animateWithDuration(2.0) { () -> Void in
+            heart.transform = CGAffineTransformMakeScale(0.5, 0.5)
+            heart.alpha = 0.0
+        }
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            heart.removeFromSuperview()
+        }
         animator.addBehavior(behavior)
     }
 }
