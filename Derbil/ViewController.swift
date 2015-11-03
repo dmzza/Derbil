@@ -255,7 +255,6 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
             self.pressHead()
             break
         case .Ended:
-            self.isSleeping = !self.isSleeping
             self.releaseHead()
             break
         case .Cancelled:
