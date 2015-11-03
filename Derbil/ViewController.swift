@@ -266,6 +266,16 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         }
     }
     
+    @IBAction func tapBackground(sender: UITapGestureRecognizer) {
+        switch sender.state {
+        case .Ended:
+            self.giveHeart()
+            break
+        default:
+            break
+        }
+    }
+    
     func pressHead() {
         UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             let scaleDown: CGFloat = 0.95

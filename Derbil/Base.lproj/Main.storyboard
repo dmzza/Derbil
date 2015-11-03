@@ -364,6 +364,7 @@
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="mtW-Jb-YmZ" appends="YES" id="weE-iC-ven"/>
                             <outletCollection property="gestureRecognizers" destination="ihC-mB-tHJ" appends="YES" id="RmN-FF-8Cy"/>
+                            <outletCollection property="gestureRecognizers" destination="kPk-rF-oHD" appends="YES" id="s5S-hd-HSD"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Walk" image="walk" id="IWk-AC-07E"/>
@@ -394,6 +395,11 @@
                         <action selector="tapHead:" destination="BYZ-38-t0r" id="dnA-BB-aDD"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="kPk-rF-oHD">
+                    <connections>
+                        <action selector="tapBackground:" destination="BYZ-38-t0r" id="dDy-fg-gVf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="245" y="349"/>
         </scene>
