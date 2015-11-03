@@ -269,7 +269,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     @IBAction func tapBackground(sender: UITapGestureRecognizer) {
         switch sender.state {
         case .Ended:
-            self.giveHeart()
+            self.giveHeartFromOrigin(sender.locationInView(self.view))
             break
         default:
             break
@@ -292,9 +292,14 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     }
     
     func giveHeart() {
-        let heart: UIImageView = UIImageView(image: UIImage(named: "tiny-heart"))
         let randomStartingPoint = CGPointMake(CGFloat(arc4random()) % 6000.0 - 3000.0, CGFloat(arc4random()) % 10000.0 - 5000.0)
-        heart.frame = CGRect(origin: randomStartingPoint, size: self.loveButton.bounds.size)
+        self.giveHeartFromOrigin(randomStartingPoint)
+    }
+    
+    func giveHeartFromOrigin(origin: CGPoint) {
+        let heart: UIImageView = UIImageView(image: UIImage(named: "tiny-heart"))
+        
+        heart.frame = CGRect(origin: origin, size: self.loveButton.bounds.size)
         heart.tintColor = UIColor.redColor()
         self.view.addSubview(heart)
         let behavior: FlyingHeartBehavior = FlyingHeartBehavior(item: heart, endPoint: self.loveButton.center)
