@@ -326,6 +326,59 @@
                                     <constraint firstAttribute="width" constant="44" id="nwg-aI-JTg"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opj-gb-xoo">
+                                <rect key="frame" x="20" y="80" width="256" height="52"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chubbyy-bubble" translatesAutoresizingMaskIntoConstraints="NO" id="gXQ-9y-IjY">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="52"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello hello! I love you so much." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFc-U2-I3J">
+                                        <rect key="frame" x="10" y="10" width="236" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" label="Chubbyy says"/>
+                                <constraints>
+                                    <constraint firstItem="gXQ-9y-IjY" firstAttribute="leading" secondItem="opj-gb-xoo" secondAttribute="leading" id="0re-Dc-a5h"/>
+                                    <constraint firstAttribute="bottom" secondItem="gXQ-9y-IjY" secondAttribute="bottom" id="CVV-Jh-pVj"/>
+                                    <constraint firstItem="IFc-U2-I3J" firstAttribute="leading" secondItem="opj-gb-xoo" secondAttribute="leading" constant="10" id="JGy-2s-Ynm"/>
+                                    <constraint firstItem="gXQ-9y-IjY" firstAttribute="top" secondItem="opj-gb-xoo" secondAttribute="top" id="SIp-vE-AHc"/>
+                                    <constraint firstAttribute="trailing" secondItem="IFc-U2-I3J" secondAttribute="trailing" constant="10" id="VPK-jC-zkl"/>
+                                    <constraint firstAttribute="trailing" secondItem="gXQ-9y-IjY" secondAttribute="trailing" id="a8I-0v-d8q"/>
+                                    <constraint firstAttribute="bottom" secondItem="IFc-U2-I3J" secondAttribute="bottom" constant="21" id="eS9-Jk-3P0"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="jXr-6f-9pr"/>
+                                    <constraint firstItem="IFc-U2-I3J" firstAttribute="top" secondItem="opj-gb-xoo" secondAttribute="top" constant="10" id="rxP-Bx-fxx"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwQ-Mz-XRv">
+                                <rect key="frame" x="382" y="132" width="198" height="52"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my-bubble" translatesAutoresizingMaskIntoConstraints="NO" id="HpT-nE-e7s">
+                                        <rect key="frame" x="0.0" y="0.0" width="198" height="52"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I love you too Chubbyy." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zF-ZD-Npa">
+                                        <rect key="frame" x="10" y="10" width="178" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" label="Chubbyy says"/>
+                                <constraints>
+                                    <constraint firstItem="HpT-nE-e7s" firstAttribute="top" secondItem="CwQ-Mz-XRv" secondAttribute="top" id="8In-Gg-hbc"/>
+                                    <constraint firstAttribute="trailing" secondItem="9zF-ZD-Npa" secondAttribute="trailing" constant="10" id="Gzq-mo-9Ts"/>
+                                    <constraint firstItem="9zF-ZD-Npa" firstAttribute="top" secondItem="CwQ-Mz-XRv" secondAttribute="top" constant="10" id="Qa5-J4-Mjy"/>
+                                    <constraint firstAttribute="bottom" secondItem="9zF-ZD-Npa" secondAttribute="bottom" constant="21" id="ZrS-6K-1S4"/>
+                                    <constraint firstAttribute="bottom" secondItem="HpT-nE-e7s" secondAttribute="bottom" id="Zv3-kQ-sRj"/>
+                                    <constraint firstAttribute="trailing" secondItem="HpT-nE-e7s" secondAttribute="trailing" id="fw7-mV-szT"/>
+                                    <constraint firstItem="9zF-ZD-Npa" firstAttribute="leading" secondItem="CwQ-Mz-XRv" secondAttribute="leading" constant="10" id="iGc-Bg-eRg"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="m6L-5u-b8H"/>
+                                    <constraint firstItem="HpT-nE-e7s" firstAttribute="leading" secondItem="CwQ-Mz-XRv" secondAttribute="leading" id="zjY-Je-3PY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -333,20 +386,26 @@
                         <constraints>
                             <constraint firstItem="BbS-rE-gK4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0Vy-we-uG5"/>
                             <constraint firstAttribute="trailing" secondItem="MlJ-HI-nXW" secondAttribute="trailing" constant="16" id="1yB-NI-kJZ"/>
+                            <constraint firstItem="opj-gb-xoo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="5cC-1A-ire"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="17" id="5fH-Rx-kQm"/>
                             <constraint firstItem="l2J-2G-H94" firstAttribute="top" secondItem="xQd-lr-337" secondAttribute="bottom" id="Adr-0Y-UMT"/>
+                            <constraint firstItem="CwQ-Mz-XRv" firstAttribute="top" secondItem="opj-gb-xoo" secondAttribute="bottom" id="CH1-za-SkU"/>
+                            <constraint firstItem="pvY-aa-1nO" firstAttribute="top" secondItem="CwQ-Mz-XRv" secondAttribute="bottom" constant="10" id="D5b-Kz-dId"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="centerX" secondItem="MlJ-HI-nXW" secondAttribute="centerX" id="EZ3-ou-k76"/>
                             <constraint firstItem="roc-bt-ODf" firstAttribute="top" secondItem="MlJ-HI-nXW" secondAttribute="bottom" constant="61" id="GDz-LR-dhO"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="JB2-eA-AYW"/>
+                            <constraint firstItem="CwQ-Mz-XRv" firstAttribute="bottom" secondItem="pvY-aa-1nO" secondAttribute="bottom" id="Ku3-lV-nzF"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="width" secondItem="MlJ-HI-nXW" secondAttribute="width" multiplier="1.6" id="LJa-k2-jGc"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="top" secondItem="MlJ-HI-nXW" secondAttribute="top" multiplier="0.9" id="NdA-u7-QoW"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="centerY" secondItem="MlJ-HI-nXW" secondAttribute="centerY" multiplier="0.97" id="Sn9-ub-3sR"/>
+                            <constraint firstAttribute="trailing" secondItem="CwQ-Mz-XRv" secondAttribute="trailing" constant="20" id="VT7-Ln-v3x"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="Z2I-AD-IdX"/>
                             <constraint firstItem="roc-bt-ODf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZOc-WC-mnw"/>
                             <constraint firstItem="BbS-rE-gK4" firstAttribute="trailing" secondItem="l2J-2G-H94" secondAttribute="trailing" id="eIJ-FL-Mjv"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hKv-Cu-s1u"/>
                             <constraint firstItem="BbS-rE-gK4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="k6i-hD-oEC"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kgf-Pi-fIf"/>
+                            <constraint firstItem="opj-gb-xoo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="kmn-NM-bSA"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="leading" secondItem="MlJ-HI-nXW" secondAttribute="leading" id="mqj-WR-AvX"/>
                             <constraint firstItem="BbS-rE-gK4" firstAttribute="trailing" secondItem="xQd-lr-337" secondAttribute="trailing" id="nTb-ms-rr3"/>
                             <constraint firstItem="xQd-lr-337" firstAttribute="top" secondItem="BbS-rE-gK4" secondAttribute="bottom" id="sNb-xl-pUd"/>
@@ -354,8 +413,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="kmn-NM-bSA"/>
                                 <exclude reference="NdA-u7-QoW"/>
                                 <exclude reference="mqj-WR-AvX"/>
+                                <exclude reference="Ku3-lV-nzF"/>
                                 <exclude reference="1yB-NI-kJZ"/>
                                 <exclude reference="5fH-Rx-kQm"/>
                                 <exclude reference="Z2I-AD-IdX"/>
@@ -508,9 +569,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chubbyy-bubble" width="35" height="50"/>
         <image name="eat" width="32" height="32"/>
         <image name="head" width="332" height="195"/>
         <image name="heart" width="60" height="60"/>
+        <image name="my-bubble" width="34" height="50"/>
         <image name="sleep" width="32" height="32"/>
         <image name="tiny-heart" width="60" height="60"/>
         <image name="walk" width="32" height="32"/>
