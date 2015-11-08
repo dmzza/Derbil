@@ -288,9 +288,12 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         heart.tintColor = UIColor.redColor()
         self.view.addSubview(heart)
         let behavior: FlyingHeartBehavior = FlyingHeartBehavior(item: heart, endPoint: self.loveButton.center)
-        UIView.animateWithDuration(2.0) { () -> Void in
+        UIView.animateWithDuration(2.0, animations: { () -> Void in
             heart.transform = CGAffineTransformMakeScale(0.5, 0.5)
+            }) { (finished) -> Void in
+                self.animator!.removeBehavior(behavior)
         }
+        
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             heart.removeFromSuperview()
