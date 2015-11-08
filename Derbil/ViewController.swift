@@ -266,6 +266,16 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         }
     }
     
+    @IBAction func hitHead(sender: UITapGestureRecognizer) {
+        switch sender.state {
+        case .Ended:
+            self.cry()
+            break
+        default:
+            break
+        }
+    }
+    
     func pressHead() {
         UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             let scaleDown: CGFloat = 0.95
@@ -299,6 +309,13 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
             heart.removeFromSuperview()
         }
         self.animator!.addBehavior(behavior)
+    }
+    
+    func cry() {
+        self.faceView!.face = Face(
+            mouth: Face.Name.MouthName(Face.Mouth.Sad, Face.Part.Mouth),
+            leftEye: Face.Name.EyeName(Face.Eye.Sad, Face.Part.Left),
+            rightEye: Face.Name.EyeName(Face.Eye.Sad, Face.Part.Right))
     }
     
     var secondsSinceMidnight: NSTimeInterval {
@@ -340,7 +357,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     // mark - UIGestureRecognizerDelegate
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if otherGestureRecognizer is UIPanGestureRecognizer {
+        if otherGestureRecognizer is UIPanGestureRecognizer || otherGestureRecognizer is UITapGestureRecognizer {
             return true
         }
         return false
