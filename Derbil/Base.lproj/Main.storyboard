@@ -327,18 +327,21 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opj-gb-xoo">
-                                <rect key="frame" x="20" y="80" width="256" height="52"/>
+                                <rect key="frame" x="20" y="80" width="226" height="52"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chubbyy-bubble" translatesAutoresizingMaskIntoConstraints="NO" id="gXQ-9y-IjY">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="226" height="52"/>
+                                        <animations/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello hello! I love you so much." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFc-U2-I3J">
-                                        <rect key="frame" x="10" y="10" width="236" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hiya! My name is Chubbyy." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFc-U2-I3J">
+                                        <rect key="frame" x="10" y="10" width="206" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" label="Chubbyy says"/>
                                 <constraints>
@@ -354,17 +357,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwQ-Mz-XRv">
-                                <rect key="frame" x="382" y="132" width="198" height="52"/>
+                                <rect key="frame" x="446" y="132" width="134" height="52"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my-bubble" translatesAutoresizingMaskIntoConstraints="NO" id="HpT-nE-e7s">
-                                        <rect key="frame" x="0.0" y="0.0" width="198" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="52"/>
+                                        <animations/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I love you too Chubbyy." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zF-ZD-Npa">
-                                        <rect key="frame" x="10" y="10" width="178" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chubbyy who?" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zF-ZD-Npa">
+                                        <rect key="frame" x="10" y="10" width="114" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" label="Chubbyy says"/>
                                 <constraints>
@@ -416,10 +422,10 @@
                                 <exclude reference="kmn-NM-bSA"/>
                                 <exclude reference="NdA-u7-QoW"/>
                                 <exclude reference="mqj-WR-AvX"/>
-                                <exclude reference="Ku3-lV-nzF"/>
                                 <exclude reference="1yB-NI-kJZ"/>
                                 <exclude reference="5fH-Rx-kQm"/>
                                 <exclude reference="Z2I-AD-IdX"/>
+                                <exclude reference="Ku3-lV-nzF"/>
                             </mask>
                         </variation>
                         <connections>
