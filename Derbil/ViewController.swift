@@ -203,13 +203,16 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     
     @IBAction func changeColor(sender: UIPanGestureRecognizer) {
         let deltaY = sender.translationInView(self.view).y / self.view.bounds.size.height
+        let deltaX = sender.translationInView(self.view).x / 5
         var sat: CGFloat = 0.0
         var bri: CGFloat = 0.0
         self.headColor.getHue(nil, saturation: &sat, brightness: &bri, alpha: nil)
         let hue = (self.hueStartingPoint + deltaY + 1.0) % 1.0
+        let translateX = deltaX
         switch sender.state {
         case .Changed:
             self.headColor = UIColor(hue: hue, saturation: sat, brightness: bri, alpha: 1.0)
+            self.moveHead(translateX)
             break
         case .Cancelled:
             self.revertToSavedHeadColor()
@@ -276,11 +279,24 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     }
     
     func pressHead() {
-        UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-            let scaleDown: CGFloat = 0.95
-            self.headView.transform = CGAffineTransformMakeScale(scaleDown, scaleDown)
-            self.faceView!.transform = CGAffineTransformMakeScale(scaleDown, scaleDown)
-        }, completion: nil)
+        self.moveHead(0)
+    }
+    
+    func moveHead(x: CGFloat) {
+        let scaleDown: CGFloat = 0.95
+        let scaleTransform = CGAffineTransformMakeScale(scaleDown, scaleDown)
+        let moveTransform = CGAffineTransformMakeTranslation(x, 0)
+        let transform = CGAffineTransformConcat(scaleTransform, moveTransform)
+        
+        if (CGAffineTransformEqualToTransform(self.headView.transform, CGAffineTransformIdentity)) {
+            UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+                self.headView.transform = transform
+                self.faceView!.transform = transform
+                }, completion: nil)
+        } else {
+            self.headView.transform = transform
+            self.faceView!.transform = transform
+        }
     }
     
     func releaseHead() {
