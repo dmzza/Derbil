@@ -18,6 +18,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     @IBOutlet weak var faceContainer: UIView!
     var faceView: FaceView?
     var animator: UIDynamicAnimator?
+    var pushHeadBehavior: UIPushBehavior?
     var headColor: UIColor = UIColor(hue: 0.706, saturation: 0.41, brightness: 0.87, alpha: 1.0) {
         didSet {
             self.headView.tintColor = headColor
@@ -117,8 +118,20 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
                 mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
                 leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
                 rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
+            let center = CGPointMake(self.view.frame.midX, self.view.frame.midY)
+            
             self.faceView = FaceView(face: face, frame: self.faceContainer.bounds)
             self.faceContainer.addSubview(self.faceView!)
+            
+            let faceSnapBehavior = UISnapBehavior(item: self.faceView!, snapToPoint: center)
+            let headSnapBehavior = UISnapBehavior(item: self.headView, snapToPoint: CGPointMake(self.headView.frame.midX, self.headView.frame.midY))
+            
+            self.pushHeadBehavior = UIPushBehavior(items: [self.faceView!, self.headView], mode: .Continuous)
+            self.pushHeadBehavior!.pushDirection = CGVectorMake(0, 0)
+            self.pushHeadBehavior!.magnitude = 0
+            self.animator!.addBehavior(faceSnapBehavior)
+            self.animator!.addBehavior(headSnapBehavior)
+            self.animator!.addBehavior(self.pushHeadBehavior!)
         }
     }
 
@@ -279,31 +292,27 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     }
     
     func pressHead() {
-        self.moveHead(0)
+//        let scaleDown: CGFloat = 0.95
+//        let scaleTransform = CGAffineTransformMakeScale(scaleDown, scaleDown)
+//        
+//        UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+//            self.headView.transform = scaleTransform
+//            self.faceView!.transform = scaleTransform
+//            }, completion: nil)
     }
     
     func moveHead(x: CGFloat) {
-        let scaleDown: CGFloat = 0.95
-        let scaleTransform = CGAffineTransformMakeScale(scaleDown, scaleDown)
-        let moveTransform = CGAffineTransformMakeTranslation(x, 0)
-        let transform = CGAffineTransformConcat(scaleTransform, moveTransform)
-        
-        if (CGAffineTransformEqualToTransform(self.headView.transform, CGAffineTransformIdentity)) {
-            UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                self.headView.transform = transform
-                self.faceView!.transform = transform
-                }, completion: nil)
-        } else {
-            self.headView.transform = transform
-            self.faceView!.transform = transform
-        }
+        self.pushHeadBehavior!.pushDirection = CGVector(dx: x, dy: 0)
+        self.pushHeadBehavior!.magnitude = abs( x * 2 )
     }
     
     func releaseHead() {
-        UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-            self.headView.transform = CGAffineTransformIdentity
-            self.faceView!.transform = CGAffineTransformIdentity
-        }, completion: nil)
+        self.pushHeadBehavior!.pushDirection = CGVectorMake(0, 0)
+        self.pushHeadBehavior!.magnitude = 0
+//        UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+//            self.headView.transform = CGAffineTransformIdentity
+//            self.faceView!.transform = CGAffineTransformIdentity
+//        }, completion: nil)
     }
     
     func giveHeart() {
