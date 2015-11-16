@@ -60,10 +60,10 @@
 		9FE05FC21B6ED7EC00AE120C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05FC11B6ED7EC00AE120C /* Assets.xcassets */; };
 		9FE05FD81B6EDD4000AE120C /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE05FD71B6EDD4000AE120C /* WalkViewController.swift */; };
 		9FF832981B76DEC100958D2A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF832971B76DEC100958D2A /* Utilities.swift */; };
-		AA6AD28D1B957BAC00CB4549 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05FA61B6ED7EB00AE120C /* Interface.storyboard */; settings = {ASSET_TAGS = (); }; };
-		AA6AD2931B957CA500CB4549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F831B6ED7EB00AE120C /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		AA6AD2941B957CA600CB4549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F831B6ED7EB00AE120C /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		AA6AD2971B95950E00CB4549 /* FlyingHeartBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD2961B95950E00CB4549 /* FlyingHeartBehavior.swift */; settings = {ASSET_TAGS = (); }; };
+		AA6AD28D1B957BAC00CB4549 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05FA61B6ED7EB00AE120C /* Interface.storyboard */; };
+		AA6AD2931B957CA500CB4549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F831B6ED7EB00AE120C /* Assets.xcassets */; };
+		AA6AD2941B957CA600CB4549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F831B6ED7EB00AE120C /* Assets.xcassets */; };
+		AA6AD2971B95950E00CB4549 /* FlyingHeartBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD2961B95950E00CB4549 /* FlyingHeartBehavior.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
