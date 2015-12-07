@@ -216,16 +216,16 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     
     @IBAction func changeColor(sender: UIPanGestureRecognizer) {
         let deltaY = sender.translationInView(self.view).y / self.view.bounds.size.height
-        let deltaX = sender.translationInView(self.view).x / 5
         var sat: CGFloat = 0.0
         var bri: CGFloat = 0.0
         self.headColor.getHue(nil, saturation: &sat, brightness: &bri, alpha: nil)
         let hue = (self.hueStartingPoint + deltaY + 1.0) % 1.0
-        let translateX = deltaX
+        let translateY = sender.translationInView(self.view).y / 5
+        let translateX = sender.translationInView(self.view).x / 2
         switch sender.state {
         case .Changed:
             self.headColor = UIColor(hue: hue, saturation: sat, brightness: bri, alpha: 1.0)
-            self.moveHead(translateX)
+            self.moveHead(translateX, y: translateY)
             break
         case .Cancelled:
             self.revertToSavedHeadColor()
@@ -294,9 +294,9 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     func pressHead() {
     }
     
-    func moveHead(x: CGFloat) {
-        self.pushHeadBehavior!.pushDirection = CGVector(dx: x, dy: 0)
-        self.pushHeadBehavior!.magnitude = abs( x * 2 )
+    func moveHead(x: CGFloat, y: CGFloat) {
+        self.pushHeadBehavior!.pushDirection = CGVector(dx: x, dy: y)
+        self.pushHeadBehavior!.magnitude = abs(x + y)
     }
     
     func releaseHead() {
