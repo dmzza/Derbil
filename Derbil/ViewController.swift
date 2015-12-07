@@ -292,13 +292,6 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     }
     
     func pressHead() {
-//        let scaleDown: CGFloat = 0.95
-//        let scaleTransform = CGAffineTransformMakeScale(scaleDown, scaleDown)
-//        
-//        UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-//            self.headView.transform = scaleTransform
-//            self.faceView!.transform = scaleTransform
-//            }, completion: nil)
     }
     
     func moveHead(x: CGFloat) {
@@ -309,10 +302,6 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     func releaseHead() {
         self.pushHeadBehavior!.pushDirection = CGVectorMake(0, 0)
         self.pushHeadBehavior!.magnitude = 0
-//        UIView.animateWithDuration(kPressHeadDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-//            self.headView.transform = CGAffineTransformIdentity
-//            self.faceView!.transform = CGAffineTransformIdentity
-//        }, completion: nil)
     }
     
     func giveHeart() {
