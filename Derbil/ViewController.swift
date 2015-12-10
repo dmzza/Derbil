@@ -19,6 +19,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     var faceView: FaceView?
     var animator: UIDynamicAnimator?
     var pushHeadBehavior: UIPushBehavior?
+    var headSnapBehavior: UISnapBehavior?
     var headColor: UIColor = UIColor(hue: 0.706, saturation: 0.41, brightness: 0.87, alpha: 1.0) {
         didSet {
             self.headView.tintColor = headColor
@@ -83,6 +84,27 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     let finalWarningInterval: NSTimeInterval = 1.5 * 3600;
     let accidentInterval: NSTimeInterval = 1.75 * 3600;
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let face: Face = Face(
+            mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
+            leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
+            rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
+        let center = CGPointMake(self.view.frame.midX, self.view.frame.midY)
+        
+        self.faceView = FaceView(face: face, frame: self.faceContainer.bounds)
+        self.faceContainer.addSubview(self.faceView!)
+        
+        let faceSnapBehavior = UISnapBehavior(item: self.faceView!, snapToPoint: center)
+        
+        self.pushHeadBehavior = UIPushBehavior(items: [self.faceView!, self.headView], mode: .Continuous)
+        self.pushHeadBehavior!.pushDirection = CGVectorMake(0, 0)
+        self.pushHeadBehavior!.magnitude = 0
+        self.animator!.addBehavior(faceSnapBehavior)
+        self.animator!.addBehavior(self.pushHeadBehavior!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
   
@@ -113,31 +135,11 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if (self.faceView == nil) {
-            let face: Face = Face(
-                mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
-                leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
-                rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
-            let center = CGPointMake(self.view.frame.midX, self.view.frame.midY)
+        if (self.headSnapBehavior == nil) {
+            self.headSnapBehavior = UISnapBehavior(item: self.headView, snapToPoint: CGPointMake(self.headView.frame.midX, self.headView.frame.midY))
             
-            self.faceView = FaceView(face: face, frame: self.faceContainer.bounds)
-            self.faceContainer.addSubview(self.faceView!)
-            
-            let faceSnapBehavior = UISnapBehavior(item: self.faceView!, snapToPoint: center)
-            let headSnapBehavior = UISnapBehavior(item: self.headView, snapToPoint: CGPointMake(self.headView.frame.midX, self.headView.frame.midY))
-            
-            self.pushHeadBehavior = UIPushBehavior(items: [self.faceView!, self.headView], mode: .Continuous)
-            self.pushHeadBehavior!.pushDirection = CGVectorMake(0, 0)
-            self.pushHeadBehavior!.magnitude = 0
-            self.animator!.addBehavior(faceSnapBehavior)
-            self.animator!.addBehavior(headSnapBehavior)
-            self.animator!.addBehavior(self.pushHeadBehavior!)
+            self.animator!.addBehavior(self.headSnapBehavior!)
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func scheduleNotifications() {
