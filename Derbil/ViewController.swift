@@ -294,6 +294,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     }
     
     func pressHead() {
+        // reserved for future use
     }
     
     func moveHead(x: CGFloat, y: CGFloat) {
