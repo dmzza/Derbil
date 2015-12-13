@@ -38,6 +38,10 @@
 		63268A181B93D6F1002D2D0F /* Timepiece.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 632689ED1B93D6F1002D2D0F /* Timepiece.xcworkspace */; };
 		63268A191B93D6F1002D2D0F /* Timepiece.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 632689ED1B93D6F1002D2D0F /* Timepiece.xcworkspace */; };
 		63268A1A1B93D6F1002D2D0F /* Timepiece.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 632689ED1B93D6F1002D2D0F /* Timepiece.xcworkspace */; };
+		633839421C1D0241000DA988 /* dialogs.json in Resources */ = {isa = PBXBuildFile; fileRef = 633839411C1D0241000DA988 /* dialogs.json */; };
+		63C8739F1C1D0E8000F7E427 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8739E1C1D0E8000F7E427 /* Dialog.swift */; };
+		63C873A61C1D0F3700F7E427 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C873A51C1D0F3700F7E427 /* ObjectMapper.framework */; };
+		63C873AA1C1D0FEE00F7E427 /* ObjectMapper.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63C873A91C1D0FEE00F7E427 /* ObjectMapper.framework.dSYM */; };
 		63F260AB1B84D97700F109B9 /* EatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F260AA1B84D97700F109B9 /* EatViewController.swift */; };
 		63F260AD1B84D9CE00F109B9 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F260AC1B84D9CE00F109B9 /* SleepViewController.swift */; };
 		9FDD655A1B76A5FB00CD8703 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD65591B76A5FB00CD8703 /* FaceView.swift */; };
@@ -133,6 +137,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		63C873A81C1D0FB500F7E427 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				63C873AA1C1D0FEE00F7E427 /* ObjectMapper.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9FE05FC91B6ED7EC00AE120C /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -180,6 +194,10 @@
 		632689E91B93D6F1002D2D0F /* Timepiece.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Timepiece.podspec; sourceTree = "<group>"; };
 		632689EA1B93D6F1002D2D0F /* Timepiece.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Timepiece.xcodeproj; sourceTree = "<group>"; };
 		632689ED1B93D6F1002D2D0F /* Timepiece.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Timepiece.xcworkspace; sourceTree = "<group>"; };
+		633839411C1D0241000DA988 /* dialogs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dialogs.json; sourceTree = "<group>"; };
+		63C8739E1C1D0E8000F7E427 /* Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		63C873A51C1D0F3700F7E427 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		63C873A91C1D0FEE00F7E427 /* ObjectMapper.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ObjectMapper.framework.dSYM; path = Carthage/Build/iOS/ObjectMapper.framework.dSYM; sourceTree = "<group>"; };
 		63F260AA1B84D97700F109B9 /* EatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EatViewController.swift; sourceTree = "<group>"; };
 		63F260AC1B84D9CE00F109B9 /* SleepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		9FDD65591B76A5FB00CD8703 /* FaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
@@ -220,6 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C873A61C1D0F3700F7E427 /* ObjectMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +276,7 @@
 		4AB87C9A9ACC3A59E57DC5B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				63C873A51C1D0F3700F7E427 /* ObjectMapper.framework */,
 				632689D31B93D6F1002D2D0F /* Timepiece */,
 			);
 			name = Frameworks;
@@ -323,6 +343,7 @@
 		9FE05F701B6ED7EB00AE120C = {
 			isa = PBXGroup;
 			children = (
+				63C873A91C1D0FEE00F7E427 /* ObjectMapper.framework.dSYM */,
 				9FE05F7B1B6ED7EB00AE120C /* Chubbyy */,
 				9FE05F901B6ED7EB00AE120C /* ChubbyyTests */,
 				9FE05F9B1B6ED7EB00AE120C /* ChubbyyUITests */,
@@ -361,6 +382,8 @@
 				63F260AC1B84D9CE00F109B9 /* SleepViewController.swift */,
 				AA6AD2951B95826B00CB4549 /* MyPlayground.playground */,
 				AA6AD2961B95950E00CB4549 /* FlyingHeartBehavior.swift */,
+				633839411C1D0241000DA988 /* dialogs.json */,
+				63C8739E1C1D0E8000F7E427 /* Dialog.swift */,
 			);
 			name = Chubbyy;
 			path = Derbil;
@@ -432,6 +455,8 @@
 				9FE05F761B6ED7EB00AE120C /* Frameworks */,
 				9FE05F771B6ED7EB00AE120C /* Resources */,
 				9FE05FCD1B6ED7EC00AE120C /* Embed Watch Content */,
+				63C873A71C1D0F5800F7E427 /* ShellScript */,
+				63C873A81C1D0FB500F7E427 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -624,6 +649,7 @@
 				9FE05F871B6ED7EB00AE120C /* LaunchScreen.storyboard in Resources */,
 				9FE05F841B6ED7EB00AE120C /* Assets.xcassets in Resources */,
 				9FE05F821B6ED7EB00AE120C /* Main.storyboard in Resources */,
+				633839421C1D0241000DA988 /* dialogs.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +699,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		63C873A71C1D0F5800F7E427 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9FE05F751B6ED7EB00AE120C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -682,6 +725,7 @@
 				AA6AD2971B95950E00CB4549 /* FlyingHeartBehavior.swift in Sources */,
 				63268A011B93D6F1002D2D0F /* NSDate+Timepiece.swift in Sources */,
 				632689FB1B93D6F1002D2D0F /* Int+Timepiece.swift in Sources */,
+				63C8739F1C1D0E8000F7E427 /* Dialog.swift in Sources */,
 				632689FF1B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift in Sources */,
 				63268A071B93D6F1002D2D0F /* String+Timepiece.swift in Sources */,
 				63268A051B93D6F1002D2D0F /* NSTimeInterval+Timepiece.swift in Sources */,
@@ -953,7 +997,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Derbil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -968,7 +1015,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Peaking Software LLC (DNPVU838JE)";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Derbil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
