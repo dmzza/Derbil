@@ -306,17 +306,15 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opj-gb-xoo">
-                                <rect key="frame" x="20" y="80" width="226" height="52"/>
+                                <rect key="frame" x="20" y="66" width="236" height="51"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chubbyy-bubble" translatesAutoresizingMaskIntoConstraints="NO" id="gXQ-9y-IjY">
-                                        <rect key="frame" x="0.0" y="0.0" width="226" height="52"/>
-                                        <animations/>
+                                        <rect key="frame" x="0.0" y="0.0" width="236" height="51"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hiya! My name is Chubbyy." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFc-U2-I3J">
-                                        <rect key="frame" x="10" y="10" width="206" height="21"/>
-                                        <animations/>
+                                        <rect key="frame" x="15" y="15" width="206" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.60271014190000005" green="0.5181104607" blue="0.8719570096" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -325,13 +323,13 @@
                                 <constraints>
                                     <constraint firstItem="gXQ-9y-IjY" firstAttribute="leading" secondItem="opj-gb-xoo" secondAttribute="leading" id="0re-Dc-a5h"/>
                                     <constraint firstAttribute="bottom" secondItem="gXQ-9y-IjY" secondAttribute="bottom" id="CVV-Jh-pVj"/>
-                                    <constraint firstItem="IFc-U2-I3J" firstAttribute="leading" secondItem="opj-gb-xoo" secondAttribute="leading" constant="10" id="JGy-2s-Ynm"/>
+                                    <constraint firstItem="IFc-U2-I3J" firstAttribute="leading" secondItem="opj-gb-xoo" secondAttribute="leading" constant="15" id="JGy-2s-Ynm"/>
                                     <constraint firstItem="gXQ-9y-IjY" firstAttribute="top" secondItem="opj-gb-xoo" secondAttribute="top" id="SIp-vE-AHc"/>
-                                    <constraint firstAttribute="trailing" secondItem="IFc-U2-I3J" secondAttribute="trailing" constant="10" id="VPK-jC-zkl"/>
+                                    <constraint firstAttribute="trailing" secondItem="IFc-U2-I3J" secondAttribute="trailing" constant="15" id="VPK-jC-zkl"/>
                                     <constraint firstAttribute="trailing" secondItem="gXQ-9y-IjY" secondAttribute="trailing" id="a8I-0v-d8q"/>
-                                    <constraint firstAttribute="bottom" secondItem="IFc-U2-I3J" secondAttribute="bottom" constant="21" id="eS9-Jk-3P0"/>
+                                    <constraint firstAttribute="bottom" secondItem="IFc-U2-I3J" secondAttribute="bottom" constant="15" id="eS9-Jk-3P0"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="jXr-6f-9pr"/>
-                                    <constraint firstItem="IFc-U2-I3J" firstAttribute="top" secondItem="opj-gb-xoo" secondAttribute="top" constant="10" id="rxP-Bx-fxx"/>
+                                    <constraint firstItem="IFc-U2-I3J" firstAttribute="top" secondItem="opj-gb-xoo" secondAttribute="top" constant="15" id="rxP-Bx-fxx"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwQ-Mz-XRv">
@@ -369,7 +367,7 @@
                             <constraint firstItem="opj-gb-xoo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="5cC-1A-ire"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="17" id="5fH-Rx-kQm"/>
                             <constraint firstItem="l2J-2G-H94" firstAttribute="top" secondItem="xQd-lr-337" secondAttribute="bottom" id="Adr-0Y-UMT"/>
-                            <constraint firstItem="CwQ-Mz-XRv" firstAttribute="top" secondItem="opj-gb-xoo" secondAttribute="bottom" id="CH1-za-SkU"/>
+                            <constraint firstItem="CwQ-Mz-XRv" firstAttribute="top" secondItem="opj-gb-xoo" secondAttribute="bottom" constant="15" id="CH1-za-SkU"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="top" secondItem="CwQ-Mz-XRv" secondAttribute="bottom" constant="10" id="D5b-Kz-dId"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="centerX" secondItem="MlJ-HI-nXW" secondAttribute="centerX" id="EZ3-ou-k76"/>
                             <constraint firstItem="roc-bt-ODf" firstAttribute="top" secondItem="MlJ-HI-nXW" secondAttribute="bottom" constant="61" id="GDz-LR-dhO"/>
@@ -416,7 +414,9 @@
                         <outlet property="headPressRecognizer" destination="EIB-hX-ttQ" id="4Jh-Qj-ong"/>
                         <outlet property="headView" destination="pvY-aa-1nO" id="9PO-bY-L3f"/>
                         <outlet property="loveButton" destination="roc-bt-ODf" id="m5D-C9-eU6"/>
+                        <outlet property="responseBubbleLabel" destination="9zF-ZD-Npa" id="aRc-bD-1Qd"/>
                         <outlet property="secondHeart" destination="xQd-lr-337" id="SyT-Dc-ZtR"/>
+                        <outlet property="speechBubbleLabel" destination="IFc-U2-I3J" id="0An-oU-Dq9"/>
                         <outlet property="thirdHeart" destination="l2J-2G-H94" id="y7c-8X-yHp"/>
                     </connections>
                 </viewController>
@@ -544,7 +544,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chubbyy-bubble" width="35" height="50"/>
+        <image name="chubbyy-bubble" width="39" height="51"/>
         <image name="eat" width="32" height="32"/>
         <image name="head" width="332" height="195"/>
         <image name="heart" width="60" height="60"/>

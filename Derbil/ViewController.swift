@@ -17,6 +17,8 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   
   @IBOutlet weak var faceContainer: UIView!
   var faceView: FaceView?
+  @IBOutlet var speechBubbleLabel: UILabel!
+  @IBOutlet var responseBubbleLabel: UILabel!
   var animator: UIDynamicAnimator?
   var pushHeadBehavior: UIPushBehavior?
   var headSnapBehavior: UISnapBehavior?
@@ -209,11 +211,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   }
   
   func speak(thoughts: String) {
-    let alert: UIAlertController = UIAlertController(title: nil, message: thoughts, preferredStyle:UIAlertControllerStyle.Alert)
-    let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-    alert.addAction(action)
-    
-    self.presentViewController(alert, animated: true, completion: nil)
+    self.speechBubbleLabel.text = thoughts
   }
   
   @IBAction func changeColor(sender: UIPanGestureRecognizer) {
