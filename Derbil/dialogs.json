@@ -1,17 +1,18 @@
+{
 "dialogs": [
 {
   "sentences": [
     {
       "id": 0,
       "text": "Hi there, I'm Chubbyy.",
-      "response_type": null,
+      "response_type": null
     },
     {
       "id": 1,
       "text": "Oh hello, I'm #{name}",
       "response_type": "text",
       "min_range": 1,
-      "max_range": 30,
+      "max_range": 30
     },
     {
       "id": 2,
@@ -23,8 +24,9 @@
       "text": "#{age} years old",
       "response_type": "number",
       "min_range": 13,
-      "max_range": 420,
+      "max_range": 420
     }
   ]
 }
 ]
+}
