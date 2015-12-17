@@ -9,6 +9,18 @@
 import Foundation
 import ObjectMapper
 
+struct DialogArray: Mappable {
+  var dialogs: [Dialog]?
+  
+  init?(_ map: Map) {
+    
+  }
+  
+  mutating func mapping(map: Map) {
+    dialogs <- map["dialogs"]
+  }
+}
+
 struct Dialog: Mappable {
   var sentences: [Sentence]?
   
@@ -21,9 +33,29 @@ struct Dialog: Mappable {
   }
 }
 
+enum ResponseType: String {
+  case Text = "text"
+  case Number = "number"
+  case Boolean = "boolean"
+  case Day = "day"
+  case Time = "time"
+  
+}
+
+enum DayOfWeek {
+  case Monday
+  case Tuesday
+  case Wednesday
+  case Thursday
+  case Friday
+  case Saturday
+  case Sunday
+}
+
 struct Sentence: Mappable {
   var id: UInt?
   var text: String?
+  var responseType: ResponseType?
   
   init?(_ map: Map) {
     
@@ -32,5 +64,6 @@ struct Sentence: Mappable {
   mutating func mapping(map: Map) {
     id     <- map["id"]
     text  <- map["text"]
+    responseType <- map["response_type"]
   }
 }

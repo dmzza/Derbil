@@ -16,3 +16,19 @@ func delay(delay:Double, closure:()->()) {
         ),
         dispatch_get_main_queue(), closure)
 }
+
+func stringOfJSONFile(named: String) -> String? {
+  let filename = named.stringByReplacingOccurrencesOfString(".json", withString: "")
+  if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
+    do {
+      let jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+      return jsonString as String
+    } catch {
+      NSLog("\(filename).json not readable")
+      return nil
+    }
+} else {
+  NSLog("\(filename).json not found")
+}
+  return nil
+}
