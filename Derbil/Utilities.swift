@@ -32,3 +32,9 @@ func stringOfJSONFile(named: String) -> String? {
 }
   return nil
 }
+
+func placeholderRange(text: String) -> Range<String.Index> {
+  let startRange = text.rangeOfString("#{")
+  let endRange = text.rangeOfString("}")
+  return Range<String.Index>(start: startRange!.startIndex, end: endRange!.endIndex)
+}

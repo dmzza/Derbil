@@ -407,7 +407,13 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   }
   
   func dialogManager(manager: DialogManager, wantsUserToRespond sentence: Sentence, completion: (didRespond: Bool, response: Any?) -> ()) {
-    self.responseBubbleLabel.text = sentence.text
+    var sentenceText = sentence.text!
+    if sentence.responseType == ResponseType.Text {
+      sentenceText.replaceRange(placeholderRange(sentenceText), with: "David")
+    } else if sentence.responseType == ResponseType.Number {
+      sentenceText.replaceRange(placeholderRange(sentenceText), with: "24")
+    }
+    self.responseBubbleLabel.text = sentenceText
     self.responseCompletionBlock = completion
   }
 }
