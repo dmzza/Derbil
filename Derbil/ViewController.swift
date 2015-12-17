@@ -13,7 +13,7 @@ let kUserDefaultsHeadColor = "HeadColor"
 let kHappyWalkThreshold: NSTimeInterval = 120
 let kPressHeadDuration: NSTimeInterval = 0.08
 
-class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRecognizerDelegate, UIDynamicAnimatorDelegate {
+class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRecognizerDelegate, UIDynamicAnimatorDelegate, DialogManagerDelegate {
   
   @IBOutlet weak var faceContainer: UIView!
   var faceView: FaceView?
@@ -47,6 +47,9 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   var panStartingPoint = CGPoint(x: 0, y: 0)
   var hueStartingPoint:CGFloat = 0.0
   let userDefaults = NSUserDefaults.standardUserDefaults()
+  
+  var dialogManager: DialogManager?
+  var responseCompletionBlock: ((didRespond: Bool, response: Any?) -> ())?
   
   @IBOutlet var headView: UIImageView!
   @IBOutlet var firstHeart: UIImageView!
@@ -133,6 +136,8 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     self.animator!.delegate = self
     self.revertToSavedHeadColor()
     self.headPressRecognizer.delegate = self
+    
+    self.dialogManager = DialogManager(delegate: self)
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -212,6 +217,14 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   
   func speak(thoughts: String) {
     self.speechBubbleLabel.text = thoughts
+  }
+  
+  
+  @IBAction func sendResponse(sender: AnyObject) {
+    if let completion = self.responseCompletionBlock {
+      completion(didRespond: true, response: nil)
+      self.responseCompletionBlock = nil
+    }
   }
   
   @IBAction func changeColor(sender: UIPanGestureRecognizer) {
@@ -384,5 +397,17 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
         rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
     }
+  }
+  
+  // mark - DialogManagerDelegate 
+  
+  func dialogManager(manager: DialogManager, wantsChubbyyToSpeak sentence: Sentence, completion: (didSpeak: Bool) -> ()) {
+    self.speechBubbleLabel.text = sentence.text
+    completion(didSpeak: true)
+  }
+  
+  func dialogManager(manager: DialogManager, wantsUserToRespond sentence: Sentence, completion: (didRespond: Bool, response: Any?) -> ()) {
+    self.responseBubbleLabel.text = sentence.text
+    self.responseCompletionBlock = completion
   }
 }

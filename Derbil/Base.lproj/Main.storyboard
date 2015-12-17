@@ -332,7 +332,7 @@
                                     <constraint firstItem="IFc-U2-I3J" firstAttribute="top" secondItem="opj-gb-xoo" secondAttribute="top" constant="15" id="rxP-Bx-fxx"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwQ-Mz-XRv">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwQ-Mz-XRv" userLabel="Response Bubble">
                                 <rect key="frame" x="446" y="132" width="134" height="52"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my-bubble" translatesAutoresizingMaskIntoConstraints="NO" id="HpT-nE-e7s">
@@ -346,6 +346,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" label="Chubbyy says"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="HpT-nE-e7s" firstAttribute="top" secondItem="CwQ-Mz-XRv" secondAttribute="top" id="8In-Gg-hbc"/>
                                     <constraint firstAttribute="trailing" secondItem="9zF-ZD-Npa" secondAttribute="trailing" constant="10" id="Gzq-mo-9Ts"/>
@@ -357,6 +358,9 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="m6L-5u-b8H"/>
                                     <constraint firstItem="HpT-nE-e7s" firstAttribute="leading" secondItem="CwQ-Mz-XRv" secondAttribute="leading" id="zjY-Je-3PY"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mZl-7L-Hue" appends="YES" id="bSR-qk-bR5"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -439,6 +443,11 @@
                 <tapGestureRecognizer id="kPk-rF-oHD">
                     <connections>
                         <action selector="tapBackground:" destination="BYZ-38-t0r" id="dDy-fg-gVf"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="mZl-7L-Hue">
+                    <connections>
+                        <action selector="sendResponse:" destination="BYZ-38-t0r" id="Jow-z0-ibw"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
