@@ -19,6 +19,8 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   var faceView: FaceView?
   @IBOutlet var speechBubbleLabel: UILabel!
   @IBOutlet var responseBubbleLabel: UILabel!
+  @IBOutlet var responseBubbleImage: UIImageView!
+  
   var animator: UIDynamicAnimator?
   var pushHeadBehavior: UIPushBehavior?
   var headSnapBehavior: UISnapBehavior?
@@ -146,6 +148,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
       self.headSnapBehavior = UISnapBehavior(item: self.headView, snapToPoint: CGPointMake(self.headView.frame.midX, self.headView.frame.midY))
       
       self.animator!.addBehavior(self.headSnapBehavior!)
+      self.responseBubbleImage.image = flippedBubbleImage()
     }
   }
   

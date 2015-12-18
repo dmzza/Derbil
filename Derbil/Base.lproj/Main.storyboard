@@ -306,7 +306,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opj-gb-xoo">
-                                <rect key="frame" x="20" y="66" width="236" height="51"/>
+                                <rect key="frame" x="20" y="67" width="236" height="51"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chubbyy-bubble" translatesAutoresizingMaskIntoConstraints="NO" id="gXQ-9y-IjY">
                                         <rect key="frame" x="0.0" y="0.0" width="236" height="51"/>
@@ -314,7 +314,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hiya! My name is Chubbyy." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFc-U2-I3J">
                                         <rect key="frame" x="15" y="15" width="206" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.60271014190000005" green="0.5181104607" blue="0.8719570096" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.59999999999999998" green="0.51764705882352946" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -333,14 +333,15 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwQ-Mz-XRv" userLabel="Response Bubble">
-                                <rect key="frame" x="446" y="132" width="134" height="52"/>
+                                <rect key="frame" x="436" y="133" width="144" height="51"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my-bubble" translatesAutoresizingMaskIntoConstraints="NO" id="HpT-nE-e7s">
-                                        <rect key="frame" x="0.0" y="0.0" width="134" height="52"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chubbyy-bubble" translatesAutoresizingMaskIntoConstraints="NO" id="HpT-nE-e7s">
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="51"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chubbyy who?" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zF-ZD-Npa">
-                                        <rect key="frame" x="10" y="10" width="114" height="21"/>
+                                        <rect key="frame" x="15" y="15" width="114" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.59999999999999998" green="0.51764705882352946" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -349,12 +350,12 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="HpT-nE-e7s" firstAttribute="top" secondItem="CwQ-Mz-XRv" secondAttribute="top" id="8In-Gg-hbc"/>
-                                    <constraint firstAttribute="trailing" secondItem="9zF-ZD-Npa" secondAttribute="trailing" constant="10" id="Gzq-mo-9Ts"/>
-                                    <constraint firstItem="9zF-ZD-Npa" firstAttribute="top" secondItem="CwQ-Mz-XRv" secondAttribute="top" constant="10" id="Qa5-J4-Mjy"/>
-                                    <constraint firstAttribute="bottom" secondItem="9zF-ZD-Npa" secondAttribute="bottom" constant="21" id="ZrS-6K-1S4"/>
+                                    <constraint firstAttribute="trailing" secondItem="9zF-ZD-Npa" secondAttribute="trailing" constant="15" id="Gzq-mo-9Ts"/>
+                                    <constraint firstItem="9zF-ZD-Npa" firstAttribute="top" secondItem="CwQ-Mz-XRv" secondAttribute="top" constant="15" id="Qa5-J4-Mjy"/>
+                                    <constraint firstAttribute="bottom" secondItem="9zF-ZD-Npa" secondAttribute="bottom" constant="15" id="ZrS-6K-1S4"/>
                                     <constraint firstAttribute="bottom" secondItem="HpT-nE-e7s" secondAttribute="bottom" id="Zv3-kQ-sRj"/>
                                     <constraint firstAttribute="trailing" secondItem="HpT-nE-e7s" secondAttribute="trailing" id="fw7-mV-szT"/>
-                                    <constraint firstItem="9zF-ZD-Npa" firstAttribute="leading" secondItem="CwQ-Mz-XRv" secondAttribute="leading" constant="10" id="iGc-Bg-eRg"/>
+                                    <constraint firstItem="9zF-ZD-Npa" firstAttribute="leading" secondItem="CwQ-Mz-XRv" secondAttribute="leading" constant="15" id="iGc-Bg-eRg"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="m6L-5u-b8H"/>
                                     <constraint firstItem="HpT-nE-e7s" firstAttribute="leading" secondItem="CwQ-Mz-XRv" secondAttribute="leading" id="zjY-Je-3PY"/>
                                 </constraints>
@@ -418,6 +419,7 @@
                         <outlet property="headPressRecognizer" destination="EIB-hX-ttQ" id="4Jh-Qj-ong"/>
                         <outlet property="headView" destination="pvY-aa-1nO" id="9PO-bY-L3f"/>
                         <outlet property="loveButton" destination="roc-bt-ODf" id="m5D-C9-eU6"/>
+                        <outlet property="responseBubbleImage" destination="HpT-nE-e7s" id="21M-BN-3RW"/>
                         <outlet property="responseBubbleLabel" destination="9zF-ZD-Npa" id="aRc-bD-1Qd"/>
                         <outlet property="secondHeart" destination="xQd-lr-337" id="SyT-Dc-ZtR"/>
                         <outlet property="speechBubbleLabel" destination="IFc-U2-I3J" id="0An-oU-Dq9"/>
@@ -557,7 +559,6 @@
         <image name="eat" width="32" height="32"/>
         <image name="head" width="332" height="195"/>
         <image name="heart" width="60" height="60"/>
-        <image name="my-bubble" width="34" height="50"/>
         <image name="sleep" width="32" height="32"/>
         <image name="tiny-heart" width="60" height="60"/>
         <image name="walk" width="32" height="32"/>

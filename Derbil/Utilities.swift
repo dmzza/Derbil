@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CoreGraphics
+import UIKit
 
 func delay(delay:Double, closure:()->()) {
     dispatch_after(
@@ -37,4 +39,13 @@ func placeholderRange(text: String) -> Range<String.Index> {
   let startRange = text.rangeOfString("#{")
   let endRange = text.rangeOfString("}")
   return Range<String.Index>(start: startRange!.startIndex, end: endRange!.endIndex)
+}
+
+func flippedBubbleImage() -> UIImage {
+  let originalImage = UIImage(named: "chubbyy-bubble")!
+  let image = originalImage.CGImage!
+  let flipTransform = CGAffineTransformMakeScale(-1.0, 1.0)
+  let flippedImage = UIImage(CIImage: CIImage(CGImage: image).imageByApplyingTransform(flipTransform), scale: UIScreen.mainScreen().scale, orientation: UIImageOrientation.Up)
+  
+  return flippedImage.resizableImageWithCapInsets(originalImage.capInsets)
 }
