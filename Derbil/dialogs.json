@@ -9,24 +9,24 @@
         {
           "id": 0,
           "text": "Welcome to Adopt-a-chubbyy. How can I help you?",
-                  "is_response": false,
+          "is_response": false
         },
         {
           "id": 1,
           "text": "I'm here to pickup my new Chubbyy.",
-                  "is_response": true,
+          "is_response": true,
           "response_type": null
         },
         {
           "id": 2,
-          "text": "Great, do your Chubbyy have a lucky number?",
-                  "is_response": false,
+          "text": "Great, does your Chubbyy have a lucky number?",
+          "is_response": false,
           "response_type": null
         },
         {
           "id": 3,
-          "text": "Yes, it is #{lucky_number}.",
-          "skip": "I don't know."
+          "text": "Yea, #{lucky_number}.",
+          "skip": "I don't know.",
           "is_response": true,
           "response_type": "number",
           "min_range": 1,
@@ -61,7 +61,7 @@
         {
           "id": 9,
           "text": "Chubbyy can send me notifications!",
-          "skip": "Maybe when he's older"
+          "skip": "Maybe when he's older",
           "is_response": true,
           "response_type": "boolean"
         },
