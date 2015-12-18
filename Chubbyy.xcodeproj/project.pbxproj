@@ -1010,7 +1010,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Chubbyy;
 				PRODUCT_NAME = Chubbyy;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0a109647-79b1-4ca9-9cb8-b7047d0c5c0d";
 			};
 			name = Debug;
 		};
@@ -1028,7 +1028,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Chubbyy;
 				PRODUCT_NAME = Chubbyy;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a6aaf8a8-8a42-4cb3-a4b0-921361e1085b";
 			};
 			name = Release;
 		};
