@@ -1,31 +1,94 @@
 {
   "dialogs": [
     {
-      "sentences": [
+    "description": "Adoption process",
+    "requirements": {
+              "years": 0
+    },
+    "sentences": [
         {
           "id": 0,
-          "text": "Hi there, I'm Chubbyy.",
-          "response_type": null
+          "text": "Welcome to Adopt-a-chubbyy. How can I help you?",
+                  "is_response": false,
         },
         {
           "id": 1,
-          "text": "Oh hello, I'm #{name}",
-          "response_type": "text",
-          "min_range": 1,
-          "max_range": 30
+          "text": "I'm here to pickup my new Chubbyy.",
+                  "is_response": true,
+          "response_type": null
         },
         {
           "id": 2,
-          "text": "I'll be turing 1 tomorrow. How old are you?",
+          "text": "Great, do your Chubbyy have a lucky number?",
+                  "is_response": false,
           "response_type": null
         },
         {
           "id": 3,
-          "text": "#{age} years old",
+          "text": "Yes, it is #{lucky_number}.",
+          "skip": "I don't know."
+          "is_response": true,
           "response_type": "number",
-          "min_range": 13,
-          "max_range": 420
-        }
+          "min_range": 1,
+          "max_range": 999
+        },
+        {
+          "id": 4,
+          "text": "You just need to know three things to take care of a Chubbyy",
+          "is_response": false,
+        },
+        {
+          "id": 5,
+          "text": "Okay",
+          "is_response": true,
+          "response_type": null
+        },
+        {
+          "id": 6,
+          "text": "Every Chubbyy needs love.",
+          "is_response": false,
+        },
+        {
+          "id": 7,
+          "text": "No Chubbyy lives forever, so make sure you eat your vegetables and play outside with Chubbyy.",
+          "is_response": false
+        },
+        {
+          "id": 8,
+          "text": "Your Chubbyy lives inside of this app. He can talk, but only from inside here, so sometimes Chubbyy gets lonely. Chubbyy would feel better if he could get your attention.",
+          "is_response": false
+        },
+        {
+          "id": 9,
+          "text": "Chubbyy can send me notifications!",
+          "skip": "Maybe when he's older"
+          "is_response": true,
+          "response_type": "boolean"
+        },
+      ]
+    },
+    {
+      "description": "Chubbyy introduces himself",
+      "requirements": {
+        "years": 1
+      },
+      "sentences": [
+        {
+          "id": 0,
+          "text": "Hi there, I'm Chubbyy.",
+          "is_response": false
+        },
+        {
+          "id": 1,
+          "text": "Tell me about yourself.",
+          "is_response": true,
+          "response_type": null
+        },
+        {
+          "id": 2,
+          "text": "Okay! Well I love hearts. I eat, drink and breathe the hearts you give me. Go ahead, tap the heart.",
+          "is_response": false
+        },
       ]
     }
   ]

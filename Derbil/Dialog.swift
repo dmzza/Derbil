@@ -34,11 +34,8 @@ struct Dialog: Mappable {
 }
 
 enum ResponseType: String {
-  case Text = "text"
   case Number = "number"
   case Boolean = "boolean"
-  case Day = "day"
-  case Time = "time"
   
 }
 
