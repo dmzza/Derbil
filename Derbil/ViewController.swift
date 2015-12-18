@@ -17,6 +17,8 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   
   @IBOutlet weak var faceContainer: UIView!
   var faceView: FaceView?
+  @IBOutlet var speechBubble: UIView!
+  @IBOutlet var responseBubble: UIView!
   @IBOutlet var speechBubbleLabel: UILabel!
   @IBOutlet var responseBubbleLabel: UILabel!
   @IBOutlet var responseBubbleImage: UIImageView!
@@ -48,6 +50,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   }
   var panStartingPoint = CGPoint(x: 0, y: 0)
   var hueStartingPoint:CGFloat = 0.0
+  let bubbleFadeInDuration = 1.0
   let userDefaults = NSUserDefaults.standardUserDefaults()
   
   var dialogManager: DialogManager?
@@ -138,6 +141,9 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     self.animator!.delegate = self
     self.revertToSavedHeadColor()
     self.headPressRecognizer.delegate = self
+    
+    self.speechBubble.alpha = 0.0
+    self.responseBubble.alpha = 0.0
     
     self.dialogManager = DialogManager(delegate: self)
   }
@@ -406,7 +412,12 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   
   func dialogManager(manager: DialogManager, wantsChubbyyToSpeak sentence: Sentence, completion: (didSpeak: Bool) -> ()) {
     self.speechBubbleLabel.text = sentence.text
-    completion(didSpeak: true)
+    UIView.animateWithDuration(bubbleFadeInDuration, animations: { () -> Void in
+      self.speechBubble.alpha = 1.0
+      }) { (Bool) -> Void in
+      completion(didSpeak: true)
+    }
+    
   }
   
   func dialogManager(manager: DialogManager, wantsUserToRespond sentence: Sentence, completion: (didRespond: Bool, response: Any?) -> ()) {
@@ -417,6 +428,12 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
       sentenceText.replaceRange(placeholderRange(sentenceText), with: "24")
     }
     self.responseBubbleLabel.text = sentenceText
-    self.responseCompletionBlock = completion
+    
+    UIView.animateWithDuration(bubbleFadeInDuration, animations: { () -> Void in
+      self.responseBubble.alpha = 1.0
+      }) { (Bool) -> Void in
+        self.responseCompletionBlock = completion
+    }
+    
   }
 }

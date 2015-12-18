@@ -419,9 +419,11 @@
                         <outlet property="headPressRecognizer" destination="EIB-hX-ttQ" id="4Jh-Qj-ong"/>
                         <outlet property="headView" destination="pvY-aa-1nO" id="9PO-bY-L3f"/>
                         <outlet property="loveButton" destination="roc-bt-ODf" id="m5D-C9-eU6"/>
+                        <outlet property="responseBubble" destination="CwQ-Mz-XRv" id="IqP-J5-kTr"/>
                         <outlet property="responseBubbleImage" destination="HpT-nE-e7s" id="21M-BN-3RW"/>
                         <outlet property="responseBubbleLabel" destination="9zF-ZD-Npa" id="aRc-bD-1Qd"/>
                         <outlet property="secondHeart" destination="xQd-lr-337" id="SyT-Dc-ZtR"/>
+                        <outlet property="speechBubble" destination="opj-gb-xoo" id="gW7-v0-cHc"/>
                         <outlet property="speechBubbleLabel" destination="IFc-U2-I3J" id="0An-oU-Dq9"/>
                         <outlet property="thirdHeart" destination="l2J-2G-H94" id="y7c-8X-yHp"/>
                     </connections>
