@@ -55,6 +55,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   
   var dialogManager: DialogManager?
   var responseCompletionBlock: ((didRespond: Bool, response: Any?) -> ())?
+  var responseSentence: Sentence?
   
   @IBOutlet var headView: UIImageView!
   @IBOutlet var firstHeart: UIImageView!
@@ -231,8 +232,17 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   
   @IBAction func sendResponse(sender: AnyObject) {
     if let completion = self.responseCompletionBlock {
-      completion(didRespond: true, response: nil)
+      if let sentence = self.responseSentence {
+        if sentence.responseType == ResponseType.Boolean {
+          completion(didRespond: true, response: true)
+        } else if sentence.responseType == ResponseType.Number {
+          completion(didRespond: true, response: 420)
+        } else {
+          completion(didRespond: true, response: nil)
+        }
+      }
       self.responseCompletionBlock = nil
+      self.responseSentence = nil
     }
   }
   
@@ -422,10 +432,8 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   
   func dialogManager(manager: DialogManager, wantsUserToRespond sentence: Sentence, completion: (didRespond: Bool, response: Any?) -> ()) {
     var sentenceText = sentence.text!
-    if sentence.responseType == ResponseType.Text {
-      sentenceText.replaceRange(placeholderRange(sentenceText), with: "David")
-    } else if sentence.responseType == ResponseType.Number {
-      sentenceText.replaceRange(placeholderRange(sentenceText), with: "24")
+    if sentence.responseType == ResponseType.Number {
+      sentenceText.replaceRange(placeholderRange(sentenceText), with: "420")
     }
     self.responseBubbleLabel.text = sentenceText
     
@@ -433,6 +441,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
       self.responseBubble.alpha = 1.0
       }) { (Bool) -> Void in
         self.responseCompletionBlock = completion
+        self.responseSentence = sentence
     }
     
   }

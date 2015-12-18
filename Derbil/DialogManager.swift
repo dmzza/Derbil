@@ -43,6 +43,14 @@ class DialogManager {
       if let responseType = nextSentence.responseType {
         self.delegate.dialogManager(self, wantsUserToRespond: nextSentence, completion: { (didRespond, response) -> () in
           if didRespond {
+            switch responseType {
+            case .Number:
+              let _ = response as! Int
+              break
+            case .Boolean:
+              let _ = response as! Bool
+              break
+            }
             
             //TODO: handle response
             
