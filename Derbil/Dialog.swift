@@ -52,6 +52,7 @@ enum DayOfWeek {
 struct Sentence: Mappable {
   var id: UInt?
   var text: String?
+  var isResponse: Bool!
   var responseType: ResponseType?
   
   init?(_ map: Map) {
@@ -61,6 +62,7 @@ struct Sentence: Mappable {
   mutating func mapping(map: Map) {
     id     <- map["id"]
     text  <- map["text"]
+    isResponse <- map["is_response"]
     responseType <- map["response_type"]
   }
 }
