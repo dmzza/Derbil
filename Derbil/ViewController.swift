@@ -232,17 +232,25 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   
   @IBAction func sendResponse(sender: AnyObject) {
     if let completion = self.responseCompletionBlock {
-      if let sentence = self.responseSentence {
-        if sentence.responseType == ResponseType.Boolean {
-          completion(didRespond: true, response: true)
-        } else if sentence.responseType == ResponseType.Number {
-          completion(didRespond: true, response: 420)
-        } else {
-          completion(didRespond: true, response: nil)
-        }
-      }
-      self.responseCompletionBlock = nil
-      self.responseSentence = nil
+      let slideUp = CGAffineTransformMakeTranslation(0, -100)
+      UIView.animateWithDuration(bubbleFadeInDuration, animations: { () -> Void in
+        self.speechBubble.alpha = 0.0
+        self.speechBubble.transform = slideUp
+        self.responseBubble.transform = slideUp
+        }, completion: { (Bool) -> Void in
+          if let sentence = self.responseSentence {
+            if sentence.responseType == ResponseType.Boolean {
+              completion(didRespond: true, response: true)
+            } else if sentence.responseType == ResponseType.Number {
+              completion(didRespond: true, response: 420)
+            } else {
+              completion(didRespond: true, response: nil)
+            }
+          }
+          self.responseCompletionBlock = nil
+          self.responseSentence = nil
+      })
+      
     }
   }
   
@@ -422,8 +430,12 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   
   func dialogManager(manager: DialogManager, wantsChubbyyToSpeak sentence: Sentence, completion: (didSpeak: Bool) -> ()) {
     self.speechBubbleLabel.text = sentence.text
+    self.speechBubble.transform = CGAffineTransformMakeTranslation(0.0, 100.0)
+    self.speechBubble.alpha = 0.0
     UIView.animateWithDuration(bubbleFadeInDuration, animations: { () -> Void in
+      self.responseBubble.alpha = 0.0
       self.speechBubble.alpha = 1.0
+      self.speechBubble.transform = CGAffineTransformIdentity
       }) { (Bool) -> Void in
       completion(didSpeak: true)
     }
@@ -436,9 +448,10 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
       sentenceText.replaceRange(placeholderRange(sentenceText), with: "420")
     }
     self.responseBubbleLabel.text = sentenceText
-    
+    self.responseBubble.transform = CGAffineTransformMakeTranslation(0.0, 100.0)
     UIView.animateWithDuration(bubbleFadeInDuration, animations: { () -> Void in
       self.responseBubble.alpha = 1.0
+      self.responseBubble.transform = CGAffineTransformIdentity;
       }) { (Bool) -> Void in
         self.responseCompletionBlock = completion
         self.responseSentence = sentence
