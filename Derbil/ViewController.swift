@@ -56,6 +56,8 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   var dialogManager: DialogManager?
   var responseCompletionBlock: ((didRespond: Bool, response: Any?) -> ())?
   var responseSentence: Sentence?
+  var speechCompletionBlock: ((didSpeak: Bool) -> ())?
+  var speechSentence: Sentence?
   
   @IBOutlet var headView: UIImageView!
   @IBOutlet var firstHeart: UIImageView!
@@ -332,7 +334,16 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   }
   
   func pressHead() {
-    // reserved for future use
+    if let completion = self.speechCompletionBlock {
+      completion(didSpeak: true)
+      self.speechCompletionBlock = nil
+      self.speechSentence = nil
+    } else {
+      UIView.animateWithDuration(bubbleFadeInDuration, animations: { () -> Void in
+        self.speechBubble.alpha = 0.0
+        self.speechBubble.transform = CGAffineTransformMakeTranslation(0, -100)
+      })
+    }
   }
   
   func moveHead(x: CGFloat, y: CGFloat) {
@@ -368,6 +379,12 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
       heart.removeFromSuperview()
     }
     self.animator!.addBehavior(behavior)
+    
+    if let completion = self.speechCompletionBlock {
+      completion(didSpeak: true)
+      self.speechCompletionBlock = nil
+      self.speechSentence = nil
+    }
   }
   
   var secondsSinceMidnight: NSTimeInterval {
@@ -437,9 +454,9 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
       self.speechBubble.alpha = 1.0
       self.speechBubble.transform = CGAffineTransformIdentity
       }) { (Bool) -> Void in
-      completion(didSpeak: true)
+        self.speechCompletionBlock = completion
+        self.speechSentence = sentence
     }
-    
   }
   
   func dialogManager(manager: DialogManager, wantsUserToRespond sentence: Sentence, completion: (didRespond: Bool, response: Any?) -> ()) {
@@ -456,6 +473,5 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         self.responseCompletionBlock = completion
         self.responseSentence = sentence
     }
-    
   }
 }
