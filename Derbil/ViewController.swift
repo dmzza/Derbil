@@ -139,6 +139,15 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         self.userDefaults.setInteger(0, forKey: kUserDefaultsTodaysWalkCount)
     }
     
+    NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameLuckyNumberReceived,
+        object: nil,
+        queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+            let luckyNumber = ((note.userInfo! as Dictionary)[kNotificationUserInfoKeyLuckyNumber])! as! UInt
+            let alert = UIAlertView(title: "\(luckyNumber)", message: "Hello", delegate: nil, cancelButtonTitle: nil)
+            alert.show()
+            
+    }
+    
     self.walks = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
     self.animator = UIDynamicAnimator(referenceView: self.view)
     self.animator!.delegate = self
