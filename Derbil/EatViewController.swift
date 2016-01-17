@@ -11,6 +11,8 @@ import UIKit
 let kUserDefaultsTodaysMealCount = "TodaysMealCount"
 
 class EatViewController: UIViewController {
+    var delegate: EatViewControllerDelegate?
+    
     @IBOutlet var mealPicker: UISlider!
     @IBOutlet var mealButton: UIButton!
     var faceView: FaceView?
@@ -53,6 +55,7 @@ class EatViewController: UIViewController {
             NSTimer.scheduledTimerWithTimeInterval(0.05 * Double(i), target: self, selector: "giveHeart", userInfo: nil, repeats: false)
         }
         
+        self.delegate?.eatViewControllerDidDismiss(self)
     }
     
     func giveHeart() {
@@ -75,4 +78,8 @@ class EatViewController: UIViewController {
         }
     }
 
+}
+
+protocol EatViewControllerDelegate {
+    func eatViewControllerDidDismiss(vc: EatViewController)
 }

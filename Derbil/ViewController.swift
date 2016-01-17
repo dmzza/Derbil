@@ -13,7 +13,7 @@ let kUserDefaultsHeadColor = "HeadColor"
 let kHappyWalkThreshold: NSTimeInterval = 120
 let kPressHeadDuration: NSTimeInterval = 0.08
 
-class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRecognizerDelegate, UIDynamicAnimatorDelegate, DialogManagerDelegate {
+class ViewController: UIViewController, WalkViewControllerDelegate, EatViewControllerDelegate, UIGestureRecognizerDelegate, UIDynamicAnimatorDelegate, DialogManagerDelegate {
   
   @IBOutlet weak var faceContainer: UIView!
   var faceView: FaceView?
@@ -153,6 +153,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         queue: NSOperationQueue.mainQueue()) { (note) -> Void in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("EatViewController") as! EatViewController
+            vc.delegate = self
             self.presentViewController(vc, animated: true, completion: nil)
     }
     
@@ -437,6 +438,14 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
       userDefaults.setInteger(currentWalks + 1, forKey: kUserDefaultsWalkCount)
       userDefaults.setInteger(self.walks, forKey: kUserDefaultsTodaysWalkCount)
       
+    }
+  }
+    
+  // mark - EatViewControllerDelegate
+  
+  func eatViewControllerDidDismiss(vc: EatViewController) {
+    self.dismissViewControllerAnimated(true) { () -> Void in
+      self.giveHeart()
     }
   }
   
