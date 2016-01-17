@@ -148,6 +148,14 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
             
     }
     
+    NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameDeviceShaken,
+        object: nil,
+        queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("EatViewController") as! EatViewController
+            self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
     self.walks = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
     self.animator = UIDynamicAnimator(referenceView: self.view)
     self.animator!.delegate = self

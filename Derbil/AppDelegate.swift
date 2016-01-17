@@ -13,6 +13,7 @@ let kInAppNotificationReceived = "InAppNotificationReceived"
 let kNotificationNameNewDayBegan = "NewDayBegan"
 let kNotificationNameLuckyNumberReceived = "LuckyNumberReceived"
 let kNotificationUserInfoKeyLuckyNumber = "LuckyNumber"
+let kNotificationNameDeviceShaken = "DeviceShaken"
 let kUserDefaultsLastDailyReset = "LastDailyReset"
 let kUserDefaultsMealCount = "MealCount"
 let kUserDefaultsWalkCount = "WalkCount"
@@ -108,6 +109,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return false
+    }
+    
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if (motion == UIEventSubtype.MotionShake) {
+            NSNotificationCenter.defaultCenter().postNotificationName(kNotificationNameDeviceShaken, object: self)
+        }
+    }
+    
+    override func motionCancelled(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if (motion == UIEventSubtype.MotionShake) {
+            NSNotificationCenter.defaultCenter().postNotificationName(kNotificationNameDeviceShaken, object: self)
+        }
     }
 
 }

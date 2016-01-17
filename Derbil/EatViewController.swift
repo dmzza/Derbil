@@ -11,21 +11,12 @@ import UIKit
 let kUserDefaultsTodaysMealCount = "TodaysMealCount"
 
 class EatViewController: UIViewController {
-    @IBOutlet var faceContainer: UIView!
+    @IBOutlet var mealPicker: UISlider!
     @IBOutlet var mealButton: UIButton!
-    @IBOutlet var firstHeart: UIImageView!
-    @IBOutlet var secondHeart: UIImageView!
-    @IBOutlet var thirdHeart: UIImageView!
     var faceView: FaceView?
     var animator: UIDynamicAnimator?
     
-    var meals: Int = 0 {
-        didSet {
-            self.firstHeart.hidden = meals < 1
-            self.secondHeart.hidden = meals < 2
-            self.thirdHeart.hidden = meals < 3
-        }
-    }
+    var meals: Int = 0
     let mealsPerDay = 4
 
     override func viewDidLoad() {
@@ -45,21 +36,7 @@ class EatViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if (self.faceView == nil) {
-            let face: Face = Face(
-                mouth: Face.Name.MouthName(Face.Mouth.Puppy, Face.Part.Mouth),
-                leftEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Left),
-                rightEye: Face.Name.EyeName(Face.Eye.Normal, Face.Part.Right))
-            self.faceView = FaceView(face: face, frame: self.faceContainer.bounds)
-            self.faceContainer.addSubview(self.faceView!)
-        }
         self.updateMealButton()
-    }
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func eatMeal(sender: AnyObject) {
@@ -79,12 +56,6 @@ class EatViewController: UIViewController {
     }
     
     func giveHeart() {
-        let heart: UIImageView = UIImageView(image: UIImage(named: "heart"))
-        heart.frame = CGRect(origin: self.mealButton.center, size: self.firstHeart.bounds.size)
-        heart.tintColor = UIColor.redColor()
-        self.view.addSubview(heart)
-        let behavior: FlyingHeartBehavior = FlyingHeartBehavior(item: heart, endPoint: firstHeart.center) // firstHeart.frame.origin
-        self.animator!.addBehavior(behavior)
     }
     
     func updateMealButton() {

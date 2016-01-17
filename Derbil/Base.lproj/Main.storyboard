@@ -130,7 +130,7 @@
         <!--Eat-->
         <scene sceneID="kVp-Se-lQu">
             <objects>
-                <viewController id="NKq-G6-LX7" customClass="EatViewController" customModule="Chubbyy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EatViewController" id="NKq-G6-LX7" customClass="EatViewController" customModule="Chubbyy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bfQ-Re-d3u"/>
                         <viewControllerLayoutGuide type="bottom" id="87r-hM-Zwn"/>
@@ -139,22 +139,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zd0-m7-S2H">
-                                <rect key="frame" x="120" y="227" width="360" height="146"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="zd0-m7-S2H" secondAttribute="height" multiplier="567:230" id="rsv-pf-bW2"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHV-hZ-8NV">
-                                <rect key="frame" x="279" y="477" width="42" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Ej3-9I-pLh"/>
-                                </constraints>
-                                <state key="normal" title="Snack">
-                                    <color key="titleColor" red="1" green="0.58782749923404531" blue="0.45556161852286914" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-JE-lyy">
                                 <rect key="frame" x="150" y="400" width="300" height="58"/>
                                 <constraints>
@@ -172,62 +156,33 @@
                                     <action selector="eatMeal:" destination="NKq-G6-LX7" eventType="touchUpInside" id="sPo-ur-Uad"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="Zzg-oI-8Pv">
-                                <rect key="frame" x="536" y="28" width="44" height="44"/>
-                                <color key="tintColor" red="0.87450980389999999" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Fa-Hj-0or">
+                                <rect key="frame" x="148" y="285" width="304" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Mta-pQ-u85"/>
-                                    <constraint firstAttribute="width" constant="44" id="f6q-Hf-2E1"/>
+                                    <constraint firstAttribute="width" constant="300" id="cgI-Zx-WVV"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="cog-dH-N3Q">
-                                <rect key="frame" x="536" y="72" width="44" height="44"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="03y-bw-CgG"/>
-                                    <constraint firstAttribute="height" constant="44" id="nnQ-GE-jzY"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="SKb-wV-Egk">
-                                <rect key="frame" x="536" y="116" width="44" height="44"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="9u4-gD-QmB"/>
-                                    <constraint firstAttribute="width" constant="44" id="x4B-HD-1fi"/>
-                                </constraints>
-                            </imageView>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Zzg-oI-8Pv" firstAttribute="top" secondItem="bfQ-Re-d3u" secondAttribute="bottom" constant="8" id="57O-mB-geB"/>
-                            <constraint firstItem="zd0-m7-S2H" firstAttribute="width" secondItem="dxH-ks-dzV" secondAttribute="width" multiplier="0.6" id="5Bl-gT-6FY"/>
-                            <constraint firstItem="SKb-wV-Egk" firstAttribute="top" secondItem="cog-dH-N3Q" secondAttribute="bottom" id="FmS-pr-M85"/>
-                            <constraint firstItem="Zzg-oI-8Pv" firstAttribute="trailing" secondItem="SKb-wV-Egk" secondAttribute="trailing" id="Jto-6N-4dt"/>
-                            <constraint firstItem="Zzg-oI-8Pv" firstAttribute="trailing" secondItem="cog-dH-N3Q" secondAttribute="trailing" id="KUT-FR-c7D"/>
-                            <constraint firstItem="QHV-hZ-8NV" firstAttribute="top" secondItem="oHq-JE-lyy" secondAttribute="bottom" constant="19" id="TvD-ww-LJa"/>
+                            <constraint firstItem="87r-hM-Zwn" firstAttribute="top" secondItem="oHq-JE-lyy" secondAttribute="bottom" constant="142" id="3xi-fb-uC9"/>
+                            <constraint firstItem="7Fa-Hj-0or" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="CBs-DD-Azb"/>
                             <constraint firstItem="oHq-JE-lyy" firstAttribute="centerY" secondItem="dxH-ks-dzV" secondAttribute="centerY" id="h50-ej-dv0"/>
-                            <constraint firstItem="zd0-m7-S2H" firstAttribute="width" secondItem="zd0-m7-S2H" secondAttribute="height" multiplier="567:230" id="hIW-WW-OEE"/>
-                            <constraint firstItem="Zzg-oI-8Pv" firstAttribute="trailing" secondItem="dxH-ks-dzV" secondAttribute="trailingMargin" id="lls-73-i2y"/>
                             <constraint firstItem="oHq-JE-lyy" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="mb8-Pp-sFL"/>
-                            <constraint firstItem="QHV-hZ-8NV" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="pvA-GL-xIP"/>
-                            <constraint firstItem="cog-dH-N3Q" firstAttribute="top" secondItem="Zzg-oI-8Pv" secondAttribute="bottom" id="qKA-eZ-ZzT"/>
-                            <constraint firstItem="oHq-JE-lyy" firstAttribute="top" secondItem="zd0-m7-S2H" secondAttribute="bottom" constant="27" id="sgv-yT-fB2"/>
-                            <constraint firstItem="zd0-m7-S2H" firstAttribute="centerY" secondItem="dxH-ks-dzV" secondAttribute="centerY" id="suQ-6C-2F5"/>
-                            <constraint firstItem="zd0-m7-S2H" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="xOL-45-Ksl"/>
+                            <constraint firstItem="7Fa-Hj-0or" firstAttribute="centerY" secondItem="dxH-ks-dzV" secondAttribute="centerY" id="p2o-9N-ASs"/>
+                            <constraint firstItem="oHq-JE-lyy" firstAttribute="top" secondItem="7Fa-Hj-0or" secondAttribute="bottom" constant="85" id="rPy-tV-ldc"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="h50-ej-dv0"/>
+                                <exclude reference="3xi-fb-uC9"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Eat" image="eat" id="8h7-dk-TFw"/>
                     <connections>
-                        <outlet property="faceContainer" destination="zd0-m7-S2H" id="sLL-cf-lc3"/>
-                        <outlet property="firstHeart" destination="Zzg-oI-8Pv" id="juY-rl-mXB"/>
                         <outlet property="mealButton" destination="oHq-JE-lyy" id="DwE-4I-41m"/>
-                        <outlet property="secondHeart" destination="cog-dH-N3Q" id="ini-gb-DDN"/>
-                        <outlet property="thirdHeart" destination="SKb-wV-Egk" id="Bdc-GT-xk5"/>
+                        <outlet property="mealPicker" destination="7Fa-Hj-0or" id="ij6-Nc-Zg1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOm-QZ-A8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
