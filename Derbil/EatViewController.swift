@@ -10,6 +10,35 @@ import UIKit
 
 let kUserDefaultsTodaysMealCount = "TodaysMealCount"
 
+enum FoodGroup {
+  case Grain
+  case Vegetable
+  case Fruit
+  case Protein
+  case Dairy
+}
+
+enum FatContent {
+  case None
+  case Lean
+  case Moderate
+  case Fatty
+}
+
+enum SugarContent {
+  case None
+  case Low
+  case Natural
+  case Sweet
+}
+
+struct Food {
+  var group: FoodGroup
+  var fat: FatContent
+  var sugar: SugarContent
+  var name: String
+}
+
 class EatViewController: UIViewController {
     var delegate: EatViewControllerDelegate?
     
@@ -17,7 +46,29 @@ class EatViewController: UIViewController {
     @IBOutlet var mealButton: UIButton!
     var faceView: FaceView?
     var animator: UIDynamicAnimator?
-    
+  
+  let foods = [
+    Food(group: FoodGroup.Grain,
+      fat: FatContent.Lean,
+      sugar: SugarContent.Low,
+      name: "Whole Wheat Rustic Bread"),
+    Food(group: FoodGroup.Vegetable,
+      fat: FatContent.Fatty,
+      sugar: SugarContent.Low,
+      name: "French Fries"),
+    Food(group: FoodGroup.Fruit,
+      fat: FatContent.None,
+      sugar: SugarContent.Natural,
+      name: "Pineapple Chunks"),
+    Food(group: FoodGroup.Protein,
+      fat: FatContent.Fatty,
+      sugar: SugarContent.None,
+      name: "Extra Crispy Chicken"),
+    Food(group: FoodGroup.Dairy,
+      fat: FatContent.Moderate,
+      sugar: SugarContent.Sweet,
+      name: "Butter Pecan Ice Cream")
+  ]
     var meals: Int = 0
     let mealsPerDay = 4
 
@@ -40,6 +91,9 @@ class EatViewController: UIViewController {
         super.viewDidAppear(animated)
         self.updateMealButton()
     }
+  @IBAction func mealPickerChanged(sender: UISlider) {
+      self.updateMealButton()
+  }
     
     @IBAction func eatMeal(sender: AnyObject) {
         let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -62,20 +116,9 @@ class EatViewController: UIViewController {
     }
     
     func updateMealButton() {
-        switch(self.meals) {
-        case 0:
-            self.mealButton.setTitle("Breakfast", forState: UIControlState.Normal)
-            break
-        case 1:
-            self.mealButton.setTitle("Lunch", forState: UIControlState.Normal)
-            break
-        case 2:
-            self.mealButton.setTitle("Dinner", forState: UIControlState.Normal)
-            break
-        default:
-            self.mealButton.setTitle("", forState: UIControlState.Normal)
-            
-        }
+      let foodIndex = Int(self.mealPicker.value)
+      
+      self.mealButton.setTitle(self.foods[foodIndex].name, forState: UIControlState.Normal)
     }
 
 }
