@@ -33,10 +33,23 @@ enum SugarContent {
 }
 
 struct Food {
-  var group: FoodGroup
-  var fat: FatContent
-  var sugar: SugarContent
-  var name: String
+  let group: FoodGroup
+  let fat: FatContent
+  let sugar: SugarContent
+  let name: String
+  let icon: String?
+  func iconName() -> String {
+    if let name = self.icon {
+      return "\(name).png"
+    }
+    switch(self.group) {
+    case .Grain: return "bread.png"
+    case .Vegetable: return "eggplant.png"
+    case .Fruit: return "fruit.png"
+    case .Protein: return "meal.png"
+    case .Dairy: return "cheese.png"
+    }
+  }
 }
 
 class EatViewController: UIViewController {
@@ -44,6 +57,7 @@ class EatViewController: UIViewController {
     
     @IBOutlet var mealPicker: UISlider!
     @IBOutlet var mealButton: UIButton!
+  @IBOutlet var mealIcon: UIImageView!
     var faceView: FaceView?
     var animator: UIDynamicAnimator?
   
@@ -51,23 +65,23 @@ class EatViewController: UIViewController {
     Food(group: FoodGroup.Grain,
       fat: FatContent.Lean,
       sugar: SugarContent.Low,
-      name: "Whole Wheat Rustic Bread"),
+      name: "Whole Wheat Rustic Bread", icon: nil),
     Food(group: FoodGroup.Vegetable,
       fat: FatContent.Fatty,
       sugar: SugarContent.Low,
-      name: "French Fries"),
+      name: "French Fries", icon: "fries"),
     Food(group: FoodGroup.Fruit,
       fat: FatContent.None,
       sugar: SugarContent.Natural,
-      name: "Pineapple Chunks"),
+      name: "Pineapple Chunks", icon: nil),
     Food(group: FoodGroup.Protein,
       fat: FatContent.Fatty,
       sugar: SugarContent.None,
-      name: "Extra Crispy Chicken"),
+      name: "Extra Crispy Chicken", icon: nil),
     Food(group: FoodGroup.Dairy,
       fat: FatContent.Moderate,
       sugar: SugarContent.Sweet,
-      name: "Butter Pecan Ice Cream")
+      name: "Butter Pecan Ice Cream", icon: "popsicle")
   ]
     var meals: Int = 0
     let mealsPerDay = 4
@@ -92,6 +106,7 @@ class EatViewController: UIViewController {
         self.updateMealButton()
     }
   @IBAction func mealPickerChanged(sender: UISlider) {
+    sender.value = round(sender.value)
       self.updateMealButton()
   }
     
@@ -117,8 +132,10 @@ class EatViewController: UIViewController {
     
     func updateMealButton() {
       let foodIndex = Int(self.mealPicker.value)
+      let food = self.foods[foodIndex]
       
-      self.mealButton.setTitle(self.foods[foodIndex].name, forState: UIControlState.Normal)
+      self.mealButton.setTitle(food.name, forState: UIControlState.Normal)
+      self.mealIcon.image = UIImage(named: food.iconName())
     }
 
 }
