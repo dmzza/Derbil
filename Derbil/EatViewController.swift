@@ -58,6 +58,13 @@ class EatViewController: UIViewController {
     @IBOutlet var mealPicker: UISlider!
     @IBOutlet var mealButton: UIButton!
   @IBOutlet var mealIcon: UIImageView!
+  
+  @IBOutlet var grainBarHeight: NSLayoutConstraint!
+  @IBOutlet var vegetableBarHeight: NSLayoutConstraint!
+  @IBOutlet var fruitBarHeight: NSLayoutConstraint!
+  @IBOutlet var proteinBarHeight: NSLayoutConstraint!
+  @IBOutlet var dairyBarHeight: NSLayoutConstraint!
+  
     var faceView: FaceView?
     var animator: UIDynamicAnimator?
   
@@ -99,6 +106,12 @@ class EatViewController: UIViewController {
         
         self.meals = userDefaults.integerForKey(kUserDefaultsTodaysMealCount)
         self.animator = UIDynamicAnimator(referenceView: self.view)
+      
+      self.grainBarHeight.constant = 50.0
+      self.vegetableBarHeight.constant = 99.0
+      self.fruitBarHeight.constant = 69.0
+      self.proteinBarHeight.constant = 5.0
+      self.dairyBarHeight.constant = 34.0
     }
     
     override func viewDidAppear(animated: Bool) {
