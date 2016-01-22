@@ -26,9 +26,6 @@ class EatViewController: UIViewController {
   @IBOutlet var proteinBarHeight: NSLayoutConstraint!
   @IBOutlet var dairyBarHeight: NSLayoutConstraint!
   
-    var faceView: FaceView?
-    var animator: UIDynamicAnimator?
-  
   let foods = [
     Food(group: Food.Group.Grain,
       fat: Food.FatContent.Lean,
@@ -78,9 +75,6 @@ class EatViewController: UIViewController {
             queue: NSOperationQueue.mainQueue()) { (note) -> Void in
                 self.pruneLeastRecentMeal()
         }
-        
-      
-        self.animator = UIDynamicAnimator(referenceView: self.view)
       
       self.grainBarHeight.constant = 50.0
       self.vegetableBarHeight.constant = 99.0
@@ -104,9 +98,6 @@ class EatViewController: UIViewController {
     saveValuesToDefaults(self.meals, key: kUserDefaultsMeals)
     self.delegate?.eatViewControllerDidDismiss(self)
   }
-    
-    func giveHeart() {
-    }
     
   func updateFoodGroupBar(heightConstraint: NSLayoutConstraint, group: Food.Group, servings: Int) {
     // TODO
