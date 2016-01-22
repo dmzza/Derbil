@@ -14,10 +14,10 @@ let kUserDefaultsMeals = "RecentMeals"
 
 
 class EatViewController: UIViewController {
-    var delegate: EatViewControllerDelegate?
+  var delegate: EatViewControllerDelegate?
     
-    @IBOutlet var mealPicker: UISlider!
-    @IBOutlet var mealButton: UIButton!
+  @IBOutlet var mealPicker: UISlider!
+  @IBOutlet var mealButton: UIButton!
   @IBOutlet var mealIcon: UIImageView!
   
   @IBOutlet var grainBarHeight: NSLayoutConstraint!
@@ -61,27 +61,27 @@ class EatViewController: UIViewController {
     super.init(coder: aDecoder)
   }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-      
-      if let meals: [Food] = extractValuesFromPropertyListArray(userDefaults.arrayForKey(kUserDefaultsMeals)) {
-        self.meals = meals
-      }
-      
-        NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameNewDayBegan,
-            object: nil,
-            queue: NSOperationQueue.mainQueue()) { (note) -> Void in
-                self.pruneLeastRecentMeal()
-        }
-      
-      self.grainBarHeight.constant = 50.0
-      self.vegetableBarHeight.constant = 99.0
-      self.fruitBarHeight.constant = 69.0
-      self.proteinBarHeight.constant = 5.0
-      self.dairyBarHeight.constant = 34.0
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    
+    if let meals: [Food] = extractValuesFromPropertyListArray(userDefaults.arrayForKey(kUserDefaultsMeals)) {
+      self.meals = meals
     }
+    
+    NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameNewDayBegan,
+      object: nil,
+      queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+        self.pruneLeastRecentMeal()
+    }
+    
+    self.grainBarHeight.constant = 50.0
+    self.vegetableBarHeight.constant = 99.0
+    self.fruitBarHeight.constant = 69.0
+    self.proteinBarHeight.constant = 5.0
+    self.dairyBarHeight.constant = 34.0
+  }
     
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
@@ -110,5 +110,5 @@ class EatViewController: UIViewController {
 }
 
 protocol EatViewControllerDelegate {
-    func eatViewControllerDidDismiss(vc: EatViewController)
+  func eatViewControllerDidDismiss(vc: EatViewController)
 }
