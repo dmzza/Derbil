@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -248,14 +248,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Eat" image="eat" id="8h7-dk-TFw"/>
                     <connections>
-                        <outlet property="dairyBarHeight" destination="2Hn-p6-vsx" id="yif-ey-8EF"/>
+                        <outlet property="dairyBarHeight" destination="2Hn-p6-vsx" id="Uob-Ls-ar3"/>
                         <outlet property="fruitBarHeight" destination="sJe-i8-zWc" id="9ky-xj-9Jf"/>
                         <outlet property="grainBarHeight" destination="rDf-40-ae1" id="OC3-3Q-UWB"/>
                         <outlet property="mealButton" destination="oHq-JE-lyy" id="DwE-4I-41m"/>
                         <outlet property="mealIcon" destination="eyL-kE-akq" id="G8n-E0-7MT"/>
                         <outlet property="mealPicker" destination="7Fa-Hj-0or" id="ij6-Nc-Zg1"/>
                         <outlet property="proteinBarHeight" destination="09o-Wf-myA" id="eP8-kn-Jcc"/>
-                        <outlet property="vegetableBarHeight" destination="y1Z-dG-elW" id="6h7-GN-AIu"/>
+                        <outlet property="vegetableBarHeight" destination="y1Z-dG-elW" id="dZO-8D-LEU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOm-QZ-A8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
