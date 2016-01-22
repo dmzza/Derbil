@@ -93,8 +93,8 @@ extension Food: PropertyListReadable {
   init?(propertyListRepresentation:NSDictionary?) {
     guard let values = propertyListRepresentation else {return nil}
     if let group = values["group"] as? Int,
-      fat = values["y"] as? Int,
-      sugar = values["z"] as? Int,
+      fat = values["fat"] as? Int,
+      sugar = values["sugar"] as? Int,
       name = values["name"] as? String,
       iconName = values["iconName"] as? String {
         self.group = Group(rawValue: group)!
