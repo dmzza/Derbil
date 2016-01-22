@@ -49,6 +49,7 @@ class EatViewController: UIViewController {
       name: "Butter Pecan Ice Cream", icon: "popsicle")
   ]
   var meals: [Food] = []
+  var servings: [Food.Group:Int] = [.Grain: 0, .Vegetable: 0, .Fruit: 0, .Protein: 0, .Dairy: 0]
   var selectedFood: Food {
     didSet {
       self.mealButton.setTitle(self.selectedFood.name, forState: UIControlState.Normal)
@@ -76,11 +77,15 @@ class EatViewController: UIViewController {
         self.pruneLeastRecentMeal()
     }
     
-    self.grainBarHeight.constant = 50.0
-    self.vegetableBarHeight.constant = 99.0
-    self.fruitBarHeight.constant = 69.0
-    self.proteinBarHeight.constant = 5.0
-    self.dairyBarHeight.constant = 34.0
+    for meal in self.meals {
+      self.servings[meal.group]! += 1
+    }
+    
+    self.updateFoodGroupBar(self.grainBarHeight, group: .Grain)
+    self.updateFoodGroupBar(self.vegetableBarHeight, group: .Vegetable)
+    self.updateFoodGroupBar(self.fruitBarHeight, group: .Fruit)
+    self.updateFoodGroupBar(self.proteinBarHeight, group: .Protein)
+    self.updateFoodGroupBar(self.dairyBarHeight, group: .Dairy)
   }
     
   override func viewWillAppear(animated: Bool) {
@@ -99,8 +104,9 @@ class EatViewController: UIViewController {
     self.delegate?.eatViewControllerDidDismiss(self)
   }
     
-  func updateFoodGroupBar(heightConstraint: NSLayoutConstraint, group: Food.Group, servings: Int) {
-    // TODO
+  func updateFoodGroupBar(heightConstraint: NSLayoutConstraint, group: Food.Group) {
+    let servings = self.servings[group]!
+    heightConstraint.constant = CGFloat(100) * CGFloat(servings) / CGFloat(group.recommendedServings)
   }
   
   func pruneLeastRecentMeal() {
