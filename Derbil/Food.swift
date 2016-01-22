@@ -36,6 +36,7 @@ struct Food {
       case Dairy: return "cheese.png"
       }
     }
+    static let allValues = [Grain, Vegetable, Fruit, Protein, Dairy]
   }
   
   enum FatContent: Int {

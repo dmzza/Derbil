@@ -101,11 +101,7 @@ class EatViewController: UIViewController {
   }
   
   func resetFoodGroupBarsFromRecentMeals() {
-    self.updateFoodGroupBar(.Grain)
-    self.updateFoodGroupBar(.Vegetable)
-    self.updateFoodGroupBar(.Fruit)
-    self.updateFoodGroupBar(.Protein)
-    self.updateFoodGroupBar(.Dairy)
+    let _ = Food.Group.allValues.map{self.updateFoodGroupBar($0)}
   }
   
   func heightConstraintForFoodGroup(group: Food.Group) -> NSLayoutConstraint {
