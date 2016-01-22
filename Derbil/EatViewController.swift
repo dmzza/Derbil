@@ -54,6 +54,8 @@ class EatViewController: UIViewController {
     didSet {
       self.mealButton.setTitle(self.selectedFood.name, forState: UIControlState.Normal)
       self.mealIcon.image = UIImage(named: self.selectedFood.iconName)
+      self.resetFoodGroupBarsFromRecentMeals()
+      self.updateFoodGroupBar(self.selectedFood.group, servings: self.servings[self.selectedFood.group]! + 1)
     }
   }
   
@@ -80,12 +82,6 @@ class EatViewController: UIViewController {
     for meal in self.meals {
       self.servings[meal.group]! += 1
     }
-    
-    self.updateFoodGroupBar(self.grainBarHeight, group: .Grain)
-    self.updateFoodGroupBar(self.vegetableBarHeight, group: .Vegetable)
-    self.updateFoodGroupBar(self.fruitBarHeight, group: .Fruit)
-    self.updateFoodGroupBar(self.proteinBarHeight, group: .Protein)
-    self.updateFoodGroupBar(self.dairyBarHeight, group: .Dairy)
   }
     
   override func viewWillAppear(animated: Bool) {
@@ -103,10 +99,32 @@ class EatViewController: UIViewController {
     saveValuesToDefaults(self.meals, key: kUserDefaultsMeals)
     self.delegate?.eatViewControllerDidDismiss(self)
   }
-    
-  func updateFoodGroupBar(heightConstraint: NSLayoutConstraint, group: Food.Group) {
+  
+  func resetFoodGroupBarsFromRecentMeals() {
+    self.updateFoodGroupBar(.Grain)
+    self.updateFoodGroupBar(.Vegetable)
+    self.updateFoodGroupBar(.Fruit)
+    self.updateFoodGroupBar(.Protein)
+    self.updateFoodGroupBar(.Dairy)
+  }
+  
+  func heightConstraintForFoodGroup(group: Food.Group) -> NSLayoutConstraint {
+    switch group {
+    case .Grain: return self.grainBarHeight
+    case .Vegetable: return self.vegetableBarHeight
+    case .Fruit: return self.fruitBarHeight
+    case .Protein: return self.proteinBarHeight
+    case .Dairy: return self.dairyBarHeight
+    }
+  }
+  
+  func updateFoodGroupBar(group: Food.Group) {
     let servings = self.servings[group]!
-    heightConstraint.constant = CGFloat(100) * CGFloat(servings) / CGFloat(group.recommendedServings)
+    self.updateFoodGroupBar(group, servings: servings)
+  }
+  
+  func updateFoodGroupBar(group: Food.Group, servings: Int) {
+    heightConstraintForFoodGroup(group).constant = CGFloat(100) * CGFloat(servings) / CGFloat(group.recommendedServings)
   }
   
   func pruneLeastRecentMeal() {
