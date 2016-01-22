@@ -71,6 +71,8 @@
 		AA6AD2971B95950E00CB4549 /* FlyingHeartBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD2961B95950E00CB4549 /* FlyingHeartBehavior.swift */; };
 		AAC8413B1C51F15E00BA6622 /* PropertyListReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8413A1C51F15E00BA6622 /* PropertyListReadable.swift */; };
 		AAC8413C1C51F15E00BA6622 /* PropertyListReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8413A1C51F15E00BA6622 /* PropertyListReadable.swift */; };
+		AAC841431C51F2E500BA6622 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC841421C51F2E500BA6622 /* Food.swift */; };
+		AAC841441C51F2E500BA6622 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC841421C51F2E500BA6622 /* Food.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +238,7 @@
 		AA6AD2951B95826B00CB4549 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		AA6AD2961B95950E00CB4549 /* FlyingHeartBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyingHeartBehavior.swift; sourceTree = "<group>"; };
 		AAC8413A1C51F15E00BA6622 /* PropertyListReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListReadable.swift; sourceTree = "<group>"; };
+		AAC841421C51F2E500BA6622 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +394,7 @@
 				63C8739E1C1D0E8000F7E427 /* Dialog.swift */,
 				636DCB601C20EDC9005A069C /* DialogManager.swift */,
 				AAC8413A1C51F15E00BA6622 /* PropertyListReadable.swift */,
+				AAC841421C51F2E500BA6622 /* Food.swift */,
 			);
 			name = Chubbyy;
 			path = Derbil;
@@ -745,6 +749,7 @@
 				63F260AD1B84D9CE00F109B9 /* SleepViewController.swift in Sources */,
 				9FF832981B76DEC100958D2A /* Utilities.swift in Sources */,
 				9FDD655A1B76A5FB00CD8703 /* FaceView.swift in Sources */,
+				AAC841431C51F2E500BA6622 /* Food.swift in Sources */,
 				632689F91B93D6F1002D2D0F /* Duration.swift in Sources */,
 				63F260AB1B84D97700F109B9 /* EatViewController.swift in Sources */,
 			);
@@ -756,6 +761,7 @@
 			files = (
 				AAC8413C1C51F15E00BA6622 /* PropertyListReadable.swift in Sources */,
 				9FE05F921B6ED7EB00AE120C /* DerbilTests.swift in Sources */,
+				AAC841441C51F2E500BA6622 /* Food.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
