@@ -7,50 +7,11 @@
 //
 
 import UIKit
+import Foundation
 
-let kUserDefaultsTodaysMealCount = "TodaysMealCount"
+let kUserDefaultsMeals = "RecentMeals"
 
-enum FoodGroup {
-  case Grain
-  case Vegetable
-  case Fruit
-  case Protein
-  case Dairy
-}
 
-enum FatContent {
-  case None
-  case Lean
-  case Moderate
-  case Fatty
-}
-
-enum SugarContent {
-  case None
-  case Low
-  case Natural
-  case Sweet
-}
-
-struct Food {
-  let group: FoodGroup
-  let fat: FatContent
-  let sugar: SugarContent
-  let name: String
-  let icon: String?
-  func iconName() -> String {
-    if let name = self.icon {
-      return "\(name).png"
-    }
-    switch(self.group) {
-    case .Grain: return "bread.png"
-    case .Vegetable: return "eggplant.png"
-    case .Fruit: return "fruit.png"
-    case .Protein: return "meal.png"
-    case .Dairy: return "cheese.png"
-    }
-  }
-}
 
 class EatViewController: UIViewController {
     var delegate: EatViewControllerDelegate?
@@ -69,42 +30,56 @@ class EatViewController: UIViewController {
     var animator: UIDynamicAnimator?
   
   let foods = [
-    Food(group: FoodGroup.Grain,
-      fat: FatContent.Lean,
-      sugar: SugarContent.Low,
-      name: "Whole Wheat Rustic Bread", icon: nil),
-    Food(group: FoodGroup.Vegetable,
-      fat: FatContent.Fatty,
-      sugar: SugarContent.Low,
+    Food(group: Food.Group.Grain,
+      fat: Food.FatContent.Lean,
+      sugar: Food.SugarContent.Low,
+      name: "Whole Wheat Rustic Bread"),
+    Food(group: Food.Group.Vegetable,
+      fat: Food.FatContent.Fatty,
+      sugar: Food.SugarContent.Low,
       name: "French Fries", icon: "fries"),
-    Food(group: FoodGroup.Fruit,
-      fat: FatContent.None,
-      sugar: SugarContent.Natural,
-      name: "Pineapple Chunks", icon: nil),
-    Food(group: FoodGroup.Protein,
-      fat: FatContent.Fatty,
-      sugar: SugarContent.None,
-      name: "Extra Crispy Chicken", icon: nil),
-    Food(group: FoodGroup.Dairy,
-      fat: FatContent.Moderate,
-      sugar: SugarContent.Sweet,
+    Food(group: Food.Group.Fruit,
+      fat: Food.FatContent.None,
+      sugar: Food.SugarContent.Natural,
+      name: "Pineapple Chunks"),
+    Food(group: Food.Group.Protein,
+      fat: Food.FatContent.Fatty,
+      sugar: Food.SugarContent.None,
+      name: "Extra Crispy Chicken"),
+    Food(group: Food.Group.Dairy,
+      fat: Food.FatContent.Moderate,
+      sugar: Food.SugarContent.Sweet,
       name: "Butter Pecan Ice Cream", icon: "popsicle")
   ]
-    var meals: Int = 0
-    let mealsPerDay = 4
+  var meals: [Food] = []
+  var selectedFood: Food {
+    didSet {
+      self.mealButton.setTitle(self.selectedFood.name, forState: UIControlState.Normal)
+      self.mealIcon.image = UIImage(named: self.selectedFood.iconName)
+    }
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    selectedFood = self.foods[0]
+    super.init(coder: aDecoder)
+  }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        
+      
+      if let meals: [Food] = extractValuesFromPropertyListArray(userDefaults.arrayForKey(kUserDefaultsMeals)) {
+        self.meals = meals
+      }
+      
         NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameNewDayBegan,
             object: nil,
             queue: NSOperationQueue.mainQueue()) { (note) -> Void in
-                userDefaults.setInteger(0, forKey: kUserDefaultsTodaysMealCount)
+                self.pruneLeastRecentMeal()
         }
         
-        self.meals = userDefaults.integerForKey(kUserDefaultsTodaysMealCount)
+      
         self.animator = UIDynamicAnimator(referenceView: self.view)
       
       self.grainBarHeight.constant = 50.0
@@ -114,42 +89,32 @@ class EatViewController: UIViewController {
       self.dairyBarHeight.constant = 34.0
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        self.updateMealButton()
-    }
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.selectedFood = self.foods[0]
+  }
   @IBAction func mealPickerChanged(sender: UISlider) {
     sender.value = round(sender.value)
-      self.updateMealButton()
+    let foodIndex = Int(sender.value)
+    self.selectedFood = self.foods[foodIndex]
   }
-    
-    @IBAction func eatMeal(sender: AnyObject) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let currentMeals: Int = userDefaults.integerForKey(kUserDefaultsMealCount)
-        let todaysMeals: Int = userDefaults.integerForKey(kUserDefaultsTodaysMealCount)
-        
-        self.meals = todaysMeals + 1
-        userDefaults.setInteger(currentMeals + 1, forKey: kUserDefaultsMealCount)
-        userDefaults.setInteger(self.meals, forKey: kUserDefaultsTodaysMealCount)
-        self.updateMealButton()
-        
-        for i in 1...10 {
-            NSTimer.scheduledTimerWithTimeInterval(0.05 * Double(i), target: self, selector: "giveHeart", userInfo: nil, repeats: false)
-        }
-        
-        self.delegate?.eatViewControllerDidDismiss(self)
-    }
+  
+  @IBAction func eatMeal(sender: AnyObject) {
+    self.meals.append(self.selectedFood)
+    saveValuesToDefaults(self.meals, key: kUserDefaultsMeals)
+    self.delegate?.eatViewControllerDidDismiss(self)
+  }
     
     func giveHeart() {
     }
     
-    func updateMealButton() {
-      let foodIndex = Int(self.mealPicker.value)
-      let food = self.foods[foodIndex]
-      
-      self.mealButton.setTitle(food.name, forState: UIControlState.Normal)
-      self.mealIcon.image = UIImage(named: food.iconName())
-    }
+  func updateFoodGroupBar(heightConstraint: NSLayoutConstraint, group: Food.Group, servings: Int) {
+    // TODO
+  }
+  
+  func pruneLeastRecentMeal() {
+    // TODO
+  }
 
 }
 
