@@ -22,6 +22,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
   @IBOutlet var speechBubbleLabel: UILabel!
   @IBOutlet var responseBubbleLabel: UILabel!
   @IBOutlet var responseBubbleImage: UIImageView!
+  @IBOutlet var eatButton: UIButton!
   
   var animator: UIDynamicAnimator?
   var pushHeadBehavior: UIPushBehavior?
@@ -157,6 +158,8 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
     self.responseBubble.alpha = 0.0
     
     self.dialogManager = DialogManager(delegate: self)
+    
+    self.eatButton.layer.cornerRadius = 23.0
   }
   
   override func viewDidAppear(animated: Bool) {
