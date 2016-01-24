@@ -146,7 +146,6 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
             let luckyNumber = ((note.userInfo! as Dictionary)[kNotificationUserInfoKeyLuckyNumber])! as! UInt
             let alert = UIAlertView(title: "\(luckyNumber)", message: "Hello", delegate: nil, cancelButtonTitle: nil)
             alert.show()
-            
     }
     
     NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameDeviceShaken,
@@ -423,12 +422,6 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
     let instaNote: UILocalNotification = self.notification(secondsSinceMidnight + 5, body: "😖", title: notificationTitle, thought: "Hello")
     UIApplication.sharedApplication().scheduleLocalNotification(instaNote)
   }
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "WalkViewControllerSegue" {
-      let vc: WalkViewController = (segue.destinationViewController as! UINavigationController).topViewController as! WalkViewController
-      vc.delegate = self
-    }
-  }
   
   func didComplete(controller: WalkViewController, elapsedTime: NSTimeInterval) {
     if elapsedTime >= kHappyWalkThreshold {
@@ -443,8 +436,20 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
       
     }
   }
-    
-  // mark - EatViewControllerDelegate
+  
+  // MARK: Navigation
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let modalVC = segue.destinationViewController as? EatViewController {
+      modalVC.delegate = self
+    }
+    if segue.identifier == "WalkViewControllerSegue" {
+      let vc: WalkViewController = (segue.destinationViewController as! UINavigationController).topViewController as! WalkViewController
+      vc.delegate = self
+    }
+  }
+  
+  // MARK: EatViewControllerDelegate
   
   func eatViewControllerDidDismiss(vc: EatViewController) {
     self.dismissViewControllerAnimated(true) { () -> Void in
@@ -452,7 +457,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
     }
   }
   
-  // mark - UIGestureRecognizerDelegate
+  // MARK: UIGestureRecognizerDelegate
   
   func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
     if otherGestureRecognizer is UIPanGestureRecognizer {
@@ -461,7 +466,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
     return false
   }
   
-  // mark - UIDynamicAnimatorDelegate
+  // MARK: UIDynamicAnimatorDelegate
   
   func dynamicAnimatorDidPause(animator: UIDynamicAnimator) {
     if !self.isSleeping {
@@ -472,7 +477,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
     }
   }
   
-  // mark - DialogManagerDelegate 
+  // MARK: DialogManagerDelegate
   
   func dialogManager(manager: DialogManager, wantsChubbyyToSpeak sentence: Sentence, completion: (didSpeak: Bool) -> ()) {
     self.speechBubbleLabel.text = sentence.text

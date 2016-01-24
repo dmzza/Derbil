@@ -453,6 +453,7 @@
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Walk" image="walk" id="IWk-AC-07E"/>
+                    <navigationItem key="navigationItem" id="Qrq-ZZ-fxQ"/>
                     <connections>
                         <outlet property="colorPanRecognizer" destination="ihC-mB-tHJ" id="6Vo-aN-7eM"/>
                         <outlet property="eatButton" destination="QbX-u3-1L3" id="6F2-We-r32"/>
