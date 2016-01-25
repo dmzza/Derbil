@@ -11,8 +11,6 @@ import Foundation
 
 let kUserDefaultsMeals = "RecentMeals"
 
-
-
 class EatViewController: UIViewController {
   var delegate: EatViewControllerDelegate?
     
@@ -48,7 +46,16 @@ class EatViewController: UIViewController {
       sugar: Food.SugarContent.Sweet,
       name: "Butter Pecan Ice Cream", icon: "popsicle")
   ]
-  var meals: [Food] = []
+  static var meals: [Food] {
+    get {
+      let userDefaults = NSUserDefaults.standardUserDefaults()
+      if let meals: [Food] = extractValuesFromPropertyListArray(userDefaults.arrayForKey(kUserDefaultsMeals)) {
+        return meals
+      } else {
+        return []
+      }
+    }
+  }
   var servings: [Food.Group:Int] = [.Grain: 0, .Vegetable: 0, .Fruit: 0, .Protein: 0, .Dairy: 0]
   var selectedFood: Food {
     didSet {
@@ -63,23 +70,11 @@ class EatViewController: UIViewController {
     selectedFood = self.foods[0]
     super.init(coder: aDecoder)
   }
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    let userDefaults = NSUserDefaults.standardUserDefaults()
     
-    if let meals: [Food] = extractValuesFromPropertyListArray(userDefaults.arrayForKey(kUserDefaultsMeals)) {
-      self.meals = meals
-    }
-    
-    NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameNewDayBegan,
-      object: nil,
-      queue: NSOperationQueue.mainQueue()) { (note) -> Void in
-        self.pruneLeastRecentMeal()
-    }
-    
-    for meal in self.meals {
+    for meal in EatViewController.meals {
       self.servings[meal.group]! += 1
     }
   }
@@ -95,8 +90,9 @@ class EatViewController: UIViewController {
   }
   
   @IBAction func eatMeal(sender: AnyObject) {
-    self.meals.append(self.selectedFood)
-    saveValuesToDefaults(self.meals, key: kUserDefaultsMeals)
+    var meals = EatViewController.meals
+    meals.append(self.selectedFood)
+    saveValuesToDefaults(meals, key: kUserDefaultsMeals)
     self.delegate?.eatViewControllerDidDismiss(self)
   }
   
@@ -123,8 +119,11 @@ class EatViewController: UIViewController {
     heightConstraintForFoodGroup(group).constant = CGFloat(100) * CGFloat(servings) / CGFloat(group.recommendedServings)
   }
   
-  func pruneLeastRecentMeal() {
-    // TODO
+  class func digestLeastRecentMeal() {
+    var meals = EatViewController.meals
+    
+    meals.removeAtIndex(0)
+    saveValuesToDefaults(meals, key: kUserDefaultsMeals)
   }
 
 }

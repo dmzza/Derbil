@@ -114,7 +114,7 @@ class ViewController: UIViewController, EatViewControllerDelegate, UIGestureReco
     NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameNewDayBegan,
       object: nil,
       queue: NSOperationQueue.mainQueue()) { (note) -> Void in
-        // do nothing for now
+        EatViewController.digestLeastRecentMeal()
     }
 
     NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameLuckyNumberReceived,
