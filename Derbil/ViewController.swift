@@ -246,10 +246,12 @@ class ViewController: UIViewController, EatViewControllerDelegate, UIGestureReco
         self.responseBubble.transform = slideUp
         }, completion: { (Bool) -> Void in
           if let sentence = self.responseSentence {
-            if sentence.responseType == ResponseType.Boolean {
-              completion(didRespond: true, response: true)
-            } else if sentence.responseType == ResponseType.Number {
-              completion(didRespond: true, response: 420)
+            if let type = sentence.responseType {
+              switch type {
+              case .Boolean: completion(didRespond: true, response: true)
+              case .Number: completion(didRespond: true, response: 420)
+              case .String: completion(didRespond: true, response: "Solis")
+              }
             } else {
               completion(didRespond: true, response: nil)
             }
@@ -464,6 +466,8 @@ class ViewController: UIViewController, EatViewControllerDelegate, UIGestureReco
     var sentenceText = sentence.text!
     if sentence.responseType == ResponseType.Number {
       sentenceText.replaceRange(placeholderRange(sentenceText), with: "420")
+    } else if sentence.responseType == ResponseType.String {
+      sentenceText.replaceRange(placeholderRange(sentenceText), with: "Solis")
     }
     self.responseBubbleLabel.text = sentenceText
     self.responseBubble.transform = CGAffineTransformMakeTranslation(0.0, 100.0)
