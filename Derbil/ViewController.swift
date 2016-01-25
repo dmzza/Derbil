@@ -161,7 +161,6 @@ class ViewController: UIViewController, EatViewControllerDelegate, UIGestureReco
     let afternoonNotification = self.notification(afternoonNotificationTime, body: afternoonNotificationBody, title: notificationTitle, thought:morningNotificationThought)
     let eveningNotification = self.notification(eveningNotificationTime, body: eveningNotificationBody, title: notificationTitle, thought:morningNotificationThought)
 
-    UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
     UIApplication.sharedApplication().cancelAllLocalNotifications()
     UIApplication.sharedApplication().scheduleLocalNotification(morningNotification)
     UIApplication.sharedApplication().scheduleLocalNotification(afternoonNotification)
@@ -212,6 +211,9 @@ class ViewController: UIViewController, EatViewControllerDelegate, UIGestureReco
         self.responseBubble.transform = slideUp
         }, completion: { (Bool) -> Void in
           if let sentence = self.responseSentence {
+            if sentence.text!.containsString("notifications") {
+              UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
+            }
             if let type = sentence.responseType {
               switch type {
               case .Boolean: completion(didRespond: true, response: true)
