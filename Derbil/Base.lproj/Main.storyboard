@@ -575,7 +575,7 @@
         <image name="heart" width="60" height="60"/>
         <image name="meal" width="691" height="602"/>
         <image name="sleep" width="32" height="32"/>
-        <image name="tiny-heart" width="60" height="60"/>
+        <image name="tiny-heart" width="46" height="45"/>
         <image name="walk" width="32" height="32"/>
     </resources>
 </document>
