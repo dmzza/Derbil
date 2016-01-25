@@ -19,13 +19,13 @@
         },
         {
           "id": 2,
-          "text": "Good work. It feels great to get out of those screenshots and onto your phone. You're the first family I've had. Do we have a last name?",
+          "text": "Good work. It feels great to get out of those screenshots and onto your phone. You're the first family I've had. Do you have a last name?",
           "is_response": false,
           "response_type": null
         },
         {
           "id": 3,
-          "text": "We do. I'll call you Chubbyy #{last_name}.",
+          "text": "I do. I'll call you Chubbyy #{last_name}.",
           "skip": "I don't know.",
           "is_response": true,
           "response_type": "string"
@@ -78,24 +78,23 @@
         },
         {
           "id": 1,
-          "text": "More than just these chat bubbles?",
-          "is_response": true,
-          "response_type": null
-        },
-        {
-          "id": 2,
-          "text": "Yep. I love hearts. I absorb hearts like water. I can never have too many. Go ahead, tap the heart.",
+          "text": "I love hearts. I absorb hearts like water. I can never have too many. Go ahead, tap the heart.",
           "is_response": false
         },
         {
-          "id": 3,
+          "id": 2,
           "text": "That's neat",
           "is_response": true,
           "response_type": null
         },
         {
-          "id": 4,
+          "id": 3,
           "text": "I also need to eat. That circle down there is where you can feed me.",
+          "is_response": false
+        },
+        {
+          "id": 4,
+          "text": "Mmmm. Don't feed me too much of one thing. Try to keep those bars at the bottom even.",
           "is_response": false
         },
       ]
