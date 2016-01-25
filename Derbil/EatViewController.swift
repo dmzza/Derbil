@@ -24,7 +24,7 @@ class EatViewController: UIViewController {
   @IBOutlet var proteinBarHeight: NSLayoutConstraint!
   @IBOutlet var dairyBarHeight: NSLayoutConstraint!
   
-  let foods = [
+  static let foods = [
     Food(group: Food.Group.Grain,
       fat: Food.FatContent.Lean,
       sugar: Food.SugarContent.Low,
@@ -56,6 +56,7 @@ class EatViewController: UIViewController {
       }
     }
   }
+  var foodIndexByGroup: [Food.Group: Int] = [:]
   var servings: [Food.Group:Int] = [.Grain: 0, .Vegetable: 0, .Fruit: 0, .Protein: 0, .Dairy: 0]
   var selectedFood: Food {
     didSet {
@@ -67,7 +68,7 @@ class EatViewController: UIViewController {
   }
   
   required init?(coder aDecoder: NSCoder) {
-    selectedFood = self.foods[0]
+    selectedFood = EatViewController.foods[0]
     super.init(coder: aDecoder)
   }
   
@@ -81,12 +82,12 @@ class EatViewController: UIViewController {
     
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.selectedFood = self.foods[0]
+    self.selectedFood = self.mealForFoodGroup(.Grain)
   }
   @IBAction func mealPickerChanged(sender: UISlider) {
     sender.value = round(sender.value)
-    let foodIndex = Int(sender.value)
-    self.selectedFood = self.foods[foodIndex]
+    let foodGroupIndex = Int(sender.value)
+    self.selectedFood = self.mealForFoodGroup(Food.Group(rawValue: foodGroupIndex)!)
   }
   
   @IBAction func eatMeal(sender: AnyObject) {
@@ -94,6 +95,33 @@ class EatViewController: UIViewController {
     meals.append(self.selectedFood)
     saveValuesToDefaults(meals, key: kUserDefaultsMeals)
     self.delegate?.eatViewControllerDidDismiss(self)
+  }
+  
+  func mealForFoodGroup(group: Food.Group) -> Food {
+    if let foodIndex = self.foodIndexByGroup[group] {
+      return EatViewController.foods[foodIndex]
+    } else {
+      // count options
+      let optionsInGroup: Int = EatViewController.foods.reduce(0, combine: { (count, food) -> Int in
+        if food.group == group { return count + 1 }
+        else { return count }
+      });
+      // choose randomly
+      var skip = random() % optionsInGroup
+      var food = EatViewController.foods[0]
+      for i in 0..<(EatViewController.foods.count) {
+        food = EatViewController.foods[i]
+        if food.group == group {
+          if skip == 0 {
+            self.foodIndexByGroup[group] = i
+            break
+          } else {
+            skip -= 1
+          }
+        }
+      }
+      return food
+    }
   }
   
   func resetFoodGroupBarsFromRecentMeals() {
