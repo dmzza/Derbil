@@ -122,8 +122,10 @@ class EatViewController: UIViewController {
   class func digestLeastRecentMeal() {
     var meals = EatViewController.meals
     
-    meals.removeAtIndex(0)
-    saveValuesToDefaults(meals, key: kUserDefaultsMeals)
+    if meals.count > 0 {
+      meals.removeAtIndex(0)
+      saveValuesToDefaults(meals, key: kUserDefaultsMeals)
+    }
   }
 
 }
