@@ -963,7 +963,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Chubbyy.watchkitapp.watchkitextension;
 				PRODUCT_NAME = Chubbyy;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2d4495f1-bd11-4b6c-8461-8eb0e54212c3";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -995,13 +995,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Peaking Software LLC (DNPVU838JE)";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Peaking Software LLC (DNPVU838JE)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Chubbyy_WatchKit_Extension;
 				INFOPLIST_FILE = "Derbil WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Chubbyy.watchkitapp;
 				PRODUCT_NAME = Chubbyy;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2d4495f1-bd11-4b6c-8461-8eb0e54212c3";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
