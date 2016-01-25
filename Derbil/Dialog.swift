@@ -36,7 +36,7 @@ struct Dialog: Mappable {
 enum ResponseType: String {
   case Number = "number"
   case Boolean = "boolean"
-  
+  case String = "string"
 }
 
 enum DayOfWeek {

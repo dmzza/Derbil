@@ -53,6 +53,9 @@ class DialogManager {
               case .Boolean:
                 let _ = response as! Bool
                 break
+              case .String:
+                let _ = response as! String
+                break
               }
             
               //TODO: handle response
