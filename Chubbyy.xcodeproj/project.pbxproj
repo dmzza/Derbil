@@ -40,7 +40,6 @@
 		63268A1A1B93D6F1002D2D0F /* Timepiece.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 632689ED1B93D6F1002D2D0F /* Timepiece.xcworkspace */; };
 		633839421C1D0241000DA988 /* dialogs.json in Resources */ = {isa = PBXBuildFile; fileRef = 633839411C1D0241000DA988 /* dialogs.json */; };
 		636DCB611C20EDC9005A069C /* DialogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DCB601C20EDC9005A069C /* DialogManager.swift */; };
-		63BAC4DE1C55CD9F0013B225 /* Chubbyy.app in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05FA11B6ED7EB00AE120C /* Chubbyy.app */; };
 		63C8739F1C1D0E8000F7E427 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8739E1C1D0E8000F7E427 /* Dialog.swift */; };
 		63C873A61C1D0F3700F7E427 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C873A51C1D0F3700F7E427 /* ObjectMapper.framework */; };
 		63C873AA1C1D0FEE00F7E427 /* ObjectMapper.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63C873A91C1D0FEE00F7E427 /* ObjectMapper.framework.dSYM */; };
@@ -698,7 +697,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63BAC4DE1C55CD9F0013B225 /* Chubbyy.app in Resources */,
 				632689F31B93D6F1002D2D0F /* .travis.yml in Resources */,
 				632689F01B93D6F1002D2D0F /* .gitignore in Resources */,
 				63268A171B93D6F1002D2D0F /* Timepiece.podspec in Resources */,
