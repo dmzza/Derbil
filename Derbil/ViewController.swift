@@ -8,12 +8,11 @@
 
 import UIKit
 
-let kUserDefaultsTodaysWalkCount = "TodaysWalkCount"
 let kUserDefaultsHeadColor = "HeadColor"
 let kHappyWalkThreshold: NSTimeInterval = 120
 let kPressHeadDuration: NSTimeInterval = 0.08
 
-class ViewController: UIViewController, WalkViewControllerDelegate, EatViewControllerDelegate, UIGestureRecognizerDelegate, UIDynamicAnimatorDelegate, DialogManagerDelegate {
+class ViewController: UIViewController, EatViewControllerDelegate, UIGestureRecognizerDelegate, UIDynamicAnimatorDelegate, DialogManagerDelegate {
 
   @IBOutlet weak var faceContainer: UIView!
   var faceView: FaceView?
@@ -61,23 +60,9 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
   var speechSentence: Sentence?
 
   @IBOutlet var headView: UIImageView!
-  @IBOutlet var firstHeart: UIImageView!
-  @IBOutlet var secondHeart: UIImageView!
-  @IBOutlet var thirdHeart: UIImageView!
-
   @IBOutlet var loveButton: UIButton!
   @IBOutlet var headPressRecognizer: UILongPressGestureRecognizer!
   @IBOutlet var colorPanRecognizer: UIPanGestureRecognizer!
-
-
-  let walksPerDay = 4
-  var walks: Int = 0 {
-    didSet {
-      self.firstHeart.hidden = walks < 1
-      self.secondHeart.hidden = walks < 2
-      self.thirdHeart.hidden = walks < 3
-    }
-  }
 
   let notificationTitle = "Chubbyy needs love"
   let morningNotificationBody = "🌞"
@@ -129,7 +114,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
     NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameNewDayBegan,
       object: nil,
       queue: NSOperationQueue.mainQueue()) { (note) -> Void in
-        self.userDefaults.setInteger(0, forKey: kUserDefaultsTodaysWalkCount)
+        // do nothing for now
     }
 
     NSNotificationCenter.defaultCenter().addObserverForName(kNotificationNameLuckyNumberReceived,
@@ -148,7 +133,6 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
             self.presentViewController(vc, animated: true, completion: nil)
     }
 
-    self.walks = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
     self.animator = UIDynamicAnimator(referenceView: self.view)
     self.animator!.delegate = self
     self.revertToSavedHeadColor()
@@ -385,29 +369,11 @@ class ViewController: UIViewController, WalkViewControllerDelegate, EatViewContr
     UIApplication.sharedApplication().scheduleLocalNotification(instaNote)
   }
 
-  func didComplete(controller: WalkViewController, elapsedTime: NSTimeInterval) {
-    if elapsedTime >= kHappyWalkThreshold {
-      self.smile(elapsedTime / 10)
-      let userDefaults = NSUserDefaults.standardUserDefaults()
-      let currentWalks: Int = userDefaults.integerForKey(kUserDefaultsWalkCount)
-      let todaysWalks: Int = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
-
-      self.walks = todaysWalks + 1
-      userDefaults.setInteger(currentWalks + 1, forKey: kUserDefaultsWalkCount)
-      userDefaults.setInteger(self.walks, forKey: kUserDefaultsTodaysWalkCount)
-
-    }
-  }
-
   // MARK: Navigation
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let modalVC = segue.destinationViewController as? EatViewController {
       modalVC.delegate = self
-    }
-    if segue.identifier == "WalkViewControllerSegue" {
-      let vc: WalkViewController = (segue.destinationViewController as! UINavigationController).topViewController as! WalkViewController
-      vc.delegate = self
     }
   }
 

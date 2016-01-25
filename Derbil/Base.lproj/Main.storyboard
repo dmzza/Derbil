@@ -309,30 +309,6 @@
                                     <outletCollection property="gestureRecognizers" destination="EIB-hX-ttQ" appends="YES" id="dEC-hw-8nk"/>
                                 </connections>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="BbS-rE-gK4">
-                                <rect key="frame" x="536" y="28" width="44" height="44"/>
-                                <color key="tintColor" red="0.87450980389999999" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="Z85-MC-jg4"/>
-                                    <constraint firstAttribute="height" constant="44" id="hCs-ze-Vpn"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="xQd-lr-337">
-                                <rect key="frame" x="536" y="72" width="44" height="44"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="LHj-KL-FtC"/>
-                                    <constraint firstAttribute="width" constant="44" id="gRt-fQ-387"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="l2J-2G-H94">
-                                <rect key="frame" x="536" y="116" width="44" height="44"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="WuO-eQ-Di8"/>
-                                    <constraint firstAttribute="width" constant="44" id="nwg-aI-JTg"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opj-gb-xoo">
                                 <rect key="frame" x="20" y="67" width="236" height="51"/>
                                 <subviews>
@@ -408,11 +384,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="BbS-rE-gK4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0Vy-we-uG5"/>
                             <constraint firstAttribute="trailing" secondItem="MlJ-HI-nXW" secondAttribute="trailing" constant="16" id="1yB-NI-kJZ"/>
                             <constraint firstItem="opj-gb-xoo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="5cC-1A-ire"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="17" id="5fH-Rx-kQm"/>
-                            <constraint firstItem="l2J-2G-H94" firstAttribute="top" secondItem="xQd-lr-337" secondAttribute="bottom" id="Adr-0Y-UMT"/>
                             <constraint firstItem="CwQ-Mz-XRv" firstAttribute="top" secondItem="opj-gb-xoo" secondAttribute="bottom" constant="15" id="CH1-za-SkU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QbX-u3-1L3" secondAttribute="bottom" constant="22" id="Cfn-YR-Ak4"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="top" secondItem="CwQ-Mz-XRv" secondAttribute="bottom" constant="10" id="D5b-Kz-dId"/>
@@ -426,14 +400,10 @@
                             <constraint firstAttribute="trailing" secondItem="CwQ-Mz-XRv" secondAttribute="trailing" constant="20" id="VT7-Ln-v3x"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="Z2I-AD-IdX"/>
                             <constraint firstItem="roc-bt-ODf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZOc-WC-mnw"/>
-                            <constraint firstItem="BbS-rE-gK4" firstAttribute="trailing" secondItem="l2J-2G-H94" secondAttribute="trailing" id="eIJ-FL-Mjv"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hKv-Cu-s1u"/>
-                            <constraint firstItem="BbS-rE-gK4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="k6i-hD-oEC"/>
                             <constraint firstItem="MlJ-HI-nXW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kgf-Pi-fIf"/>
                             <constraint firstItem="opj-gb-xoo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="kmn-NM-bSA"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="leading" secondItem="MlJ-HI-nXW" secondAttribute="leading" id="mqj-WR-AvX"/>
-                            <constraint firstItem="BbS-rE-gK4" firstAttribute="trailing" secondItem="xQd-lr-337" secondAttribute="trailing" id="nTb-ms-rr3"/>
-                            <constraint firstItem="xQd-lr-337" firstAttribute="top" secondItem="BbS-rE-gK4" secondAttribute="bottom" id="sNb-xl-pUd"/>
                             <constraint firstItem="pvY-aa-1nO" firstAttribute="height" secondItem="MlJ-HI-nXW" secondAttribute="height" multiplier="2.3" id="tgV-xv-7Hm"/>
                             <constraint firstItem="QbX-u3-1L3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xNF-5n-VET"/>
                         </constraints>
@@ -460,17 +430,14 @@
                         <outlet property="colorPanRecognizer" destination="ihC-mB-tHJ" id="6Vo-aN-7eM"/>
                         <outlet property="eatButton" destination="QbX-u3-1L3" id="6F2-We-r32"/>
                         <outlet property="faceContainer" destination="MlJ-HI-nXW" id="I6e-bH-5aB"/>
-                        <outlet property="firstHeart" destination="BbS-rE-gK4" id="LZN-XF-9En"/>
                         <outlet property="headPressRecognizer" destination="EIB-hX-ttQ" id="4Jh-Qj-ong"/>
                         <outlet property="headView" destination="pvY-aa-1nO" id="9PO-bY-L3f"/>
                         <outlet property="loveButton" destination="roc-bt-ODf" id="m5D-C9-eU6"/>
                         <outlet property="responseBubble" destination="CwQ-Mz-XRv" id="IqP-J5-kTr"/>
                         <outlet property="responseBubbleImage" destination="HpT-nE-e7s" id="21M-BN-3RW"/>
                         <outlet property="responseBubbleLabel" destination="9zF-ZD-Npa" id="aRc-bD-1Qd"/>
-                        <outlet property="secondHeart" destination="xQd-lr-337" id="SyT-Dc-ZtR"/>
                         <outlet property="speechBubble" destination="opj-gb-xoo" id="gW7-v0-cHc"/>
                         <outlet property="speechBubbleLabel" destination="IFc-U2-I3J" id="0An-oU-Dq9"/>
-                        <outlet property="thirdHeart" destination="l2J-2G-H94" id="y7c-8X-yHp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
