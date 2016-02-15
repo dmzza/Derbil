@@ -84,6 +84,10 @@ class EatViewController: UIViewController {
       self.mealIcon.image = UIImage(named: self.selectedFood.iconName)
       self.resetFoodGroupBarsFromRecentMeals()
       self.updateFoodGroupBar(self.selectedFood.group, servings: self.servings[self.selectedFood.group]! + 1)
+      UIView.animateWithDuration(1.0) { () -> Void in
+        self.mealPicker.transform = CGAffineTransformMakeRotation(CGFloat(rand()) % 1.56 - 0.78)
+      }
+      
     }
   }
   
