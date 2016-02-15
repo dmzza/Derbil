@@ -110,7 +110,17 @@ class EatViewController: UIViewController {
   }
   @IBAction func mealPickerChanged(sender: UISlider) {
     sender.value = round(sender.value)
-    let foodGroupIndex = Int(sender.value)
+  }
+  
+  @IBAction func mealPickerReleasedInside(sender: UISlider) {
+    self.mealPicked(Int(sender.value))
+  }
+  
+  @IBAction func mealPickerReleasedOutside(sender: UISlider) {
+    self.mealPicked(Int(sender.value))
+  }
+  
+  func mealPicked(foodGroupIndex: Int) {
     self.selectedFood = self.mealForFoodGroup(Food.Group(rawValue: foodGroupIndex)!)
   }
   
