@@ -165,7 +165,10 @@
                                 <color key="maximumTrackTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.59999999999999998" green="0.51764705882352946" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <action selector="mealPicked:" destination="NKq-G6-LX7" eventType="editingDidEnd" id="VOb-e0-fYP"/>
                                     <action selector="mealPickerChanged:" destination="NKq-G6-LX7" eventType="valueChanged" id="ZLz-zo-BZ0"/>
+                                    <action selector="mealPickerReleasedInside:" destination="NKq-G6-LX7" eventType="touchUpInside" id="dpQ-QB-VS1"/>
+                                    <action selector="mealPickerReleasedOutside:" destination="NKq-G6-LX7" eventType="touchUpOutside" id="LgM-Mb-zb3"/>
                                 </connections>
                             </slider>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal" translatesAutoresizingMaskIntoConstraints="NO" id="eyL-kE-akq">
