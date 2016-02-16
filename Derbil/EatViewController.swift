@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 
 let kUserDefaultsMeals = "RecentMeals"
+let kFoodGroupBarSatisfiedHeight: CGFloat = 100.0
 
 class EatViewController: UIViewController {
   var delegate: EatViewControllerDelegate?
@@ -85,7 +86,7 @@ class EatViewController: UIViewController {
       self.resetFoodGroupBarsFromRecentMeals()
       self.updateFoodGroupBar(self.selectedFood.group, servings: self.servings[self.selectedFood.group]! + 1)
       UIView.animateWithDuration(1.0) { () -> Void in
-        self.mealPicker.transform = CGAffineTransformMakeRotation(CGFloat(rand()) % 1.56 - 0.78)
+        self.mealPicker.transform = CGAffineTransformMakeRotation(self.balanceInRadians())
       }
       
     }
@@ -178,7 +179,24 @@ class EatViewController: UIViewController {
   }
   
   func updateFoodGroupBar(group: Food.Group, servings: Int) {
-    heightConstraintForFoodGroup(group).constant = CGFloat(100) * CGFloat(servings) / CGFloat(group.recommendedServings)
+    heightConstraintForFoodGroup(group).constant = kFoodGroupBarSatisfiedHeight * CGFloat(servings) / CGFloat(group.recommendedServings)
+  }
+  
+  func balanceInRadians() -> CGFloat {
+    var balance: CGFloat = 0.0
+    let grainDistanceFromFulcrum: CGFloat = 2.5
+    let vegetableDistanceFromFulcrum: CGFloat = 1.5
+    let proteinDistanceFromFulcrum: CGFloat = 1.5
+    let dairyDistanceFromFulcrum: CGFloat = 2.5
+    let totalDistances = grainDistanceFromFulcrum + vegetableDistanceFromFulcrum + proteinDistanceFromFulcrum + dairyDistanceFromFulcrum
+    let maxUnbalancedWeight = totalDistances / 2.0 * kFoodGroupBarSatisfiedHeight
+    
+    balance -= heightConstraintForFoodGroup(.Grain).constant * 2.5
+    balance -= heightConstraintForFoodGroup(.Vegetable).constant * 1.5
+    balance += heightConstraintForFoodGroup(.Protein).constant * 1.5
+    balance += heightConstraintForFoodGroup(.Dairy).constant * 2.5
+    
+    return (balance / maxUnbalancedWeight) * 0.78
   }
   
   class func digestLeastRecentMeal() {
