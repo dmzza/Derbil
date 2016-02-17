@@ -105,16 +105,19 @@ class EatViewController: UIViewController {
     
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.selectedFood = self.mealForFoodGroup(.Grain)
     
+    self.selectedFood = self.mealForFoodGroup(.Grain)
     let barViews = [ self.topBarsView.subviews, self.bottomBarsView.subviews].flatMap { $0 }
+    
     for bar in barViews {
       let barRadius = bar.frame.width / 2
+      bar.backgroundColor = UIColor.whiteColor()
       bar.layer.cornerRadius = barRadius
       bar.layer.borderColor = UIColor(hue: 0.0, saturation: 0.0, brightness: 0.9, alpha: 1.0).CGColor
-      bar.layer.borderWidth = barRadius - 1
+      bar.layer.borderWidth = barRadius - 2.0
     }
   }
+  
   @IBAction func mealPickerChanged(sender: UISlider) {
     sender.value = round(sender.value)
     self.mealPicked(Int(sender.value))
