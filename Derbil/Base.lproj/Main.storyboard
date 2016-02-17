@@ -167,27 +167,21 @@
                                 <constraints>
                                     <constraint firstItem="5as-rl-CQL" firstAttribute="width" secondItem="uhi-xz-JrO" secondAttribute="width" multiplier="0.2" id="0ED-QS-Ixh"/>
                                     <constraint firstItem="rn5-al-kav" firstAttribute="width" secondItem="uhi-xz-JrO" secondAttribute="width" multiplier="0.2" id="4C8-bI-klR"/>
-                                    <constraint firstAttribute="bottom" secondItem="rn5-al-kav" secondAttribute="bottom" id="5aT-uz-LUe"/>
                                     <constraint firstItem="5as-rl-CQL" firstAttribute="leading" secondItem="uhi-xz-JrO" secondAttribute="leading" id="BIT-cG-5pn"/>
-                                    <constraint firstItem="pHy-Us-la6" firstAttribute="leading" secondItem="5as-rl-CQL" secondAttribute="trailing" id="FJc-nl-clW"/>
-                                    <constraint firstAttribute="bottom" secondItem="5as-rl-CQL" secondAttribute="bottom" id="MM2-RF-cj0"/>
+                                    <constraint firstItem="rn5-al-kav" firstAttribute="top" secondItem="uhi-xz-JrO" secondAttribute="top" id="Bwg-kC-sau"/>
+                                    <constraint firstItem="Dti-0m-m4I" firstAttribute="top" secondItem="uhi-xz-JrO" secondAttribute="top" id="GqP-gr-r5b"/>
+                                    <constraint firstItem="b2c-be-oZW" firstAttribute="top" secondItem="uhi-xz-JrO" secondAttribute="top" id="NS8-Nh-fWL"/>
                                     <constraint firstItem="rn5-al-kav" firstAttribute="leading" secondItem="pHy-Us-la6" secondAttribute="trailing" id="OQe-Uu-M0t"/>
+                                    <constraint firstItem="5as-rl-CQL" firstAttribute="top" secondItem="uhi-xz-JrO" secondAttribute="top" id="Vgl-7k-nCR"/>
                                     <constraint firstItem="Dti-0m-m4I" firstAttribute="width" secondItem="uhi-xz-JrO" secondAttribute="width" multiplier="0.2" id="W1n-h6-A4V"/>
+                                    <constraint firstItem="pHy-Us-la6" firstAttribute="top" secondItem="uhi-xz-JrO" secondAttribute="top" id="Wc1-Yz-aNF"/>
                                     <constraint firstItem="b2c-be-oZW" firstAttribute="leading" secondItem="Dti-0m-m4I" secondAttribute="trailing" id="YNQ-R1-ucm"/>
-                                    <constraint firstAttribute="bottom" secondItem="pHy-Us-la6" secondAttribute="bottom" id="aCP-QH-x8W"/>
                                     <constraint firstItem="Dti-0m-m4I" firstAttribute="leading" secondItem="rn5-al-kav" secondAttribute="trailing" id="dwo-bY-IcV"/>
-                                    <constraint firstAttribute="bottom" secondItem="b2c-be-oZW" secondAttribute="bottom" id="eYc-CT-3wG"/>
                                     <constraint firstAttribute="height" constant="100" id="g7y-wF-Ad2"/>
                                     <constraint firstAttribute="trailing" secondItem="b2c-be-oZW" secondAttribute="trailing" id="ggG-1v-E5s"/>
                                     <constraint firstItem="pHy-Us-la6" firstAttribute="width" secondItem="uhi-xz-JrO" secondAttribute="width" multiplier="0.2" id="keR-NA-tNy"/>
                                     <constraint firstItem="b2c-be-oZW" firstAttribute="width" secondItem="uhi-xz-JrO" secondAttribute="width" multiplier="0.2" id="nIi-ew-m0X"/>
-                                    <constraint firstAttribute="bottom" secondItem="Dti-0m-m4I" secondAttribute="bottom" id="xCj-AA-Zf0"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="FJc-nl-clW"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiX-Vv-wih" userLabel="Top Bars View">
                                 <rect key="frame" x="0.0" y="200" width="600" height="100"/>
@@ -232,7 +226,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="1wi-Nj-qgY"/>
                                     <constraint firstItem="FaQ-aJ-Wy0" firstAttribute="width" secondItem="fiX-Vv-wih" secondAttribute="width" multiplier="0.2" id="5Al-u3-9Wx"/>
-                                    <constraint firstItem="FaQ-aJ-Wy0" firstAttribute="leading" secondItem="bAe-wx-XU8" secondAttribute="trailing" id="B3r-Qv-YAc"/>
                                     <constraint firstItem="ovH-7P-KzL" firstAttribute="width" secondItem="fiX-Vv-wih" secondAttribute="width" multiplier="0.2" id="BLw-WQ-bsr"/>
                                     <constraint firstItem="X2i-xT-tPD" firstAttribute="width" secondItem="fiX-Vv-wih" secondAttribute="width" multiplier="0.2" id="CqO-jZ-HqF"/>
                                     <constraint firstAttribute="bottom" secondItem="X2i-xT-tPD" secondAttribute="bottom" id="DAO-SS-kwU"/>
@@ -248,11 +241,6 @@
                                     <constraint firstItem="bAe-wx-XU8" firstAttribute="width" secondItem="fiX-Vv-wih" secondAttribute="width" multiplier="0.2" id="pw1-oI-ERw"/>
                                     <constraint firstAttribute="bottom" secondItem="bAe-wx-XU8" secondAttribute="bottom" id="sdB-sn-XmK"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="B3r-Qv-YAc"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal" translatesAutoresizingMaskIntoConstraints="NO" id="eyL-kE-akq">
                                 <rect key="frame" x="200" y="41" width="200" height="200"/>
