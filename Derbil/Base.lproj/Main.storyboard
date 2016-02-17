@@ -184,7 +184,7 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiX-Vv-wih" userLabel="Top Bars View">
-                                <rect key="frame" x="135" y="50" width="300" height="250"/>
+                                <rect key="frame" x="135" y="48" width="300" height="250"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAe-wx-XU8">
                                         <rect key="frame" x="0.0" y="180" width="56" height="100"/>
@@ -255,8 +255,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="cgI-Zx-WVV"/>
                                 </constraints>
-                                <color key="minimumTrackTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="maximumTrackTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="thumbTintColor" red="0.59999999999999998" green="0.51764705882352946" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="mealPicked:" destination="NKq-G6-LX7" eventType="editingDidEnd" id="VOb-e0-fYP"/>
@@ -290,7 +290,7 @@
                             <constraint firstItem="7Fa-Hj-0or" firstAttribute="top" secondItem="eyL-kE-akq" secondAttribute="bottom" constant="44" id="DwP-be-Lcq"/>
                             <constraint firstItem="fiX-Vv-wih" firstAttribute="centerX" secondItem="7Fa-Hj-0or" secondAttribute="centerX" constant="-15" id="I2q-18-CKp"/>
                             <constraint firstItem="rn5-al-kav" firstAttribute="height" secondItem="ovH-7P-KzL" secondAttribute="height" id="RAW-Zk-1Q4"/>
-                            <constraint firstItem="7Fa-Hj-0or" firstAttribute="top" secondItem="fiX-Vv-wih" secondAttribute="bottom" constant="-15" id="WKM-Z9-Qo7"/>
+                            <constraint firstItem="7Fa-Hj-0or" firstAttribute="top" secondItem="fiX-Vv-wih" secondAttribute="bottom" constant="-13" id="WKM-Z9-Qo7"/>
                             <constraint firstItem="Dti-0m-m4I" firstAttribute="height" secondItem="X2i-xT-tPD" secondAttribute="height" id="hac-bt-mnf"/>
                             <constraint firstItem="eyL-kE-akq" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="l7w-Ek-7e0"/>
                             <constraint firstItem="pHy-Us-la6" firstAttribute="height" secondItem="FaQ-aJ-Wy0" secondAttribute="height" id="lbh-Sm-uIX"/>
