@@ -84,10 +84,6 @@ class EatViewController: UIViewController {
       self.mealIcon.image = UIImage(named: self.selectedFood.iconName)
       self.resetFoodGroupBarsFromRecentMeals()
       self.updateFoodGroupBar(self.selectedFood.group, servings: self.servings[self.selectedFood.group]! + 1)
-      UIView.animateWithDuration(1.0) { () -> Void in
-        self.mealPicker.transform = CGAffineTransformMakeRotation(CGFloat(rand()) % 1.56 - 0.78)
-      }
-      
     }
   }
   
@@ -110,6 +106,7 @@ class EatViewController: UIViewController {
   }
   @IBAction func mealPickerChanged(sender: UISlider) {
     sender.value = round(sender.value)
+    self.mealPicked(Int(sender.value))
   }
   
   @IBAction func mealPickerReleasedInside(sender: UISlider) {
@@ -178,7 +175,11 @@ class EatViewController: UIViewController {
   }
   
   func updateFoodGroupBar(group: Food.Group, servings: Int) {
-    heightConstraintForFoodGroup(group).constant = CGFloat(100) * CGFloat(servings) / CGFloat(group.recommendedServings)
+    self.view.layoutIfNeeded()
+    UIView.animateWithDuration(0.5) { () -> Void in
+      self.heightConstraintForFoodGroup(group).constant = CGFloat(100) * CGFloat(servings) / CGFloat(group.recommendedServings)
+      self.view.layoutIfNeeded()
+    }
   }
   
   class func digestLeastRecentMeal() {
