@@ -282,6 +282,13 @@
                                     <action selector="eatMeal:" destination="NKq-G6-LX7" eventType="touchUpInside" id="sPo-ur-Uad"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6l-tp-PyQ">
+                                <rect key="frame" x="259" y="562" width="83" height="30"/>
+                                <state key="normal" title="Done Eating"/>
+                                <connections>
+                                    <action selector="done:" destination="NKq-G6-LX7" eventType="touchUpInside" id="FtV-6S-4Kx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -290,6 +297,7 @@
                             <constraint firstItem="7Fa-Hj-0or" firstAttribute="top" secondItem="eyL-kE-akq" secondAttribute="bottom" constant="44" id="DwP-be-Lcq"/>
                             <constraint firstItem="fiX-Vv-wih" firstAttribute="centerX" secondItem="7Fa-Hj-0or" secondAttribute="centerX" constant="-15" id="I2q-18-CKp"/>
                             <constraint firstItem="rn5-al-kav" firstAttribute="height" secondItem="ovH-7P-KzL" secondAttribute="height" id="RAW-Zk-1Q4"/>
+                            <constraint firstItem="87r-hM-Zwn" firstAttribute="top" secondItem="n6l-tp-PyQ" secondAttribute="bottom" constant="8" id="SIb-AH-VBD"/>
                             <constraint firstItem="7Fa-Hj-0or" firstAttribute="top" secondItem="fiX-Vv-wih" secondAttribute="bottom" constant="-13" id="WKM-Z9-Qo7"/>
                             <constraint firstItem="Dti-0m-m4I" firstAttribute="height" secondItem="X2i-xT-tPD" secondAttribute="height" id="hac-bt-mnf"/>
                             <constraint firstItem="eyL-kE-akq" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="l7w-Ek-7e0"/>
@@ -300,6 +308,7 @@
                             <constraint firstItem="fiX-Vv-wih" firstAttribute="width" secondItem="7Fa-Hj-0or" secondAttribute="width" id="pvR-SO-crR"/>
                             <constraint firstItem="uhi-xz-JrO" firstAttribute="centerX" secondItem="7Fa-Hj-0or" secondAttribute="centerX" constant="15" id="q8b-VR-afB"/>
                             <constraint firstItem="oHq-JE-lyy" firstAttribute="top" secondItem="7Fa-Hj-0or" secondAttribute="bottom" constant="85" id="rPy-tV-ldc"/>
+                            <constraint firstItem="n6l-tp-PyQ" firstAttribute="centerX" secondItem="dxH-ks-dzV" secondAttribute="centerX" id="tGT-j5-E8x"/>
                             <constraint firstItem="b2c-be-oZW" firstAttribute="height" secondItem="XPA-rg-luO" secondAttribute="height" id="v36-C8-xBc"/>
                             <constraint firstItem="5as-rl-CQL" firstAttribute="height" secondItem="bAe-wx-XU8" secondAttribute="height" id="xOg-iB-dX5"/>
                         </constraints>
