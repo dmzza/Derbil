@@ -140,6 +140,11 @@ class EatViewController: UIViewController {
     let group = self.selectedFood.group
     self.foodIndexByGroup = [:]
     
+    self.view.layoutIfNeeded()
+    UIView.animateWithDuration(0.15) { () -> Void in
+      self.heightConstraintForFoodGroup(group).constant = (CGFloat(100) * CGFloat(self.servings[group]! - 1) / CGFloat(group.recommendedServings)) + 60
+      self.view.layoutIfNeeded()
+    }
     meals.append(self.selectedFood)
     saveValuesToDefaults(meals, key: kUserDefaultsMeals)
     self.servings[group]! += 1
