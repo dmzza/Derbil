@@ -137,9 +137,12 @@ class EatViewController: UIViewController {
   
   @IBAction func eatMeal(sender: AnyObject) {
     var meals = EatViewController.meals
+    self.foodIndexByGroup = [:]
+    
     meals.append(self.selectedFood)
-    self.servings[self.selectedFood.group]! += 1
     saveValuesToDefaults(meals, key: kUserDefaultsMeals)
+    self.servings[self.selectedFood.group]! += 1
+    self.selectedFood = self.mealForFoodGroup(self.selectedFood.group)
   }
   
   @IBAction func done(sender: AnyObject) {
