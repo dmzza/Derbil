@@ -2,7 +2,8 @@
 use_frameworks!
 
 def shared_pods
-  pod 'Timepiece', :git => 'https://github.com/dmzza/Timepiece/', :branch => 'patch-1'
+  # Couldn't make Timepiece work as a cocoapod yet: https://github.com/naoty/Timepiece/pull/33#issuecomment-136288365
+  # pod 'Timepiece', :git => 'https://github.com/dmzza/Timepiece/', :branch => 'patch-1'
 end
 
 target 'Derbil' do

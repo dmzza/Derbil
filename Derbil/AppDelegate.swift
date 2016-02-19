@@ -11,6 +11,8 @@ import UIKit
 
 let kInAppNotificationReceived = "InAppNotificationReceived"
 let kNotificationNameNewDayBegan = "NewDayBegan"
+let kNotificationNameLuckyNumberReceived = "LuckyNumberReceived"
+let kNotificationUserInfoKeyLuckyNumber = "LuckyNumber"
 let kUserDefaultsLastDailyReset = "LastDailyReset"
 let kUserDefaultsMealCount = "MealCount"
 let kUserDefaultsWalkCount = "WalkCount"
@@ -88,7 +90,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         completionHandler()
     }
-
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        if url.scheme != "chubbyy" {
+            return false
+        }
+        if let host = url.host {
+            if let components = url.pathComponents { // ["/", "420"]
+                if host == "adopt" && components.count >= 2 {
+                    if let luckyNumber = UInt(components[1]) {
+                        let note = NSNotification(name: kNotificationNameLuckyNumberReceived, object: self, userInfo: [kNotificationUserInfoKeyLuckyNumber: luckyNumber])
+                        
+                        NSNotificationCenter.defaultCenter().postNotification(note)
+                        return true
+                    }
+                }
+            }
+        }
+        return false
+    }
 
 }
 
