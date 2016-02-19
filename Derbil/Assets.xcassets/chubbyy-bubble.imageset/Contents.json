@@ -11,12 +11,12 @@
         "cap-insets" : {
           "bottom" : 25,
           "top" : 25,
-          "right" : 19,
-          "left" : 19
+          "right" : 20,
+          "left" : 20
         }
       },
       "idiom" : "universal",
-      "filename" : "speak.png",
+      "filename" : "speech-block.png",
       "scale" : "1x"
     },
     {
@@ -31,11 +31,11 @@
           "bottom" : 50,
           "top" : 50,
           "right" : 40,
-          "left" : 39
+          "left" : 40
         }
       },
       "idiom" : "universal",
-      "filename" : "speak@2x.png",
+      "filename" : "speech-block@2x.png",
       "scale" : "2x"
     },
     {
@@ -48,13 +48,13 @@
         },
         "cap-insets" : {
           "bottom" : 76,
-          "top" : 75,
-          "right" : 58,
-          "left" : 58
+          "top" : 76,
+          "right" : 60,
+          "left" : 60
         }
       },
       "idiom" : "universal",
-      "filename" : "speak@3x.png",
+      "filename" : "speech-block@3x.png",
       "scale" : "3x"
     }
   ],
