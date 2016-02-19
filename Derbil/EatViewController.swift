@@ -109,6 +109,8 @@ class EatViewController: UIViewController {
     self.selectedFood = self.mealForFoodGroup(.Grain)
     let barViews = [ self.topBarsView.subviews, self.bottomBarsView.subviews].flatMap { $0 }
     
+    self.mealButton.layer.cornerRadius = 3.0
+    
     for bar in barViews {
       let barRadius = bar.frame.width / 2
       bar.backgroundColor = UIColor.whiteColor()

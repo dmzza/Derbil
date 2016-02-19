@@ -264,7 +264,8 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-JE-lyy">
-                                <rect key="frame" x="150" y="400" width="300" height="58"/>
+                                <rect key="frame" x="150" y="484" width="300" height="58"/>
+                                <color key="backgroundColor" red="0.52549019607843139" green="0.42352941176470588" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="7Fy-fq-PFi"/>
                                     <constraint firstAttribute="width" constant="300" id="Njb-xg-mZw"/>
@@ -273,16 +274,15 @@
                                 <color key="tintColor" red="0.87450980392156863" green="0.15686274509803921" blue="0.22352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.94901960784313721" green="0.20000000000000001" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
                                 <connections>
                                     <action selector="eatMeal:" destination="NKq-G6-LX7" eventType="touchUpInside" id="sPo-ur-Uad"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6l-tp-PyQ">
                                 <rect key="frame" x="259" y="562" width="83" height="30"/>
-                                <state key="normal" title="Done Eating"/>
+                                <state key="normal" title="Done Eating">
+                                    <color key="titleColor" red="0.52549019607843139" green="0.42352941176470588" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="done:" destination="NKq-G6-LX7" eventType="touchUpInside" id="FtV-6S-4Kx"/>
                                 </connections>
@@ -295,6 +295,7 @@
                             <constraint firstItem="7Fa-Hj-0or" firstAttribute="top" secondItem="eyL-kE-akq" secondAttribute="bottom" constant="44" id="DwP-be-Lcq"/>
                             <constraint firstItem="87r-hM-Zwn" firstAttribute="top" secondItem="uhi-xz-JrO" secondAttribute="bottom" id="FkK-KF-qgm"/>
                             <constraint firstItem="fiX-Vv-wih" firstAttribute="centerX" secondItem="7Fa-Hj-0or" secondAttribute="centerX" constant="-15" id="I2q-18-CKp"/>
+                            <constraint firstItem="n6l-tp-PyQ" firstAttribute="top" secondItem="oHq-JE-lyy" secondAttribute="bottom" constant="20" id="QP1-FF-tQa"/>
                             <constraint firstItem="rn5-al-kav" firstAttribute="height" secondItem="ovH-7P-KzL" secondAttribute="height" id="RAW-Zk-1Q4"/>
                             <constraint firstItem="87r-hM-Zwn" firstAttribute="top" secondItem="n6l-tp-PyQ" secondAttribute="bottom" constant="8" id="SIb-AH-VBD"/>
                             <constraint firstItem="7Fa-Hj-0or" firstAttribute="top" secondItem="fiX-Vv-wih" secondAttribute="bottom" constant="-13" id="WKM-Z9-Qo7"/>
@@ -312,6 +313,11 @@
                             <constraint firstItem="b2c-be-oZW" firstAttribute="height" secondItem="XPA-rg-luO" secondAttribute="height" id="v36-C8-xBc"/>
                             <constraint firstItem="5as-rl-CQL" firstAttribute="height" secondItem="bAe-wx-XU8" secondAttribute="height" id="xOg-iB-dX5"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="rPy-tV-ldc"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Eat" image="eat" id="8h7-dk-TFw"/>
                     <connections>
