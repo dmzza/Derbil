@@ -136,9 +136,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
         object: nil,
         queue: NSOperationQueue.mainQueue()) { (note) -> Void in
             let luckyNumber = ((note.userInfo! as Dictionary)[kNotificationUserInfoKeyLuckyNumber])! as! UInt
-            let alert = UIAlertView(title: "\(luckyNumber)", message: "Hello", delegate: nil, cancelButtonTitle: nil)
-            alert.show()
-            
+            // do nothing yet
     }
     
     self.walks = userDefaults.integerForKey(kUserDefaultsTodaysWalkCount)
