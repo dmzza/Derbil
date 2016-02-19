@@ -85,10 +85,9 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   let afternoonNotificationThought = "That was a big lunch. I need to pee again."
   let eveningNotificationBody = "🌝"
   let eveningNotificationThought = "Take me for a walk before bed."
-  let secondsPerDay: Double = 60 * 60 * 24
-  let morningNotificationTime: NSTimeInterval = 9.0 * 3600
-  let afternoonNotificationTime: NSTimeInterval = 15.0 * 3600
-  let eveningNotificationTime: NSTimeInterval = 21.0 * 3600
+  let morningNotificationTime = NSDate().change(hour: 9, minute: 0)
+  let afternoonNotificationTime = NSDate().change(hour: 15, minute: 0)
+  let eveningNotificationTime = NSDate().change(hour: 21, minute: 0)
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -173,18 +172,18 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     UIApplication.sharedApplication().scheduleLocalNotification(eveningNotification)
   }
   
-  func notification(intervalFromMidnight: NSTimeInterval, body: String, title: String, thought: String) -> UILocalNotification {
+  func notification(timeOfDay: NSDate, body: String, title: String, thought: String) -> UILocalNotification {
     let note = UILocalNotification()
-    var intervalFromNow = intervalFromMidnight - self.secondsSinceMidnight
+    let now = NSDate()
     
     note.alertBody = body
     note.alertTitle = title
     note.userInfo = ["thought": thought]
     note.category = "myCategory"
-    if intervalFromNow < 0 {
-      intervalFromNow += secondsPerDay // bump it out to tomorrow
+    note.fireDate = timeOfDay
+    if timeOfDay < now {
+      note.fireDate = timeOfDay + 1.day
     }
-    note.fireDate = NSDate(timeIntervalSinceNow: intervalFromNow)
     note.timeZone = NSTimeZone(abbreviation: "PST")
     print("\(note.fireDate?.description)")
     return note
@@ -363,10 +362,6 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     }
   }
   
-  var secondsSinceMidnight: NSTimeInterval {
-    return (NSDate().timeIntervalSinceReferenceDate % secondsPerDay) + Double(NSTimeZone.localTimeZone().secondsFromGMT)
-  }
-  
   func revertToSavedHeadColor() {
     if let savedHeadColor: NSData = userDefaults.objectForKey(kUserDefaultsHeadColor) as? NSData {
       self.headColor = NSKeyedUnarchiver.unarchiveObjectWithData(savedHeadColor) as! UIColor
@@ -374,8 +369,7 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
   }
   
   @IBAction func didTripleTap(sender: UITapGestureRecognizer) {
-    let secondsSinceMidnight = (NSDate().timeIntervalSinceReferenceDate % secondsPerDay) + Double(NSTimeZone(abbreviation: "PST")!.secondsFromGMT)
-    let instaNote: UILocalNotification = self.notification(secondsSinceMidnight + 5, body: "😖", title: notificationTitle, thought: "Hello")
+    let instaNote: UILocalNotification = self.notification(NSDate() + 5.seconds, body: "😖", title: notificationTitle, thought: "Hello")
     UIApplication.sharedApplication().scheduleLocalNotification(instaNote)
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
