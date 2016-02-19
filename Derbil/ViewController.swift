@@ -165,21 +165,6 @@ class ViewController: UIViewController, WalkViewControllerDelegate, UIGestureRec
     let morningNotification = self.notification(morningNotificationTime, body: morningNotificationBody, title: notificationTitle, thought:morningNotificationThought)
     let afternoonNotification = self.notification(afternoonNotificationTime, body: afternoonNotificationBody, title: notificationTitle, thought:morningNotificationThought)
     let eveningNotification = self.notification(eveningNotificationTime, body: eveningNotificationBody, title: notificationTitle, thought:morningNotificationThought)
-    var secondsToSoonestNotification = secondsPerDay
-    let now = NSDate().timeIntervalSinceReferenceDate
-    
-    var interval = morningNotification.fireDate!.timeIntervalSinceReferenceDate - now
-    if interval < secondsToSoonestNotification {
-      secondsToSoonestNotification = interval
-    }
-    interval = afternoonNotification.fireDate!.timeIntervalSinceReferenceDate - now
-    if interval < secondsToSoonestNotification {
-      secondsToSoonestNotification = interval
-    }
-    interval = eveningNotification.fireDate!.timeIntervalSinceReferenceDate - now
-    if interval < secondsToSoonestNotification {
-      secondsToSoonestNotification = interval
-    }
     
     UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
     UIApplication.sharedApplication().cancelAllLocalNotifications()
