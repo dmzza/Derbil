@@ -232,24 +232,16 @@ class ViewController: UIViewController, EatViewControllerDelegate, UIGestureReco
   }
 
   @IBAction func changeColor(sender: UIPanGestureRecognizer) {
-    let deltaY = sender.translationInView(self.view).y / self.view.bounds.size.height
-    var sat: CGFloat = 0.0
-    var bri: CGFloat = 0.0
-    self.headColor.getHue(nil, saturation: &sat, brightness: &bri, alpha: nil)
-    let hue = (self.hueStartingPoint + deltaY + 1.0) % 1.0
     let translateY = sender.translationInView(self.view).y / 5
     let translateX = sender.translationInView(self.view).x / 2
     switch sender.state {
     case .Changed:
-      self.headColor = UIColor(hue: hue, saturation: sat, brightness: bri, alpha: 1.0)
       self.moveHead(translateX, y: translateY)
       break
     case .Cancelled:
-      self.revertToSavedHeadColor()
       self.releaseHead()
       break
     case .Ended:
-      self.userDefaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.headColor), forKey: kUserDefaultsHeadColor)
       self.releaseHead()
       break
     case .Possible:
@@ -257,7 +249,6 @@ class ViewController: UIViewController, EatViewControllerDelegate, UIGestureReco
       break
     case .Began:
       self.panStartingPoint = sender.locationInView(nil)
-      self.headColor.getHue(&self.hueStartingPoint, saturation: nil, brightness: nil, alpha: nil)
       self.pressHead()
       break
     case .Failed:
@@ -365,6 +356,8 @@ class ViewController: UIViewController, EatViewControllerDelegate, UIGestureReco
   func revertToSavedHeadColor() {
     if let savedHeadColor: NSData = userDefaults.objectForKey(kUserDefaultsHeadColor) as? NSData {
       self.headColor = NSKeyedUnarchiver.unarchiveObjectWithData(savedHeadColor) as! UIColor
+    } else {
+      self.headColor = self.headColor.copy() as! UIColor
     }
   }
 
