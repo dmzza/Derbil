@@ -11,6 +11,7 @@ import UIKit
 let kUserDefaultsHeadColor = "HeadColor"
 let kHappyWalkThreshold: NSTimeInterval = 120
 let kPressHeadDuration: NSTimeInterval = 0.08
+let kPlaceholderLastName = "Rumpus"
 
 class ViewController: UIViewController, EatViewControllerDelegate, UIGestureRecognizerDelegate, UIDynamicAnimatorDelegate, DialogManagerDelegate {
 
@@ -218,7 +219,7 @@ class ViewController: UIViewController, EatViewControllerDelegate, UIGestureReco
               switch type {
               case .Boolean: completion(didRespond: true, response: true)
               case .Number: completion(didRespond: true, response: 420)
-              case .String: completion(didRespond: true, response: "Solis")
+              case .String: completion(didRespond: true, response: kPlaceholderLastName)
               }
             } else {
               completion(didRespond: true, response: nil)
@@ -423,7 +424,7 @@ class ViewController: UIViewController, EatViewControllerDelegate, UIGestureReco
     if sentence.responseType == ResponseType.Number {
       sentenceText.replaceRange(placeholderRange(sentenceText), with: "420")
     } else if sentence.responseType == ResponseType.String {
-      sentenceText.replaceRange(placeholderRange(sentenceText), with: "Solis")
+      sentenceText.replaceRange(placeholderRange(sentenceText), with: kPlaceholderLastName)
     }
     self.responseBubbleLabel.text = sentenceText
     self.responseBubble.transform = CGAffineTransformMakeTranslation(0.0, 100.0)

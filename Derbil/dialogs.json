@@ -25,7 +25,7 @@
         },
         {
           "id": 3,
-          "text": "I do. I'll call you Chubbyy #{last_name}.",
+          "text": "I do. My full name is Willard Rumpus, so you can be Chubbyy #{last_name}.",
           "skip": "I don't know.",
           "is_response": true,
           "response_type": "string"
