@@ -22,6 +22,7 @@ struct DialogArray: Mappable {
 }
 
 struct Dialog: Mappable {
+  var id: UInt?
   var sentences: [Sentence]?
   
   init?(_ map: Map) {
@@ -29,6 +30,7 @@ struct Dialog: Mappable {
   }
   
   mutating func mapping(map: Map) {
+    id     <- map["id"]
     sentences     <- map["sentences"]
   }
 }

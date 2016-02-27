@@ -1,6 +1,7 @@
 {
   "dialogs": [
     {
+    "id": 0,
     "description": "Onboarding",
     "requirements": {
               "years": 0
@@ -66,6 +67,7 @@
       ]
     },
     {
+      "id": 1,
       "description": "Chubbyy introduces tappable things",
       "requirements": {
         "years": 1

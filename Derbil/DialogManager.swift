@@ -9,6 +9,8 @@
 import Foundation
 import ObjectMapper
 
+let kUserDefaultsDialogHistory = "DialogHistory" // an array of ID's of dialogs had in reverse chronological order
+
 class DialogManager {
   let delegate: DialogManagerDelegate
   var dialogs: [Dialog]
@@ -28,6 +30,13 @@ class DialogManager {
     if self.dialogs.count > 0 {
       let nextDialog = self.dialogs.removeAtIndex(0)
       if self.meetsRequirementsForDialog(nextDialog) {
+        if let lastDialog = self.currentDialog {
+          var newHistory: [UInt] = [lastDialog.id!]
+          if let dialogHistory: [UInt] = NSUserDefaults().arrayForKey(kUserDefaultsDialogHistory) as? [UInt] {
+            newHistory.appendContentsOf(dialogHistory)
+          }
+          NSUserDefaults().setObject(newHistory, forKey: kUserDefaultsDialogHistory)
+        }
         self.currentDialog = nextDialog
         popNextSentence()
       } else {
@@ -79,6 +88,11 @@ class DialogManager {
   }
   
   func meetsRequirementsForDialog(dialog: Dialog) -> Bool {
+    if let dialogHistory: [UInt] = NSUserDefaults().arrayForKey(kUserDefaultsDialogHistory) as? [UInt] {
+      if(dialogHistory.contains(dialog.id!) ) {
+        return false
+      }
+    }
     return true
   }
   
