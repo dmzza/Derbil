@@ -69,6 +69,10 @@
 		AA6AD2931B957CA500CB4549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F831B6ED7EB00AE120C /* Assets.xcassets */; };
 		AA6AD2941B957CA600CB4549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE05F831B6ED7EB00AE120C /* Assets.xcassets */; };
 		AA6AD2971B95950E00CB4549 /* FlyingHeartBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD2961B95950E00CB4549 /* FlyingHeartBehavior.swift */; };
+		AAC8413B1C51F15E00BA6622 /* PropertyListReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8413A1C51F15E00BA6622 /* PropertyListReadable.swift */; };
+		AAC8413C1C51F15E00BA6622 /* PropertyListReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8413A1C51F15E00BA6622 /* PropertyListReadable.swift */; };
+		AAC841431C51F2E500BA6622 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC841421C51F2E500BA6622 /* Food.swift */; };
+		AAC841441C51F2E500BA6622 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC841421C51F2E500BA6622 /* Food.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +237,8 @@
 		9FF832971B76DEC100958D2A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		AA6AD2951B95826B00CB4549 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		AA6AD2961B95950E00CB4549 /* FlyingHeartBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyingHeartBehavior.swift; sourceTree = "<group>"; };
+		AAC8413A1C51F15E00BA6622 /* PropertyListReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListReadable.swift; sourceTree = "<group>"; };
+		AAC841421C51F2E500BA6622 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +393,8 @@
 				633839411C1D0241000DA988 /* dialogs.json */,
 				63C8739E1C1D0E8000F7E427 /* Dialog.swift */,
 				636DCB601C20EDC9005A069C /* DialogManager.swift */,
+				AAC8413A1C51F15E00BA6622 /* PropertyListReadable.swift */,
+				AAC841421C51F2E500BA6622 /* Food.swift */,
 			);
 			name = Chubbyy;
 			path = Derbil;
@@ -731,6 +739,7 @@
 				632689FB1B93D6F1002D2D0F /* Int+Timepiece.swift in Sources */,
 				63C8739F1C1D0E8000F7E427 /* Dialog.swift in Sources */,
 				632689FF1B93D6F1002D2D0F /* NSCalendarUnit+Timepiece.swift in Sources */,
+				AAC8413B1C51F15E00BA6622 /* PropertyListReadable.swift in Sources */,
 				63268A071B93D6F1002D2D0F /* String+Timepiece.swift in Sources */,
 				63268A051B93D6F1002D2D0F /* NSTimeInterval+Timepiece.swift in Sources */,
 				632689FD1B93D6F1002D2D0F /* NSCalendar+Timepiece.swift in Sources */,
@@ -740,6 +749,7 @@
 				63F260AD1B84D9CE00F109B9 /* SleepViewController.swift in Sources */,
 				9FF832981B76DEC100958D2A /* Utilities.swift in Sources */,
 				9FDD655A1B76A5FB00CD8703 /* FaceView.swift in Sources */,
+				AAC841431C51F2E500BA6622 /* Food.swift in Sources */,
 				632689F91B93D6F1002D2D0F /* Duration.swift in Sources */,
 				63F260AB1B84D97700F109B9 /* EatViewController.swift in Sources */,
 			);
@@ -749,7 +759,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC8413C1C51F15E00BA6622 /* PropertyListReadable.swift in Sources */,
 				9FE05F921B6ED7EB00AE120C /* DerbilTests.swift in Sources */,
+				AAC841441C51F2E500BA6622 /* Food.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,7 +963,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Chubbyy.watchkitapp.watchkitextension;
 				PRODUCT_NAME = Chubbyy;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2d4495f1-bd11-4b6c-8461-8eb0e54212c3";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -983,13 +995,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Peaking Software LLC (DNPVU838JE)";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Peaking Software LLC (DNPVU838JE)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Chubbyy_WatchKit_Extension;
 				INFOPLIST_FILE = "Derbil WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = co.peaking.Chubbyy.watchkitapp;
 				PRODUCT_NAME = Chubbyy;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2d4495f1-bd11-4b6c-8461-8eb0e54212c3";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
